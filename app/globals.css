@@ -4,50 +4,50 @@
 
 @layer base {
   :root {
-    /* Light architectural palette — warm ivory, stone, charcoal, deep burgundy accent */
-    --background: 40 36% 97%;
+    /* Clean white architectural palette — white base, cool neutrals, charcoal, burgundy accent */
+    --background: 0 0% 100%;
     --foreground: 220 24% 12%;
 
-    --card: 40 40% 99%;
+    --card: 0 0% 100%;
     --card-foreground: 220 24% 12%;
 
-    --popover: 40 44% 99%;
+    --popover: 0 0% 100%;
     --popover-foreground: 220 24% 12%;
 
     --primary: 220 24% 12%;
-    --primary-foreground: 40 36% 97%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 24% 90%;
+    --secondary: 220 16% 95%;
     --secondary-foreground: 220 24% 12%;
 
-    --muted: 40 20% 92%;
+    --muted: 220 16% 95%;
     --muted-foreground: 220 10% 42%;
 
     --accent: 348 44% 36%;
-    --accent-foreground: 40 36% 97%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 42%;
-    --destructive-foreground: 40 36% 97%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 40 16% 86%;
-    --input: 40 16% 88%;
+    --border: 220 14% 90%;
+    --input: 220 14% 92%;
     --ring: 348 44% 36%;
 
     --radius: 0.25rem;
 
     /* Custom ramps */
-    --ivory: 40 40% 98%;
-    --stone-50: 40 30% 95%;
-    --stone-100: 40 24% 90%;
-    --stone-200: 38 18% 82%;
-    --stone-300: 36 12% 70%;
-    --stone-400: 35 8% 56%;
-    --stone-500: 30 6% 42%;
+    --ivory: 220 20% 98%;
+    --stone-50: 220 18% 97%;
+    --stone-100: 220 16% 94%;
+    --stone-200: 220 14% 90%;
+    --stone-300: 220 12% 82%;
+    --stone-400: 220 10% 68%;
+    --stone-500: 220 8% 52%;
     --charcoal: 220 24% 12%;
     --graphite: 220 18% 22%;
     --burgundy: 348 44% 34%;
     --emerald: 158 30% 32%;
-    --silver: 220 8% 68%;
+    --silver: 220 8% 72%;
   }
 
   .dark {
