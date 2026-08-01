@@ -54,18 +54,21 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-[80vh] items-end overflow-hidden bg-stone-50 pt-24">
+      <section className="relative overflow-hidden bg-stone-50">
+        {/* cream band behind the fixed navbar — photo starts below it */}
+        <div className="h-[5.375rem]" aria-hidden="true" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={project.heroImage}
-          alt={project.heroAlt}
-          // photo starts below the fixed navbar — nothing hidden behind it;
-          // explicit calc height (not h-auto) so every browser fills the hero bottom
-          className="absolute inset-x-0 bottom-0 top-[5.375rem] h-[calc(100%_-_5.375rem)] w-full object-cover"
-        />
-        <div className="absolute inset-x-0 bottom-0 top-[5.375rem] bg-gradient-to-t from-foreground/70 via-foreground/30 to-foreground/10" />
-        <div className="section-shell relative z-10 py-16 md:py-20">
-          <ScrollReveal>
+        <div className="relative">
+          <img
+            src={project.heroImage}
+            alt={project.heroAlt}
+            // photo rendered at its natural aspect ratio — full image visible, no crop/zoom
+            className="block h-auto w-full"
+          />
+          {/* gradient for text legibility (light over the cream band, dark at the bottom) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/10" />
+          <div className="section-shell absolute inset-x-0 bottom-0 z-10 pb-8 pt-24 md:bottom-48 md:pb-0 md:pt-0">
+            <ScrollReveal>
             <Link href="/projects" className="text-xs uppercase tracking-[0.2em] text-background/80 hover:text-background">
               ← All Projects
             </Link>
@@ -85,6 +88,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               {project.location}
             </p>
           </ScrollReveal>
+          </div>
         </div>
       </section>
 
