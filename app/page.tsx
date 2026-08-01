@@ -28,9 +28,6 @@ const philosophy = [
   { icon: Clock, title: 'Long-term value', text: 'We build homes meant to age well — materials, layouts, and common areas chosen for decades of use, not a brochure photograph.' },
 ];
 
-const HERO_IMAGE =
-  'https://images.pexels.com/photos/33650448/pexels-photo-33650448.jpeg?auto=compress&cs=tinysrgb&w=1920';
-
 export default function Home() {
   const [reduced, setReduced] = useState(false);
   useEffect(() => {
@@ -44,13 +41,17 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-stone-50">
-        {/* Background architectural image */}
+        {/* Background hero video */}
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={HERO_IMAGE}
-            alt="Modern residential apartment towers with glass facades against a clear sky"
+          <video
             className="h-full w-full object-cover"
+            src="/videos/hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
           />
           {/* Light overlay for readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
