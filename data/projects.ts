@@ -620,28 +620,24 @@ export const team: TeamMember[] = [
     // lists Mrs. Anitha Reddy as Managing Director — client to confirm the intended leadership.
     name: 'Mr. Mahendra Reddy',
     role: 'Chief Executive Officer & Managing Director',
-    // Bio paraphrased from yuvagroup.in homepage + About Us — verified facts only
-    bio: 'Mr. Mahendra Reddy built Yuva Group from the ground up, beginning with quality, value-driven apartments designed for modern homebuyers across Bengaluru. He later expanded the company into high-potential land development and villa projects. With around 15 years in real estate and about 10 completed projects to date, he continues to focus on construction quality and customer satisfaction.',
+    // Bio paraphrased from yuvagroup.in homepage + About Us. Years figure aligned to the
+    // client-confirmed counter data (Years of Experiences 10+); the real About page bio says
+    // '15 Years in real estate' — client arbitration pending, easy to flip back.
+    bio: 'Mr. Mahendra Reddy built Yuva Group from the ground up, beginning with quality, value-driven apartments designed for modern homebuyers across Bengaluru. He later expanded the company into high-potential land development and villa projects. With around 10 years in real estate and about 10 completed projects to date, he continues to focus on construction quality and customer satisfaction.',
     // Portrait used in the leadership block on yuvagroup.in/about-us/
     image: 'https://yuvagroup.in/wp-content/uploads/2025/04/001-1.jpg.webp',
   },
 ];
 
 export const companyStats = [
-  // 'Total Projects: 6' — counts the 6 projects listed on this site, consistent with the
-  // Projects page counter (was '6 Projects Delivered', which disagreed with the Projects page).
-  // The real business claims ~10+ completed projects across all of Yuva Group; we only model 6.
-  { label: 'Total Projects', value: '6', suffix: '' },
-  // Years of Experience: 15 — yuvagroup.in About Us ('extensive experience of 15 Years in real
-  // estate'). NOTE: the homepage counter says 'Years of Experiences: 10+' — the two conflict on
-  // the real site; the bio figure is used here and matches our About page leadership bio.
-  { label: 'Years of Experience', value: '15', suffix: '+' },
-  // Success Rate: 100% — yuvagroup.in homepage counter ('Success Rate', data-endnumber="100")
+  // Actual data from the yuvagroup.in homepage counters, confirmed by the client:
+  // Completed Projects 10+ · Awards Winner 15+ · Years of Experiences 10+ ·
+  // Ongoing Projects 3 · Success Rate 100%
+  { label: 'Completed Projects', value: '10', suffix: '+' },
+  { label: 'Awards Winner', value: '15', suffix: '+' },
+  { label: 'Years of Experiences', value: '10', suffix: '+' },
+  { label: 'Ongoing Projects', value: '3', suffix: '' },
   { label: 'Success Rate', value: '100', suffix: '%' },
-  // Ongoing Developments: 2 — matches the statuses of the 6 modeled projects (Yuva Utsav,
-  // Yuva Sunshine under construction). The real-site homepage counter says 'Ongoing Projects: 3'
-  // but its own ongoing list names only 2 projects; a third project is not modeled here.
-  { label: 'Ongoing Developments', value: '2', suffix: '' },
 ];
 
 export const allAmenities = [
