@@ -54,20 +54,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-stone-50">
-        {/* cream band behind the fixed navbar — photo starts below it */}
-        <div className="h-[5.375rem]" aria-hidden="true" />
+      <section className="relative overflow-hidden bg-stone-50 pt-[5.375rem]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <div className="relative">
           <img
             src={project.heroImage}
             alt={project.heroAlt}
-            // photo rendered at its natural aspect ratio — full image visible, no crop/zoom
-            className="block h-auto w-full"
+            // full photo at natural aspect, fitted inside the viewport — no crop, no scrolling
+            className="block h-auto w-full object-contain md:mx-auto md:h-[calc(100vh_-_9rem)] md:w-auto"
           />
           {/* gradient for text legibility (light over the cream band, dark at the bottom) */}
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/10" />
-          <div className="section-shell absolute inset-x-0 bottom-0 z-10 pb-8 pt-24 md:bottom-48 md:pb-0 md:pt-0">
+          <div className="section-shell absolute inset-x-0 bottom-0 z-10 pb-8 pt-24 md:bottom-10 md:pb-0 md:pt-0">
             <ScrollReveal>
             <Link href="/projects" className="text-xs uppercase tracking-[0.2em] text-background/80 hover:text-background">
               ← All Projects
@@ -99,10 +97,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="group relative whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-all duration-200 hover:bg-foreground/5 hover:text-foreground"
+              className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
             >
               {s.label}
-              <span className="absolute inset-x-3 -bottom-[3px] h-px origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
         </div>
