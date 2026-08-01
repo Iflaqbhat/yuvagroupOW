@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { PageHero } from '@/components/layout/PageHero';
-import { allAmenities } from '@/data/projects';
+import { allAmenities, type Amenity } from '@/data/projects';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import * as Icons from 'lucide-react';
 
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default function AmenitiesPage() {
+  const withPhoto: Array<Amenity & { photo: string }> = allAmenities.filter(
+    (a): a is Amenity & { photo: string } => Boolean(a.photo),
+  );
+  const iconOnly = allAmenities.filter((a) => !a.photo);
+
   return (
     <>
       <PageHero
@@ -19,26 +25,45 @@ export default function AmenitiesPage() {
         description="Shared spaces across Yuva communities are designed to be used — sized for real gathering, placed where people walk, and maintained after handover."
       />
       <section className="section-shell py-16 md:py-24">
-        <StaggerGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {allAmenities.map((a) => {
-            const Icon = (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[a.icon] || Icons.Circle;
-            return (
-              <StaggerItem key={a.name}>
-                <div className="group flex h-full items-start gap-4 border border-foreground/10 p-6 transition-colors hover:border-accent/40">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-foreground/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-lg">{a.name}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Standard or available across most Yuva Group communities.
-                    </p>
-                  </div>
+        <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {withPhoto.map((a) => (
+            <StaggerItem key={a.name}>
+              <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={a.photo}
+                    alt={a.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-              </StaggerItem>
-            );
-          })}
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-12">
+                  <h3 className="font-display text-lg text-white">{a.name}</h3>
+                </figcaption>
+              </figure>
+            </StaggerItem>
+          ))}
         </StaggerGroup>
+
+        {iconOnly.length > 0 && (
+          <ScrollReveal className="mt-12 border border-foreground/10 p-6 md:p-8">
+            <p className="eyebrow mb-4">Also included</p>
+            <ul className="grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+              {iconOnly.map((a) => {
+                const Icon = (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[a.icon] || Icons.Circle;
+                return (
+                  <li key={a.name} className="flex items-center gap-3 text-sm">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-foreground/10 text-accent">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    {a.name}
+                  </li>
+                );
+              })}
+            </ul>
+          </ScrollReveal>
+        )}
       </section>
     </>
   );

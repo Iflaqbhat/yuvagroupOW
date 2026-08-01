@@ -2,13 +2,14 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowDown, MapPin, Star, Quote, Building2, Hammer, ShieldCheck, Clock } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
-import { projects, getFeaturedProjects, testimonials, companyStats, allAmenities } from '@/data/projects';
+import { projects, getFeaturedProjects, testimonials, companyStats, allAmenities, type Amenity } from '@/data/projects';
 
 const FeaturedScene = dynamic(() => import('@/components/three/FeaturedScene').then(m => m.FeaturedScene), {
   ssr: false,
@@ -23,6 +24,9 @@ const philosophy = [
 ];
 
 export default function Home() {
+  const amenityPhotos: Array<Amenity & { photo: string }> = allAmenities.filter(
+    (a): a is Amenity & { photo: string } => Boolean(a.photo),
+  );
   return (
     <>
       {/* HERO */}
@@ -304,14 +308,27 @@ export default function Home() {
           </div>
           <div className="md:col-span-7">
             <StaggerGroup className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {allAmenities.slice(0, 9).map((a) => (
-                <StaggerItem key={a.name}>
-                  <div className="group flex h-full items-center gap-3 border border-foreground/10 bg-card p-4 transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent transition-transform group-hover:scale-150" />
-                    <span className="text-sm">{a.name}</span>
-                  </div>
-                </StaggerItem>
-              ))}
+              {amenityPhotos.slice(0, 9).map((a) => (
+                  <StaggerItem key={a.name}>
+                    <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
+                      <div className="relative aspect-square">
+                        <Image
+                          src={a.photo}
+                          alt={a.name}
+                          fill
+                          loading="eager"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-3 pb-2 pt-8">
+                        <span className="block text-xs font-medium uppercase tracking-wide text-white sm:text-sm">
+                          {a.name}
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </StaggerItem>
+                ))}
             </StaggerGroup>
           </div>
         </div>

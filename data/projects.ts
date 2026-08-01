@@ -641,24 +641,30 @@ export const companyStats = [
 ];
 
 export const allAmenities = [
-  { name: 'Clubhouse', icon: 'Building2' },
-  { name: 'Swimming Pool', icon: 'Waves' },
-  { name: 'Gymnasium', icon: 'Dumbbell' },
-  { name: 'Landscaped Gardens', icon: 'Trees' },
-  { name: 'Children’s Play Area', icon: 'Baby' },
-  { name: 'Jogging Track', icon: 'PersonStanding' },
-  { name: 'Indoor Games', icon: 'Gamepad2' },
-  { name: 'Multipurpose Hall', icon: 'Presentation' },
+  { name: 'Clubhouse', icon: 'Building2', photo: '/photos/amenities/clubhouse.jpg' },
+  { name: 'Swimming Pool', icon: 'Waves', photo: '/photos/amenities/swimming-pool.jpg' },
+  { name: 'Gymnasium', icon: 'Dumbbell', photo: '/photos/amenities/gymnasium.jpg' },
+  { name: 'Landscaped Gardens', icon: 'Trees', photo: '/photos/amenities/landscaped-gardens.jpg' },
+  { name: 'Children’s Play Area', icon: 'Baby', photo: '/photos/amenities/childrens-play-area.jpg' },
+  { name: 'Jogging Track', icon: 'PersonStanding', photo: '/photos/amenities/jogging-track.jpg' },
+  {
+    name: 'Indoor Games',
+    icon: 'Gamepad2',
+    photo: 'https://images.pexels.com/photos/10627133/pexels-photo-10627133.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  },
+  { name: 'Multipurpose Hall', icon: 'Presentation', photo: '/photos/amenities/multipurpose-hall.jpg' },
   // Real company-wide amenities from yuvagroup.in (rainwater harvesting, metro facilities,
   // 1km walking track, banquet hall, 100% power backup). 'Amphitheatre' removed — not on the
   // real site.
-  { name: 'Rainwater Harvesting', icon: 'Droplets' },
+  { name: 'Rainwater Harvesting', icon: 'Droplets', photo: '/photos/amenities/rainwater-harvesting.jpg' },
   { name: 'Metro Facility', icon: 'TrainFront' },
-  { name: 'Banquet Hall', icon: 'PartyPopper' },
+  { name: 'Banquet Hall', icon: 'PartyPopper', photo: '/photos/amenities/banquet-hall.jpg' },
   { name: '24/7 Security', icon: 'ShieldCheck' },
   { name: 'Covered Parking', icon: 'Car' },
   { name: 'Power Backup', icon: 'Zap' },
 ];
+
+export type Amenity = (typeof allAmenities)[number];
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
