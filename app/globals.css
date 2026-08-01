@@ -166,6 +166,11 @@
   }
 }
 
+/* Anchor sections land below the sticky project nav bar */
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
 /* Premium scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: hsl(var(--stone-100)); }

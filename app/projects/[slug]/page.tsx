@@ -54,7 +54,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-stone-50 pt-24">
+      <section className="relative flex min-h-[80vh] items-end overflow-hidden bg-stone-50 pt-24">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={project.heroImage}
@@ -95,9 +95,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="whitespace-nowrap px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+              className="group relative whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-all duration-200 hover:bg-foreground/5 hover:text-foreground"
             >
               {s.label}
+              <span className="absolute inset-x-3 -bottom-[3px] h-px origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
         </div>
