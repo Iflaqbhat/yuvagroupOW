@@ -44,9 +44,12 @@ export const footerNav = {
 };
 
 export const contactInfo = {
-  phone: '+91 82822 3395 / +91 82822 3396',
+  phone: '+91 82 82 82 3395 / +91 82 82 82 3396',
   email: 'enquiry@yuvastructures.com',
-  address: '115, 2nd Floor, Sankirana, Hosur Road, Near Murali TVs Show Room, Chandapura, Bengaluru 560099',
+  address:
+    '115, 2nd Floor, Sankirana, Hosur Road, Near Murali TVs Show Room, Chandapura, Bengaluru, Karnataka 560099, India',
   legalName: 'Yuva Structures Pvt. Ltd.',
-  rera: '[ADD RERA REGISTRATION NUMBER]',
+  // No RERA registration number is published — link to the official Karnataka RERA portal instead
+  rera: 'Karnataka RERA',
+  reraUrl: 'https://rera.karnataka.gov.in/',
 };

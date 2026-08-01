@@ -133,6 +133,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     </div>
                   ))}
                 </dl>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  *General price point. Pricing and RERA details to be confirmed with the sales team.
+                </p>
                 <div className="mt-6 flex flex-col gap-3">
                   <Link href="#visit" className="flex items-center justify-center gap-2 bg-foreground py-3 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground">
                     <Calendar className="h-4 w-4" />
@@ -270,7 +273,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               </ScrollReveal>
             ))}
           </div>
-          <p className="mt-6 text-xs text-muted-foreground">[ADD APPROVED FLOOR PLAN] — Floor plan images shown are representative. Request the approved plan from the sales team.</p>
+          <p className="mt-6 text-xs text-muted-foreground">
+            Floor plan images shown are representative. Approved plans and RERA details are
+            available with the sales team — request them before booking.
+          </p>
         </div>
       </section>
 

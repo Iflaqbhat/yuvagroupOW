@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import { projects } from '@/data/projects';
@@ -144,7 +145,11 @@ export function SiteVisitForm({ compact = false }: { compact?: boolean }) {
             <label className="flex items-start gap-3 text-sm text-muted-foreground">
               <input type="checkbox" name="consent" className="mt-0.5 h-4 w-4 accent-accent" />
               <span>
-                I agree to be contacted by Yuva Group regarding my enquiry. [ADD PRIVACY POLICY LINK]
+                I agree to be contacted by Yuva Group regarding my enquiry. Read our{' '}
+                <Link href="/privacy" className="text-accent underline underline-offset-2 hover:opacity-80">
+                  privacy policy
+                </Link>
+                .
               </span>
             </label>
             {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}

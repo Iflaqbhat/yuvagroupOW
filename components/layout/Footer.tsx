@@ -112,7 +112,17 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {contactInfo.legalName}. All rights reserved.
           </p>
-          <p>RERA: {contactInfo.rera}</p>
+          <p>
+            RERA:{' '}
+            <a
+              href={contactInfo.reraUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              {contactInfo.rera}
+            </a>
+          </p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
             <Link href="/terms" className="hover:text-foreground">Terms</Link>

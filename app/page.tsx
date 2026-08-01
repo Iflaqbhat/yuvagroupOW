@@ -342,8 +342,8 @@ export default function Home() {
           </ScrollReveal>
           <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { name: 'Electronic City', project: 'Yuva Sunrise' },
-              { name: 'Attibele', project: 'Yuva Utsav' },
+              { name: 'Attibele Industrial Area', project: 'Yuva Sunrise' },
+              { name: 'Electronic City Ph-2', project: 'Yuva Utsav' },
               { name: 'Chandapura', project: 'Yuva Sunshine' },
               { name: 'Anekal Road', project: 'Yuva Residency' },
               { name: 'Hosur Road', project: 'Yuva Heritage' },

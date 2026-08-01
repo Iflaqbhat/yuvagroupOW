@@ -81,7 +81,17 @@ export default function ContactPage() {
               <div className="mt-8 border border-foreground/10 p-5">
                 <p className="eyebrow">Legal</p>
                 <p className="mt-2 text-sm text-muted-foreground">{contactInfo.legalName}</p>
-                <p className="text-sm text-muted-foreground">RERA: {contactInfo.rera}</p>
+                <p className="text-sm text-muted-foreground">
+                  RERA:{' '}
+                  <a
+                    href={contactInfo.reraUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    {contactInfo.rera}
+                  </a>
+                </p>
               </div>
             </ScrollReveal>
           </div>

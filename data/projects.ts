@@ -4,18 +4,19 @@ export const projects: Project[] = [
   {
     slug: 'yuva-sunrise',
     name: 'Yuva Sunrise',
-    tagline: 'Light-filled homes at the gateway to Electronic City',
-    location: 'Electronic City, Bengaluru',
-    area: 'Electronic City',
+    tagline: 'Light-filled 1, 2 & 3 BHK homes off Hosur Road',
+    // Location: Manchenahalli village, Attibele Industrial Area, off Hosur Road — yuvagroup.in project card ('MANCHENAHALLI VILLAGE, ATTIBELE INDUSTRIAL AREA, OFF HOSUR ROAD')
+    location: 'Manchenahalli village, Attibele Industrial Area, off Hosur Road, Bengaluru',
+    area: 'Attibele Industrial Area',
     status: 'ready-to-move',
     category: 'apartments',
     description:
-      'Spacious 2 & 3 BHK apartments designed for natural light and cross ventilation, minutes from Bengaluru’s tech corridor.',
+      'Spacious 1, 2 & 3 BHK apartments off Hosur Road, designed for natural light and cross ventilation, close to Electronic City’s tech corridor.',
     longDescription:
-      'Yuva Sunrise is a ready-to-move residential address at the heart of Electronic City, built for professionals who want a short commute and a calm home to return to. Each tower is oriented to capture morning light, with deep balconies, large windows, and thoughtfully planned floor plates that keep the living spaces airy through the day. Landscaped courtyards, a central clubhouse, and walking paths make the community feel complete rather than under construction.',
+      'Yuva Sunrise is a ready-to-move residential community of 68 affordable flats at the Attibele Industrial Area, off Hosur Road near Electronic City. Surrounded by open green space, the towers are oriented to capture morning light — deep balconies, large windows, and thoughtfully planned floor plates keep the living spaces airy through the day. Landscaped courtyards, a central clubhouse, and walking paths make the community feel complete rather than under construction.',
     heroImage:
       'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Sunrise apartment towers with landscaped entrance at Electronic City',
+    heroAlt: 'Yuva Sunrise apartment towers with landscaped entrance off Hosur Road',
     gallery: [
       {
         src: 'https://images.pexels.com/photos/210412/pexels-photo-210412.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -35,9 +36,9 @@ export const projects: Project[] = [
       },
     ],
     highlights: [
-      { label: 'Configuration', value: '2 & 3 BHK' },
+      { label: 'Configuration', value: '1, 2 & 3 BHK' },
       { label: 'Status', value: 'Ready to Move' },
-      { label: 'Location', value: 'Electronic City' },
+      { label: 'Location', value: 'Attibele Industrial Area' },
     ],
     amenities: [
       'Clubhouse',
@@ -90,15 +91,18 @@ export const projects: Project[] = [
         alt: 'Floor plan for 3 BHK unit at Yuva Sunrise',
       },
     ],
-    startingPrice: '[VERIFY PROJECT PRICE]',
+    startingPrice: 'From Rs. 50 Lac*',
     possession: 'Ready to Move',
-    rera: '[ADD RERA NUMBER]',
-    units: '2 & 3 BHK apartments',
-    bedrooms: '2, 3 BHK',
+    // Per-project RERA number is not published on public sources — do not invent
+    rera: 'To be confirmed with the sales team',
+    units: '1, 2 & 3 BHK apartments',
+    bedrooms: '1, 2 & 3 BHK',
+    // Nearby landmarks from the 'Map Location' block on yuvagroup.in/yuva-sunrise/
     connectivity: [
-      { label: 'Electronic City Phase 1', distance: '5 min' },
-      { label: 'Bommasandra Metro', distance: '12 min' },
-      { label: 'Hosur Road', distance: '4 min' },
+      { label: 'Hosur Main Road', distance: '500 m' },
+      { label: 'Electronic City', distance: '10 km' },
+      { label: 'Hosur Airport (upcoming)', distance: '18 km' },
+      { label: 'Whitefield', distance: '25 km' },
     ],
     faqs: [
       {
@@ -108,27 +112,30 @@ export const projects: Project[] = [
       },
       {
         question: 'What configurations are available?',
-        answer: 'The project offers 2 and 3 BHK apartments. [CONFIRM CURRENT AVAILABILITY]',
+        answer:
+          'The project offers 1, 2 and 3 BHK apartments. Contact the sales team for current availability.',
       },
     ],
-    coordinates: { lat: 12.8456, lng: 77.6603 },
+    // Coordinates: map pin on yuvagroup.in/yuva-sunrise/ (YUVA SUNRISE APARTMENT)
+    coordinates: { lat: 12.77697, lng: 77.74708 },
     featured: true,
   },
   {
     slug: 'yuva-utsav',
     name: 'Yuva Utsav',
-    tagline: 'Community living near Attibele',
-    location: 'Attibele, Bengaluru',
-    area: 'Attibele',
+    tagline: 'Community living in Electronic City Phase 2',
+    // Location: Kammasandra, Electronic City Ph-2 — yuvagroup.in project card ('KAMMASANDRA, ELECTRONIC CITY PH-2, BENGALURU')
+    location: 'Kammasandra, Electronic City Phase 2, Bengaluru',
+    area: 'Kammasandra',
     status: 'ongoing',
     category: 'apartments',
     description:
-      'A growing residential community of 2 & 3 BHK homes close to Attibele and the Hosur Road corridor.',
+      'A growing residential community of 1, 2 & 3 BHK homes in Kammasandra, Electronic City Phase 2.',
     longDescription:
       'Yuva Utsav is an ongoing development designed around the idea of a complete neighbourhood rather than a standalone tower. The master plan clusters homes around shared courtyards, a central green, and a clubhouse, so residents meet naturally rather than passing anonymously. Construction is progressing in phases, with the first towers approaching completion and the community spaces already taking shape.',
     heroImage:
       'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Utsav residential community under construction at Attibele',
+    heroAlt: 'Yuva Utsav residential community under construction in Kammasandra, Electronic City Phase 2',
     gallery: [
       {
         src: 'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -144,9 +151,9 @@ export const projects: Project[] = [
       },
     ],
     highlights: [
-      { label: 'Configuration', value: '2 & 3 BHK' },
+      { label: 'Configuration', value: '1, 2 & 3 BHK' },
       { label: 'Status', value: 'Under Construction' },
-      { label: 'Location', value: 'Attibele' },
+      { label: 'Location', value: 'Electronic City Ph-2' },
     ],
     amenities: [
       'Clubhouse',
@@ -184,24 +191,30 @@ export const projects: Project[] = [
         alt: 'Floor plan for 2 BHK unit at Yuva Utsav',
       },
     ],
-    startingPrice: '[VERIFY PROJECT PRICE]',
-    possession: '[CONFIRM POSSESSION DATE]',
-    rera: '[ADD RERA NUMBER]',
-    units: '2 & 3 BHK apartments',
-    bedrooms: '2, 3 BHK',
+    startingPrice: 'From Rs. 50 Lac*',
+    possession: 'To be confirmed with the sales team',
+    // Per-project RERA number is not published on public sources — do not invent
+    rera: 'To be confirmed with the sales team',
+    units: '1, 2 & 3 BHK apartments',
+    bedrooms: '1, 2 & 3 BHK',
+    // Nearby landmarks from the 'Map Location' block on yuvagroup.in/yuva-utsav/
     connectivity: [
-      { label: 'Attibele Junction', distance: '6 min' },
-      { label: 'Hosur Road', distance: '5 min' },
-      { label: 'Electronic City', distance: '20 min' },
+      { label: 'Hebbagudi Metro Station', distance: '5 min' },
+      { label: 'Bangalore–Hosur Main Road (NH-7)', distance: '4 min' },
+      { label: 'D’Mart', distance: '7 min' },
+      { label: 'IT Parks (Infosys, HP, TCS)', distance: '10 min' },
+      { label: 'PES & Symbiosis University', distance: '10 min' },
+      { label: 'Narayana Hrudayalaya & Vimalaya Hospital', distance: '5 min' },
     ],
     faqs: [
       {
         question: 'When will Yuva Utsav be ready?',
         answer:
-          'Yuva Utsav is currently under construction. [CONFIRM POSSESSION DATE] with the sales team for the latest handover timeline.',
+          'Yuva Utsav is currently under construction. Contact the sales team for the latest handover timeline.',
       },
     ],
-    coordinates: { lat: 12.7804, lng: 77.7151 },
+    // Coordinates: map pin on yuvagroup.in/yuva-utsav/ (Yuva utsav apartment)
+    coordinates: { lat: 12.82959, lng: 77.68554 },
     featured: true,
   },
   {
@@ -262,9 +275,10 @@ export const projects: Project[] = [
         alt: 'Floor plan for 2 BHK unit at Yuva Sunshine',
       },
     ],
-    startingPrice: '[VERIFY PROJECT PRICE]',
+    startingPrice: 'From Rs. 50 Lac*',
     possession: 'Ready to Move',
-    rera: '[ADD RERA NUMBER]',
+    // Per-project RERA number is not published on public sources — do not invent
+    rera: 'To be confirmed with the sales team',
     units: '2 & 3 BHK apartments',
     bedrooms: '2, 3 BHK',
     connectivity: [
@@ -286,6 +300,8 @@ export const projects: Project[] = [
     slug: 'yuva-residency',
     name: 'Yuva Residency',
     tagline: 'Quiet residential living off Anekal Road',
+    // UNVERIFIED: location not confirmed against public site content — client to double-check
+    // (yuvagroup.in lists completed projects without locations)
     location: 'Anekal Road, Bengaluru',
     area: 'Anekal Road',
     status: 'completed',
@@ -335,9 +351,10 @@ export const projects: Project[] = [
         alt: 'Floor plan for 2 BHK unit at Yuva Residency',
       },
     ],
-    startingPrice: '[VERIFY PROJECT PRICE]',
+    startingPrice: 'From Rs. 50 Lac*',
     possession: 'Completed',
-    rera: '[ADD RERA NUMBER]',
+    // Per-project RERA number is not published on public sources — do not invent
+    rera: 'To be confirmed with the sales team',
     units: '2 & 3 BHK apartments',
     bedrooms: '2, 3 BHK',
     connectivity: [
@@ -358,6 +375,8 @@ export const projects: Project[] = [
     slug: 'yuva-heritage',
     name: 'Yuva Heritage',
     tagline: 'Premium villas near Hosur Road',
+    // UNVERIFIED: location not confirmed against public site content — client to double-check
+    // (yuvagroup.in lists completed projects without locations)
     location: 'Hosur Road, Bengaluru',
     area: 'Hosur Road',
     status: 'ongoing',
@@ -416,9 +435,10 @@ export const projects: Project[] = [
         alt: 'Floor plan for 3 BHK villa at Yuva Heritage',
       },
     ],
-    startingPrice: '[VERIFY PROJECT PRICE]',
-    possession: '[CONFIRM POSSESSION DATE]',
-    rera: '[ADD RERA NUMBER]',
+    startingPrice: 'From Rs. 50 Lac*',
+    possession: 'To be confirmed with the sales team',
+    // Per-project RERA number is not published on public sources — do not invent
+    rera: 'To be confirmed with the sales team',
     units: '3 & 4 BHK villas',
     bedrooms: '3, 4 BHK',
     connectivity: [
@@ -430,7 +450,7 @@ export const projects: Project[] = [
       {
         question: 'Does Yuva Heritage include land ownership?',
         answer:
-          'Yes. Yuva Heritage is a villa development where each unit includes owned land. [CONFIRM LAND AREA PER UNIT] with the sales team.',
+          'Yes. Yuva Heritage is a villa development where each unit includes owned land. Contact the sales team for the land area per unit.',
       },
     ],
     coordinates: { lat: 12.7654, lng: 77.6985 },
@@ -440,6 +460,9 @@ export const projects: Project[] = [
     slug: 'yuva-lake-view',
     name: 'Yuva Lake View',
     tagline: 'Apartments oriented around a water outlook',
+    // UNVERIFIED: location not confirmed against public site content — client to double-check.
+    // NOTE: a client testimonial on yuvagroup.in references 'Yuva Lakeview, AECS Layout "B" Block, Singasandra'
+    // — worth confirming with the client before changing this field.
     location: 'Anekal Road, Bengaluru',
     area: 'Anekal Road',
     status: 'ongoing',
@@ -491,9 +514,10 @@ export const projects: Project[] = [
         alt: 'Floor plan for 3 BHK unit at Yuva Lake View',
       },
     ],
-    startingPrice: '[VERIFY PROJECT PRICE]',
-    possession: '[CONFIRM POSSESSION DATE]',
-    rera: '[ADD RERA NUMBER]',
+    startingPrice: 'From Rs. 50 Lac*',
+    possession: 'To be confirmed with the sales team',
+    // Per-project RERA number is not published on public sources — do not invent
+    rera: 'To be confirmed with the sales team',
     units: '2 & 3 BHK apartments',
     bedrooms: '2, 3 BHK',
     connectivity: [
@@ -542,18 +566,15 @@ export const testimonials: Testimonial[] = [
 
 export const team: TeamMember[] = [
   {
-    name: '[CEO NAME]',
-    role: 'Chief Executive Officer',
-    bio: '[ADD VERIFIED LEADERSHIP BIOGRAPHY FROM YUVAGROUP.IN]',
-    image:
-      'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    name: '[MANAGING DIRECTOR]',
-    role: 'Managing Director',
-    bio: '[ADD VERIFIED LEADERSHIP BIOGRAPHY FROM YUVAGROUP.IN]',
-    image:
-      'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=600',
+    // One person holds both titles (yuvagroup.in homepage: 'The Chief Executive Officer and
+    // Managing Director of Yuva Group, Mr. Mahendra Reddy'). NOTE: the real About page also
+    // lists Mrs. Anitha Reddy as Managing Director — client to confirm the intended leadership.
+    name: 'Mr. Mahendra Reddy',
+    role: 'Chief Executive Officer & Managing Director',
+    // Bio paraphrased from yuvagroup.in homepage + About Us — verified facts only
+    bio: 'Mr. Mahendra Reddy built Yuva Group from the ground up, beginning with quality, value-driven apartments designed for modern homebuyers across Bengaluru. He later expanded the company into high-potential land development and villa projects. With around 15 years in real estate and about 10 completed projects to date, he continues to focus on construction quality and customer satisfaction.',
+    // Portrait used in the leadership block on yuvagroup.in/about-us/
+    image: 'https://yuvagroup.in/wp-content/uploads/2025/04/001-1.jpg.webp',
   },
 ];
 

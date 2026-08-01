@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { icon: Eye, title: 'Transparency', text: 'We share project status, pricing, and timelines as they are — not as we wish them to be. [VERIFY SPECIFIC COMMITMENTS]' },
+  { icon: Eye, title: 'Transparency', text: 'We share project status, pricing, and timelines as they are — not as we wish them to be.' },
   { icon: Hammer, title: 'Quality', text: 'Build quality is supervised on site. Our completed communities are the benchmark for every new project.' },
   { icon: Handshake, title: 'Customer satisfaction', text: 'Handover is a beginning, not an end. We stay reachable after possession and support resident communities.' },
   { icon: Leaf, title: 'Long-term value', text: 'Materials, layouts, and common areas are chosen for decades of use, not a brochure photograph.' },
@@ -94,13 +94,13 @@ export default function AboutPage() {
       <section className="border-b border-foreground/10 py-24 md:py-32">
         <div className="section-shell">
           <ScrollReveal>
-            <SectionHeading eyebrow="Leadership" title="The team behind Yuva Group." align="center" />
+            <SectionHeading eyebrow="Leadership" title="The leadership behind Yuva Group." align="center" />
           </ScrollReveal>
-          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-2">
+          <StaggerGroup className="mx-auto mt-14 max-w-3xl gap-6">
             {team.map((m) => (
               <StaggerItem key={m.role}>
-                <div className="flex gap-5 border border-foreground/10 p-6">
-                  <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-sm">
+                <div className="flex flex-col gap-6 border border-foreground/10 p-6 sm:flex-row">
+                  <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-sm">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
                   </div>
