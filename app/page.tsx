@@ -26,23 +26,10 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-stone-50">
-        {/* Background hero video */}
-        <div className="absolute inset-0">
-          <video
-            className="h-full w-full object-cover"
-            src="/videos/hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          />
-          {/* Light overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-        </div>
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
+        {/* Decorative accent block for a quiet brand touch on the white hero */}
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-1/2 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-foreground/5" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-1/2 h-[42rem] w-[42rem] -translate-y-1/2 rounded-full border border-foreground/5" />
 
         <div className="section-shell relative z-10 pt-24">
           <motion.div
