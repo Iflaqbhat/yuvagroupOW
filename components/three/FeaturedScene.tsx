@@ -12,13 +12,20 @@ type TowerData = {
   delay: number;
 };
 
+// Anchor the entrance animation to page-load time instead of the canvas
+// clock. Mobile browsers can drop the WebGL context for off-screen
+// canvases; when the context is recreated the clock resets to 0 and the
+// towers would replay their growth ("renders again very fast" when
+// scrolling back up). A page-load timestamp keeps the reveal done forever.
+const startedAt = Date.now();
+
 function Tower({ pos, scale, color, delay }: TowerData) {
   const wireRef = useRef<THREE.LineSegments>(null);
   const solidRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
-    const t = state.clock.elapsedTime;
+    const t = (Date.now() - startedAt) / 1000;
     if (wireRef.current && solidRef.current && groupRef.current) {
       const reveal = Math.min(1, (t - delay) * 0.3);
       wireRef.current.position.y = THREE.MathUtils.lerp(-2, pos[1], reveal);
@@ -26,7 +33,8 @@ function Tower({ pos, scale, color, delay }: TowerData) {
       const solidReveal = Math.max(0, Math.min(1, (t - delay - 1) * 0.4));
       solidRef.current.scale.y = scale[1] * solidReveal;
       (solidRef.current.material as THREE.Material).opacity = solidReveal * 0.12;
-      groupRef.current.position.y += Math.sin(t * 0.4 + delay) * 0.002;
+      // Float uses the clock so the gentle motion keeps going after reveal.
+      groupRef.current.position.y += Math.sin(state.clock.elapsedTime * 0.4 + delay) * 0.002;
     }
   });
 
@@ -101,7 +109,7 @@ export function FeaturedScene() {
     <Canvas
       camera={{ position: [0, 1.5, 8], fov: 38 }}
       dpr={[1, 1.5]}
-      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+      gl={{ antialias: true, alpha: true, powerPreference: 'default' }}
       style={{ background: 'transparent' }}
     >
       <Suspense fallback={null}>

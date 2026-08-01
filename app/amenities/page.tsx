@@ -38,8 +38,10 @@ export default function AmenitiesPage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-12">
-                  <h3 className="font-display text-lg text-white">{a.name}</h3>
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-4 pb-3 pt-14">
+                  <h3 className="font-display text-xl font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+                    {a.name}
+                  </h3>
                 </figcaption>
               </figure>
             </StaggerItem>

@@ -31,64 +31,90 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
-        {/* Decorative accent block for a quiet brand touch on the white hero */}
+        {/* Quiet brand accent behind the video panel */}
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-1/2 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-foreground/5" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-1/2 h-[42rem] w-[42rem] -translate-y-1/2 rounded-full border border-foreground/5" />
 
-        <div className="section-shell relative z-10 pt-24">
+        <div className="section-shell relative z-10 grid gap-10 pt-24 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-6">
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
+            >
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+                className="eyebrow mb-6"
+              >
+                Yuva Structures Pvt. Ltd. · Bengaluru
+              </motion.p>
+              <motion.h1
+                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+                className="font-display text-5xl leading-[1.02] tracking-tight md:text-7xl"
+              >
+                Homes built with
+                <br />
+                <span className="text-accent">architectural intent.</span>
+              </motion.h1>
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+                className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
+              >
+                Premium and affordable apartments, villas, and residential communities across south
+                Bengaluru — from Electronic City to Attibele, Chandapura, and Anekal Road.
+              </motion.p>
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+                className="mt-10 flex flex-col gap-4 sm:flex-row"
+              >
+                <Link
+                  href="/projects"
+                  className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-foreground px-8 py-4 text-sm font-medium uppercase tracking-wider text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+                >
+                  <span className="relative z-10">Explore Projects</span>
+                  <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <span className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                </Link>
+                <Link
+                  href="/schedule-visit"
+                  className="inline-flex items-center justify-center gap-2 border border-foreground/25 px-7 py-4 text-sm font-medium transition-all duration-300 hover:border-foreground hover:bg-foreground/5"
+                >
+                  Schedule a Site Visit
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
+                className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+              >
+                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald" />
+                {projects.filter((p) => p.status !== 'completed').length} ongoing & ready-to-move projects
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Hero film — framed on the white hero so it is clearly visible */}
           <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
-            className="max-w-3xl"
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6"
           >
-            <motion.p
-              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-              className="eyebrow mb-6"
-            >
-              Yuva Structures Pvt. Ltd. · Bengaluru
-            </motion.p>
-            <motion.h1
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="font-display text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-8xl"
-            >
-              Homes built with
-              <br />
-              <span className="text-accent">architectural intent.</span>
-            </motion.h1>
-            <motion.p
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
-            >
-              Premium and affordable apartments, villas, and residential communities across south
-              Bengaluru — from Electronic City to Attibele, Chandapura, and Anekal Road.
-            </motion.p>
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="mt-10 flex flex-col gap-4 sm:flex-row"
-            >
-              <Link
-                href="/projects"
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-foreground px-8 py-4 text-sm font-medium uppercase tracking-wider text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
-              >
-                <span className="relative z-10">Explore Projects</span>
-                <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                <span className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
-              </Link>
-              <Link
-                href="/schedule-visit"
-                className="inline-flex items-center justify-center gap-2 border border-foreground/25 px-7 py-4 text-sm font-medium transition-all duration-300 hover:border-foreground hover:bg-foreground/5"
-              >
-                Schedule a Site Visit
-              </Link>
-            </motion.div>
-            <motion.div
-              variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
-              className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground"
-            >
-              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald" />
-              {projects.filter((p) => p.status !== 'completed').length} ongoing & ready-to-move projects
-            </motion.div>
+            <div className="relative aspect-video overflow-hidden rounded-sm border border-foreground/10 bg-stone-100 shadow-[0_30px_90px_-30px_hsl(var(--foreground)/0.35)]">
+              <video
+                className="h-full w-full object-cover"
+                src="/videos/hero.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+              />
+              <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-foreground/5" />
+            </div>
+            <p className="mt-3 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              A Yuva community — built to age well
+            </p>
           </motion.div>
         </div>
 
@@ -286,51 +312,47 @@ export default function Home() {
 
       {/* AMENITIES PREVIEW */}
       <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
-        <div className="section-shell grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="What you get"
-                title="Amenities designed for daily life, not a brochure."
-              />
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Shared spaces across Yuva communities are built to be used — sized for real
-                gathering, placed where people actually walk, and maintained after handover.
-              </p>
+        <div className="section-shell">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="What you get"
+              title="Amenities designed for daily life, not a brochure."
+              description="Shared spaces across Yuva communities are built to be used — sized for real gathering, placed where people actually walk, and maintained after handover."
+              align="center"
+            />
+            <div className="mt-6 flex justify-center">
               <Link
                 href="/amenities"
-                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
+                className="group inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
               >
                 Explore all amenities
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-            </ScrollReveal>
-          </div>
-          <div className="md:col-span-7">
-            <StaggerGroup className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {amenityPhotos.slice(0, 9).map((a) => (
-                  <StaggerItem key={a.name}>
-                    <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
-                      <div className="relative aspect-square">
-                        <Image
-                          src={a.photo}
-                          alt={a.name}
-                          fill
-                          loading="eager"
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-3 pb-2 pt-8">
-                        <span className="block text-xs font-medium uppercase tracking-wide text-white sm:text-sm">
-                          {a.name}
-                        </span>
-                      </figcaption>
-                    </figure>
-                  </StaggerItem>
-                ))}
-            </StaggerGroup>
-          </div>
+            </div>
+          </ScrollReveal>
+          <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {amenityPhotos.slice(0, 9).map((a) => (
+              <StaggerItem key={a.name}>
+                <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
+                  <div className="relative aspect-square">
+                    <Image
+                      src={a.photo}
+                      alt={a.name}
+                      fill
+                      loading="eager"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-3 pb-2.5 pt-10">
+                    <span className="block text-sm font-bold uppercase tracking-wide text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] sm:text-base">
+                      {a.name}
+                    </span>
+                  </figcaption>
+                </figure>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </div>
       </section>
 
