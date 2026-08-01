@@ -40,14 +40,21 @@ export const projects: Project[] = [
       { label: 'Status', value: 'Ready to Move' },
       { label: 'Location', value: 'Attibele Industrial Area' },
     ],
+    // Amenities per the amenity section on yuvagroup.in/yuva-sunrise/ (grand clubhouses, indoor &
+    // outdoor fitness and sports, swimming pool, kids' play areas, rainwater harvesting, metro
+    // facilities, banquet hall, green landscape, 1km walking track, 100% power backup)
     amenities: [
       'Clubhouse',
       'Swimming pool',
       'Gymnasium',
+      'Indoor & outdoor sports',
       'Landscaped gardens',
       'Children’s play area',
-      'Indoor games room',
       'Multipurpose hall',
+      'Banquet hall',
+      'Rainwater harvesting',
+      '100% power backup',
+      'Metro facility (upcoming)',
       '24/7 security',
     ],
     specifications: [
@@ -73,11 +80,13 @@ export const projects: Project[] = [
         ],
       },
     ],
+    // Areas from the 'TYPICAL FLOOR PLAN' table on yuvagroup.in/yuva-sunrise/
+    // (Flat 2: East 2 BHK 1,280 sft; Flat 1: East 3 BHK 1,672 sft — representative of the range)
     floorPlans: [
       {
         name: '2 BHK — Sunrise',
         type: '2 BHK',
-        area: '1,150 sq.ft.',
+        area: '1,280 sq.ft.',
         image:
           'https://images.pexels.com/photos/210412/pexels-photo-210412.jpeg?auto=compress&cs=tinysrgb&w=900',
         alt: 'Floor plan for 2 BHK unit at Yuva Sunrise',
@@ -85,7 +94,7 @@ export const projects: Project[] = [
       {
         name: '3 BHK — Sunrise',
         type: '3 BHK',
-        area: '1,580 sq.ft.',
+        area: '1,672 sq.ft.',
         image:
           'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=900',
         alt: 'Floor plan for 3 BHK unit at Yuva Sunrise',
@@ -155,14 +164,21 @@ export const projects: Project[] = [
       { label: 'Status', value: 'Under Construction' },
       { label: 'Location', value: 'Electronic City Ph-2' },
     ],
+    // Amenities per the amenity section on yuvagroup.in/yuva-utsav/ (grand clubhouses, indoor &
+    // outdoor fitness and sports, swimming pool, kids' play areas, rainwater harvesting, 24X7
+    // security, multipurpose hall, green landscape, 1km walking track, 100% power backup).
+    // NOTE: 'Amphitheatre' was removed — it does not appear on the real site.
     amenities: [
       'Clubhouse',
       'Swimming pool',
       'Gymnasium',
+      'Indoor & outdoor sports',
       'Landscaped gardens',
-      'Jogging track',
       'Children’s play area',
-      'Amphitheatre',
+      'Walking track',
+      'Multipurpose hall',
+      'Rainwater harvesting',
+      '100% power backup',
       '24/7 security',
     ],
     specifications: [
@@ -181,11 +197,13 @@ export const projects: Project[] = [
         ],
       },
     ],
+    // Area from the 'TYPICAL FLOOR PLAN' table on yuvagroup.in/yuva-utsav/
+    // (Flat 3: North 2 BHK 1,088 sft — representative of the range)
     floorPlans: [
       {
         name: '2 BHK — Utsav',
         type: '2 BHK',
-        area: '1,080 sq.ft.',
+        area: '1,088 sq.ft.',
         image:
           'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=900',
         alt: 'Floor plan for 2 BHK unit at Yuva Utsav',
@@ -220,15 +238,18 @@ export const projects: Project[] = [
   {
     slug: 'yuva-sunshine',
     name: 'Yuva Sunshine',
-    tagline: 'Bright, affordable homes on Chandapura Road',
-    location: 'Chandapura, Bengaluru',
+    tagline: 'Bright, affordable 1.5, 2 & 3 BHK homes off Chandapura–Anekal Road',
+    // Location: real site places Yuva Sunshine 'near Chandapura to Anakal Main road'
+    // (yuvagroup.in/yuva-sunshine/) and lists it under Ongoing Projects
+    location: 'Chandapura–Anekal Road, Bengaluru',
     area: 'Chandapura',
-    status: 'ready-to-move',
+    // Status: yuvagroup.in lists Yuva Sunshine under Ongoing Projects (not ready-to-move)
+    status: 'ongoing',
     category: 'apartments',
     description:
-      'Well-planned 2 & 3 BHK apartments that balance affordability with the quality expected from Yuva Group.',
+      'Well-planned 1.5, 2 & 3 BHK apartments that balance affordability with the quality expected from Yuva Group.',
     longDescription:
-      'Yuva Sunshine brings the build quality of Yuva Group’s premium developments to a more accessible price point on Chandapura Road. The towers are compact and efficiently planned, with units that feel larger than their square footage thanks to open kitchens, corner windows, and continuous balconies. The community shares a single, well-equipped clubhouse and a generous central green.',
+      'Yuva Sunshine brings the build quality of Yuva Group’s premium developments to a more accessible price point on the Chandapura–Anekal Road. The towers are compact and efficiently planned, with units that feel larger than their square footage thanks to open kitchens, corner windows, and continuous balconies. The community shares a single, well-equipped clubhouse and a generous central green.',
     heroImage:
       'https://images.pexels.com/photos/758744/pexels-photo-758744.jpeg?auto=compress&cs=tinysrgb&w=1600',
     heroAlt: 'Yuva Sunshine apartment building exterior at Chandapura',
@@ -243,16 +264,24 @@ export const projects: Project[] = [
       },
     ],
     highlights: [
-      { label: 'Configuration', value: '2 & 3 BHK' },
-      { label: 'Status', value: 'Ready to Move' },
-      { label: 'Location', value: 'Chandapura' },
+      // Configuration per yuvagroup.in/yuva-sunshine/ ('spacious 1.5, 2, and 3 BHK homes')
+      { label: 'Configuration', value: '1.5, 2 & 3 BHK' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'Location', value: 'Chandapura–Anekal Road' },
     ],
+    // Amenities: the real Sunshine page reuses the company-wide amenity set (grand clubhouses,
+    // indoor & outdoor fitness and sports, swimming pools, kids' play areas, rainwater harvesting,
+    // 24X7 security, green landscape, 100% power backup)
     amenities: [
       'Clubhouse',
+      'Swimming pool',
       'Gymnasium',
+      'Indoor & outdoor sports',
       'Landscaped gardens',
       'Children’s play area',
-      'Indoor games',
+      'Multipurpose hall',
+      'Rainwater harvesting',
+      '100% power backup',
       '24/7 security',
     ],
     specifications: [
@@ -265,6 +294,8 @@ export const projects: Project[] = [
         items: [{ label: 'Flooring', value: 'Vitrified tiles' }],
       },
     ],
+    // Area is illustrative — the real Sunshine page reuses the company-wide floor-plan table with
+    // no Sunshine-specific areas; shown as a representative plan (see disclaimer on the detail page)
     floorPlans: [
       {
         name: '2 BHK — Sunshine',
@@ -276,11 +307,13 @@ export const projects: Project[] = [
       },
     ],
     startingPrice: 'From Rs. 50 Lac*',
-    possession: 'Ready to Move',
+    possession: 'To be confirmed with the sales team',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
-    units: '2 & 3 BHK apartments',
-    bedrooms: '2, 3 BHK',
+    units: '1.5, 2 & 3 BHK apartments',
+    bedrooms: '1.5, 2 & 3 BHK',
+    // UNVERIFIED: no 'Map Location' block is published on yuvagroup.in/yuva-sunshine/ — the
+    // nearby times below are estimates for the Chandapura–Anekal Road corridor, client to confirm
     connectivity: [
       { label: 'Chandapura Circle', distance: '4 min' },
       { label: 'Anekal Road', distance: '10 min' },
@@ -293,7 +326,8 @@ export const projects: Project[] = [
           'Yuva Sunshine is positioned as an affordable premium project — it offers Yuva Group’s construction quality at a more accessible price point.',
       },
     ],
-    coordinates: { lat: 12.8032, lng: 77.6423 },
+    // Coordinates: map pin on yuvagroup.in/yuva-sunshine/ (YUVA SUNSHINE APARTMENT)
+    coordinates: { lat: 12.74769, lng: 77.70453 },
     featured: true,
   },
   {
@@ -375,11 +409,12 @@ export const projects: Project[] = [
     slug: 'yuva-heritage',
     name: 'Yuva Heritage',
     tagline: 'Premium villas near Hosur Road',
-    // UNVERIFIED: location not confirmed against public site content — client to double-check
-    // (yuvagroup.in lists completed projects without locations)
+    // UNVERIFIED: exact location not confirmed against public site content — client to double-check
+    // (yuvagroup.in lists Yuva Heritage among completed projects, without a location)
     location: 'Hosur Road, Bengaluru',
     area: 'Hosur Road',
-    status: 'ongoing',
+    // Status: yuvagroup.in lists Yuva Heritage under Completed Projects
+    status: 'completed',
     category: 'villas',
     description:
       'A villa development built for buyers who want land, privacy, and architectural character close to the city.',
@@ -400,7 +435,7 @@ export const projects: Project[] = [
     ],
     highlights: [
       { label: 'Configuration', value: '3 & 4 BHK Villas' },
-      { label: 'Status', value: 'Under Construction' },
+      { label: 'Status', value: 'Completed' },
       { label: 'Location', value: 'Hosur Road' },
     ],
     amenities: [
@@ -408,8 +443,10 @@ export const projects: Project[] = [
       'Clubhouse',
       'Swimming pool',
       'Tree-lined internal streets',
-      'Jogging track',
+      'Walking track',
       'Children’s play area',
+      'Rainwater harvesting',
+      '100% power backup',
       '24/7 security',
     ],
     specifications: [
@@ -436,7 +473,7 @@ export const projects: Project[] = [
       },
     ],
     startingPrice: 'From Rs. 50 Lac*',
-    possession: 'To be confirmed with the sales team',
+    possession: 'Completed',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
     units: '3 & 4 BHK villas',
@@ -460,17 +497,18 @@ export const projects: Project[] = [
     slug: 'yuva-lake-view',
     name: 'Yuva Lake View',
     tagline: 'Apartments oriented around a water outlook',
-    // UNVERIFIED: location not confirmed against public site content — client to double-check.
-    // NOTE: a client testimonial on yuvagroup.in references 'Yuva Lakeview, AECS Layout "B" Block, Singasandra'
-    // — worth confirming with the client before changing this field.
-    location: 'Anekal Road, Bengaluru',
-    area: 'Anekal Road',
-    status: 'ongoing',
+    // Location: yuvagroup.in lists Yuva Lake View among completed projects; a client testimonial
+    // on the real homepage names the build-out of 'Yuva Lakeview, AECS Layout "B" Block, Singasandra'.
+    // Client still to double-check the exact plot before marketing use.
+    location: 'AECS Layout "B" Block, Singasandra, Bengaluru',
+    area: 'Singasandra',
+    // Status: yuvagroup.in lists Yuva Lake View under Completed Projects
+    status: 'completed',
     category: 'apartments',
     description:
-      'An ongoing apartment project planned around sightlines to nearby water, with wide green buffers between towers.',
+      'A completed apartment project planned around sightlines to nearby water, with wide green buffers between towers.',
     longDescription:
-      'Yuva Lake View is an ongoing apartment project planned around sightlines to nearby water. Towers are set back from each other with wide green buffers, so most units look out onto landscape rather than a neighbouring wall. The master plan prioritises pedestrian flow, with vehicles kept to the perimeter and a continuous walking loop connecting the clubhouse, gardens, and water-facing promenade.',
+      'Yuva Lake View is a completed apartment project planned around sightlines to nearby water. Towers are set back from each other with wide green buffers, so most units look out onto landscape rather than a neighbouring wall. The master plan prioritises pedestrian flow, with vehicles kept to the perimeter and a continuous walking loop connecting the clubhouse and gardens.',
     heroImage:
       'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1600',
     heroAlt: 'Yuva Lake View apartment towers with water outlook',
@@ -486,16 +524,20 @@ export const projects: Project[] = [
     ],
     highlights: [
       { label: 'Configuration', value: '2 & 3 BHK' },
-      { label: 'Status', value: 'Under Construction' },
-      { label: 'Location', value: 'Anekal Road' },
+      { label: 'Status', value: 'Completed' },
+      { label: 'Location', value: 'Singasandra' },
     ],
+    // 'Water-facing promenade' removed — not on the real site. Company-wide amenities
+    // (rainwater harvesting, 100% power backup) added per yuvagroup.in amenity section.
     amenities: [
       'Clubhouse',
       'Swimming pool',
-      'Water-facing promenade',
       'Gymnasium',
       'Landscaped gardens',
-      'Jogging track',
+      'Walking track',
+      'Children’s play area',
+      'Rainwater harvesting',
+      '100% power backup',
       '24/7 security',
     ],
     specifications: [
@@ -515,7 +557,7 @@ export const projects: Project[] = [
       },
     ],
     startingPrice: 'From Rs. 50 Lac*',
-    possession: 'To be confirmed with the sales team',
+    possession: 'Completed',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
     units: '2 & 3 BHK apartments',
@@ -532,34 +574,41 @@ export const projects: Project[] = [
           'The master plan is oriented around water sightlines, though not every unit faces the water directly. The sales team can confirm orientation for specific units.',
       },
     ],
-    coordinates: { lat: 12.7250, lng: 77.7120 },
+    // Coordinates: approximate — centred on Singasandra (AECS Layout "B" Block) per the official
+    // site's client testimonial; the real site publishes no map pin for this completed project
+    coordinates: { lat: 12.876, lng: 77.642 },
     featured: false,
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Resident Family',
-    location: 'Electronic City',
-    project: 'Yuva Sunrise',
+    // Real testimonial from the yuvagroup.in homepage slider (paraphrased)
+    name: 'Pradeep Jana',
+    location: 'Small Finance Bank',
+    project: 'Yuva Group',
     quote:
-      'We moved into Yuva Sunrise for the commute and stayed for how the building actually feels. The light in the living room is real, not a brochure promise.',
+      'Very satisfied with the construction work by Yuva builders — cooperative and dedicated throughout, and everything we asked for was delivered on time. Thanks to Mahendra for the great work.',
+    // The real site publishes no star rating for testimonials; stars are stylistic
     rating: 5,
   },
   {
-    name: 'Homeowner',
-    location: 'Chandapura',
-    project: 'Yuva Sunshine',
+    // Real testimonial from the yuvagroup.in homepage slider (paraphrased)
+    name: 'Shaik Mehbubbasha',
+    location: 'Power Smart Pvt Ltd',
+    project: 'Yuva Group',
     quote:
-      'We compared four builders in south Bengaluru before choosing Yuva. The finishing details and the way the site team handled handover made the difference.',
+      'The builder was very professional and communicative throughout the entire process. The quality of work was exceptional and exceeded our expectations, and the project was completed within the agreed-upon timeline and budget.',
     rating: 5,
   },
   {
-    name: 'Villa Owner',
-    location: 'Hosur Road',
-    project: 'Yuva Heritage',
+    // Real testimonial from the yuvagroup.in homepage slider (paraphrased) — also the source
+    // of the Yuva Lake View location ('AECS Layout "B" Block, Singasandra')
+    name: 'Adari Arun Kumar',
+    location: 'AECS Layout, Singasandra',
+    project: 'Yuva Lake View',
     quote:
-      'We wanted land and privacy without leaving the city. Yuva Heritage gave us both, and the tree-lined street makes it feel like a neighbourhood, not a compound.',
+      'Thank you to the project team for the build-out of Yuva Lakeview at AECS Layout, Singasandra. The team was reliable and talented, and communicated with the whole project team throughout the course of construction.',
     rating: 5,
   },
 ];
@@ -579,12 +628,20 @@ export const team: TeamMember[] = [
 ];
 
 export const companyStats = [
-  { label: 'Projects Delivered', value: '6', suffix: '' },
-  // Years in Bengaluru: 15 — yuvagroup.in homepage counter ('Years of Experiences', data-endnumber="15")
-  { label: 'Years in Bengaluru', value: '15', suffix: '+' },
+  // 'Total Projects: 6' — counts the 6 projects listed on this site, consistent with the
+  // Projects page counter (was '6 Projects Delivered', which disagreed with the Projects page).
+  // The real business claims ~10+ completed projects across all of Yuva Group; we only model 6.
+  { label: 'Total Projects', value: '6', suffix: '' },
+  // Years of Experience: 15 — yuvagroup.in About Us ('extensive experience of 15 Years in real
+  // estate'). NOTE: the homepage counter says 'Years of Experiences: 10+' — the two conflict on
+  // the real site; the bio figure is used here and matches our About page leadership bio.
+  { label: 'Years of Experience', value: '15', suffix: '+' },
   // Success Rate: 100% — yuvagroup.in homepage counter ('Success Rate', data-endnumber="100")
   { label: 'Success Rate', value: '100', suffix: '%' },
-  { label: 'Ongoing Developments', value: '3', suffix: '' },
+  // Ongoing Developments: 2 — matches the statuses of the 6 modeled projects (Yuva Utsav,
+  // Yuva Sunshine under construction). The real-site homepage counter says 'Ongoing Projects: 3'
+  // but its own ongoing list names only 2 projects; a third project is not modeled here.
+  { label: 'Ongoing Developments', value: '2', suffix: '' },
 ];
 
 export const allAmenities = [
@@ -595,8 +652,13 @@ export const allAmenities = [
   { name: 'Children’s Play Area', icon: 'Baby' },
   { name: 'Jogging Track', icon: 'PersonStanding' },
   { name: 'Indoor Games', icon: 'Gamepad2' },
-  { name: 'Multipurpose Hall', icon: 'PartyPopper' },
-  { name: 'Amphitheatre', icon: 'Music' },
+  { name: 'Multipurpose Hall', icon: 'Presentation' },
+  // Real company-wide amenities from yuvagroup.in (rainwater harvesting, metro facilities,
+  // 1km walking track, banquet hall, 100% power backup). 'Amphitheatre' removed — not on the
+  // real site.
+  { name: 'Rainwater Harvesting', icon: 'Droplets' },
+  { name: 'Metro Facility', icon: 'TrainFront' },
+  { name: 'Banquet Hall', icon: 'PartyPopper' },
   { name: '24/7 Security', icon: 'ShieldCheck' },
   { name: 'Covered Parking', icon: 'Car' },
   { name: 'Power Backup', icon: 'Zap' },

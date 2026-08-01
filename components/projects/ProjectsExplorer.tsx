@@ -32,7 +32,8 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
     { label: 'Apartments', value: 'apartments' },
     { label: 'Villas', value: 'villas' },
     { label: 'Plotted', value: 'plotted' },
-    { label: 'Commercial', value: 'commercial' },
+    // 'Commercial' filter removed — no commercial projects are listed on this site; the
+    // real business does commercial/mixed-use work (see About page), but it has no projects here.
   ];
 
   const chipClass = (active: boolean) =>

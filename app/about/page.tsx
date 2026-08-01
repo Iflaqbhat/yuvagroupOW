@@ -24,7 +24,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Our story"
         title="A developer measured by its completed homes."
-        description="Yuva Group, incorporated as Yuva Structures Pvt. Ltd., is a Bengaluru-based real-estate developer building residential apartments, villas, and plotted developments across the city's southern corridor."
+        description="Yuva Group, incorporated as Yuva Structures Pvt. Ltd., is a Bengaluru-based real-estate developer building residential apartments, villas, plotted developments, and commercial and mixed-use projects across the city's southern corridor."
       />
 
       <section className="border-b border-foreground/10 py-24 md:py-32">
@@ -41,9 +41,10 @@ export default function AboutPage() {
             <ScrollReveal delay={0.1}>
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Yuva Group develops residential apartments, premium and affordable housing,
-                villas, and plotted developments across south Bengaluru. Our projects cluster
-                along the city's southern growth corridor — close to Electronic City, Attibele,
-                Chandapura, Anekal Road, and Hosur Road.
+                villas, plotted developments, and commercial and mixed-use projects across
+                south Bengaluru. Our projects cluster along the city's southern growth
+                corridor — close to Electronic City, Attibele, Chandapura, Anekal Road, and
+                Hosur Road.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 We treat each project as a long-term commitment to the people who will live in

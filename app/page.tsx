@@ -127,7 +127,8 @@ export default function Home() {
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Yuva Group, incorporated as Yuva Structures Pvt. Ltd., is a Bengaluru-based
                 real-estate developer building residential apartments, premium and affordable
-                housing, villas, and plotted developments across the city&apos;s southern corridor.
+                housing, villas, plotted developments, and commercial and mixed-use projects
+                across the city&apos;s southern corridor.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 We treat each project as a long-term commitment to the people who will live in it.
@@ -218,7 +219,7 @@ export default function Home() {
               {
                 tag: 'Ready to Move',
                 title: 'Ready now',
-                desc: 'Walk into completed, occupied Yuva homes available for immediate possession.',
+                desc: 'Walk into ready-to-move or completed Yuva homes available for immediate possession or resale enquiry.',
                 href: '/completed-projects',
                 count: projects.filter((p) => p.status !== 'ongoing').length,
               },
@@ -347,7 +348,7 @@ export default function Home() {
               { name: 'Chandapura', project: 'Yuva Sunshine' },
               { name: 'Anekal Road', project: 'Yuva Residency' },
               { name: 'Hosur Road', project: 'Yuva Heritage' },
-              { name: 'Anekal Road', project: 'Yuva Lake View' },
+              { name: 'Singasandra', project: 'Yuva Lake View' },
             ].map((l) => (
               <StaggerItem key={l.project}>
                 <div className="group flex items-center gap-3 border border-foreground/10 bg-card px-5 py-4 transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
