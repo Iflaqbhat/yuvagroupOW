@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { StickyCTA } from '@/components/layout/StickyCTA';
 import { ScrollProgress } from '@/components/motion/ScrollProgress';
 
 const playfair = Playfair_Display({
@@ -88,6 +89,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main className="relative">{children}</main>
         <Footer />
+        <StickyCTA />
+        {/* Spacer so the fixed mobile CTA bar never covers the footer's last line */}
+        <div aria-hidden className="h-[76px] sm:h-0" />
       </body>
     </html>
   );

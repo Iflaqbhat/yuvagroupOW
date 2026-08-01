@@ -54,14 +54,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-stone-50 pt-[5.375rem]">
+      <section className="relative overflow-hidden bg-stone-50">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="relative">
+        <div className="relative mt-[5.375rem] md:h-[calc(100vh_-_5.375rem)]">
           <img
             src={project.heroImage}
             alt={project.heroAlt}
-            // full photo at natural aspect, fitted inside the viewport — no crop, no scrolling
-            className="block h-auto w-full object-contain md:mx-auto md:h-[calc(100vh_-_9rem)] md:w-auto"
+            // mobile: natural full-width photo; desktop: fills edge-to-edge between the
+            // navbar and viewport bottom (mild cover crop, no empty sides, no scrolling)
+            className="block h-auto w-full object-cover md:absolute md:inset-0 md:h-full md:w-full"
           />
           {/* gradient for text legibility (light over the cream band, dark at the bottom) */}
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/10" />
