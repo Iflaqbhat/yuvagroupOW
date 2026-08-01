@@ -54,20 +54,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-stone-50">
+      <section className="relative flex h-[90vh] items-end overflow-hidden bg-stone-50">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="relative mt-[5.375rem] md:h-[calc(100vh_-_5.375rem)]">
-          <img
-            src={project.heroImage}
-            alt={project.heroAlt}
-            // mobile: natural full-width photo; desktop: fills edge-to-edge between the
-            // navbar and viewport bottom (mild cover crop, no empty sides, no scrolling)
-            className="block h-auto w-full object-cover md:absolute md:inset-0 md:h-full md:w-full"
-          />
-          {/* gradient for text legibility (light over the cream band, dark at the bottom) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/10" />
-          <div className="section-shell absolute inset-x-0 bottom-0 z-10 pb-8 pt-24 md:bottom-10 md:pb-0 md:pt-0">
-            <ScrollReveal>
+        <img
+          src={project.heroImage}
+          alt={project.heroAlt}
+          // full-bleed photo — its top edge sits behind the glass navbar by design;
+          // hero is capped at 90vh so the section nav buttons stay visible in the viewport
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/10" />
+        <div className="section-shell relative z-10 pb-10 pt-24 md:pb-14">
+          <ScrollReveal>
             <Link href="/projects" className="text-xs uppercase tracking-[0.2em] text-background/80 hover:text-background">
               ← All Projects
             </Link>
@@ -87,12 +85,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               {project.location}
             </p>
           </ScrollReveal>
-          </div>
         </div>
       </section>
 
       {/* STICKY SECTION NAV */}
-      <div className="sticky top-0 z-40 border-b border-foreground/10 bg-background/90 backdrop-blur">
+      {/* top-[4.375rem] keeps the buttons just below the fixed navbar (shrinks to 70px on scroll) */}
+      <div className="sticky top-[4.375rem] z-40 border-b border-foreground/10 bg-background/90 backdrop-blur">
         <div className="section-shell flex items-center gap-1 overflow-x-auto py-3 no-scrollbar">
           {navSections.map((s) => (
             <a
