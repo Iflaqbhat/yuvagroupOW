@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -10,11 +9,6 @@ import { ProjectCard } from '@/components/projects/ProjectCard';
 import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { projects, getFeaturedProjects, testimonials, companyStats, allAmenities, type Amenity } from '@/data/projects';
-
-const FeaturedScene = dynamic(() => import('@/components/three/FeaturedScene').then(m => m.FeaturedScene), {
-  ssr: false,
-  loading: () => null,
-});
 
 const philosophy = [
   { icon: Building2, title: 'Architectural intent', text: 'Every Yuva project begins with how light, air, and movement flow through a place — not with a floor plate to maximise.' },
@@ -29,102 +23,106 @@ export default function Home() {
   );
   return (
     <>
-      {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
-        {/* Quiet brand accent behind the video panel */}
-        <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-1/2 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-foreground/5" />
-        <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-1/2 h-[42rem] w-[42rem] -translate-y-1/2 rounded-full border border-foreground/5" />
+      {/* HERO — full-bleed film behind the text with a refined scrim stack:
+          text seated on the left, film breathing on the right, and a soft
+          ramp into the white section below */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-charcoal">
+        {/* Background hero video */}
+        <div className="absolute inset-0">
+          <video
+            className="h-full w-full object-cover"
+            src="/videos/hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
+          {/* Horizontal scrim — text readable on the left, film visible on the right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/40 to-charcoal/15" />
+          {/* Top scrim — grounds the hero against the page edge */}
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/50 via-charcoal/15 to-transparent" />
+          {/* Soft ramp into the white section — near-white only at the seam, fading fast */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 via-background/25 to-transparent" />
+          {/* Whisper of film grain for a premium cinematic finish */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-overlay"
+            style={{
+              backgroundImage:
+                'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
+            }}
+          />
+        </div>
 
-        <div className="section-shell relative z-10 grid gap-10 pt-24 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-6">
-            <motion.div
-              initial="hidden"
-              animate="show"
-              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
-            >
-              <motion.p
-                variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-                className="eyebrow mb-6"
-              >
-                Yuva Structures Pvt. Ltd. · Bengaluru
-              </motion.p>
-              <motion.h1
-                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-                className="font-display text-5xl leading-[1.02] tracking-tight md:text-7xl"
-              >
-                Homes built with
-                <br />
-                <span className="text-accent">architectural intent.</span>
-              </motion.h1>
-              <motion.p
-                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-                className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
-              >
-                Premium and affordable apartments, villas, and residential communities across south
-                Bengaluru — from Electronic City to Attibele, Chandapura, and Anekal Road.
-              </motion.p>
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-                className="mt-10 flex flex-col gap-4 sm:flex-row"
-              >
-                <Link
-                  href="/projects"
-                  className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-foreground px-8 py-4 text-sm font-medium uppercase tracking-wider text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
-                >
-                  <span className="relative z-10">Explore Projects</span>
-                  <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  <span className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
-                </Link>
-                <Link
-                  href="/schedule-visit"
-                  className="inline-flex items-center justify-center gap-2 border border-foreground/25 px-7 py-4 text-sm font-medium transition-all duration-300 hover:border-foreground hover:bg-foreground/5"
-                >
-                  Schedule a Site Visit
-                </Link>
-              </motion.div>
-              <motion.div
-                variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
-                className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground"
-              >
-                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald" />
-                {projects.filter((p) => p.status !== 'completed').length} ongoing & ready-to-move projects
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Hero film — framed on the white hero so it is clearly visible */}
+        <div className="section-shell relative z-10 pt-24">
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6"
+            initial="hidden"
+            animate="show"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
+            className="max-w-3xl"
           >
-            <div className="relative aspect-video overflow-hidden rounded-sm border border-foreground/10 bg-stone-100 shadow-[0_30px_90px_-30px_hsl(var(--foreground)/0.35)]">
-              <video
-                className="h-full w-full object-cover"
-                src="/videos/hero.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                aria-hidden="true"
-              />
-              <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-foreground/5" />
-            </div>
-            <p className="mt-3 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              A Yuva community — built to age well
-            </p>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+              className="mb-6 text-xs uppercase tracking-[0.25em] text-white/80"
+            >
+              Yuva Structures Pvt. Ltd. · Bengaluru
+            </motion.p>
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+              className="font-display text-5xl leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl"
+            >
+              Homes built with
+              <br />
+              <span className="text-accent-soft">architectural intent.</span>
+            </motion.h1>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+              className="mt-8 max-w-xl text-lg leading-relaxed text-white/85"
+            >
+              Premium and affordable apartments, villas, and residential communities across south
+              Bengaluru — from Electronic City to Attibele, Chandapura, and Anekal Road.
+            </motion.p>
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+              className="mt-10 flex flex-col gap-4 sm:flex-row"
+            >
+              <Link
+                href="/projects"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-white px-8 py-4 text-sm font-medium uppercase tracking-wider text-charcoal transition-all duration-300 hover:bg-accent hover:text-white"
+              >
+                <span className="relative z-10">Explore Projects</span>
+                <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <span className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
+              </Link>
+              <Link
+                href="/schedule-visit"
+                className="inline-flex items-center justify-center gap-2 border border-white/40 px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-white hover:bg-white/10"
+              >
+                Schedule a Site Visit
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
+              className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/75"
+            >
+              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald" />
+              {projects.filter((p) => p.status !== 'completed').length} ongoing & ready-to-move projects
+            </motion.div>
           </motion.div>
         </div>
 
+        {/* Scroll cue — a quiet glass chip that stays visible over the ramp */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <ArrowDown className="h-5 w-5 animate-bounce" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-charcoal/35 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md transition-colors duration-300 hover:border-white/50">
+            <ArrowDown className="h-4 w-4 animate-bounce text-white/90" />
+          </div>
         </motion.div>
       </section>
 
@@ -186,34 +184,17 @@ export default function Home() {
       {/* FEATURED PROJECTS */}
       <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
         <div className="section-shell">
-          {/* 3D scene banner */}
-          <div className="relative mb-16 h-[280px] overflow-hidden rounded-sm border border-foreground/10 bg-gradient-to-br from-stone-100 to-stone-50 md:h-[340px]">
-            <div className="absolute inset-0">
-              <FeaturedScene />
-            </div>
-            <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="eyebrow mb-3"
-              >
-                Featured developments
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display text-3xl leading-[1.05] tracking-tight md:text-5xl"
-              >
-                Projects shaping south Bengaluru.
-              </motion.h2>
-            </div>
+          <ScrollReveal>
+            <SectionHeading title="Featured developments" />
+          </ScrollReveal>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {getFeaturedProjects().map((p, i) => (
+              <FeaturedProjectCard key={p.slug} project={p} index={i} />
+            ))}
           </div>
 
-          <div className="mb-10 flex items-center justify-end">
+          <div className="mt-12 flex items-center justify-end">
             <Link
               href="/projects"
               className="group relative inline-flex items-center gap-3 overflow-hidden bg-foreground px-7 py-4 text-sm font-medium uppercase tracking-wider text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
@@ -223,13 +204,6 @@ export default function Home() {
               <span className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
             </Link>
           </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {getFeaturedProjects().map((p, i) => (
-              <FeaturedProjectCard key={p.slug} project={p} index={i} />
-            ))}
-          </div>
-
         </div>
       </section>
 
@@ -284,32 +258,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ARCHITECTURAL PHILOSOPHY */}
-      <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
-        <div className="section-shell">
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="Our philosophy"
-              title="How we build, and why it matters."
-              align="center"
-            />
-          </ScrollReveal>
-          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {philosophy.map((p) => (
-              <StaggerItem key={p.title}>
-                <div className="group h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-md">
-                  <span className="flex h-12 w-12 items-center justify-center border border-foreground/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <p.icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-5 font-display text-lg">{p.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* AMENITIES PREVIEW */}
       <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
         <div className="section-shell">
@@ -330,7 +278,8 @@ export default function Home() {
               </Link>
             </div>
           </ScrollReveal>
-          <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {/* Two rows of comfortable tiles — big enough to read, compact enough to scan */}
+          <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             {amenityPhotos.slice(0, 9).map((a) => (
               <StaggerItem key={a.name}>
                 <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
@@ -340,7 +289,7 @@ export default function Home() {
                       alt={a.name}
                       fill
                       loading="eager"
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -350,6 +299,32 @@ export default function Home() {
                     </span>
                   </figcaption>
                 </figure>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
+      {/* ARCHITECTURAL PHILOSOPHY */}
+      <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
+        <div className="section-shell">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Our philosophy"
+              title="How we build, and why it matters."
+              align="center"
+            />
+          </ScrollReveal>
+          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {philosophy.map((p) => (
+              <StaggerItem key={p.title}>
+                <div className="group h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-md">
+                  <span className="flex h-12 w-12 items-center justify-center border border-foreground/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <p.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-5 font-display text-lg">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                </div>
               </StaggerItem>
             ))}
           </StaggerGroup>

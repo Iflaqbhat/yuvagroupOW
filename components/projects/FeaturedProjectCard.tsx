@@ -42,10 +42,6 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 1400 }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="group relative flex h-full flex-col overflow-hidden rounded-sm border border-foreground/10 bg-card transition-all duration-500 hover:border-foreground/25 hover:shadow-[0_24px_70px_-20px_hsl(var(--foreground)/0.3)]"
     >
       {/* Spotlight glow following cursor */}

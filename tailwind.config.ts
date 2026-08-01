@@ -69,6 +69,7 @@ const config: Config = {
           500: 'hsl(var(--stone-500))',
         },
         burgundy: 'hsl(var(--burgundy))',
+        'accent-soft': 'hsl(var(--accent-soft))',
         emerald: 'hsl(var(--emerald))',
         silver: 'hsl(var(--silver))',
         chart: {
@@ -83,6 +84,7 @@ const config: Config = {
       // bg-accent/85 were silently dropped. Add the values used in this project.
       opacity: {
         15: '0.15',
+        35: '0.35',
         85: '0.85',
       },
       keyframes: {
