@@ -59,9 +59,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <img
           src={project.heroImage}
           alt={project.heroAlt}
-          className="absolute inset-0 h-full w-full object-cover"
+          // photo starts below the fixed navbar — nothing hidden behind it
+          className="absolute inset-x-0 bottom-0 top-[5.375rem] h-auto w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-foreground/10" />
+        <div className="absolute inset-x-0 bottom-0 top-[5.375rem] bg-gradient-to-t from-foreground/70 via-foreground/30 to-foreground/10" />
         <div className="section-shell relative z-10 py-16 md:py-20">
           <ScrollReveal>
             <Link href="/projects" className="text-xs uppercase tracking-[0.2em] text-background/80 hover:text-background">

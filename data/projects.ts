@@ -559,8 +559,10 @@ export const team: TeamMember[] = [
 
 export const companyStats = [
   { label: 'Projects Delivered', value: '6', suffix: '' },
-  { label: 'Years in Bengaluru', value: '[VERIFY]', suffix: '' },
-  { label: 'Homes Handed Over', value: '[VERIFY]', suffix: '+' },
+  // Years in Bengaluru: 15 — yuvagroup.in homepage counter ('Years of Experiences', data-endnumber="15")
+  { label: 'Years in Bengaluru', value: '15', suffix: '+' },
+  // Success Rate: 100% — yuvagroup.in homepage counter ('Success Rate', data-endnumber="100")
+  { label: 'Success Rate', value: '100', suffix: '%' },
   { label: 'Ongoing Developments', value: '3', suffix: '' },
 ];
 

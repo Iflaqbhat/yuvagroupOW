@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowDown, MapPin, Star, Quote, Building2, Hammer, ShieldCheck, Clock } from 'lucide-react';
@@ -10,11 +9,6 @@ import { ProjectCard } from '@/components/projects/ProjectCard';
 import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { projects, getFeaturedProjects, testimonials, companyStats, allAmenities } from '@/data/projects';
-
-const HeroScene = dynamic(() => import('@/components/three/HeroScene').then(m => m.HeroScene), {
-  ssr: false,
-  loading: () => null,
-});
 
 const FeaturedScene = dynamic(() => import('@/components/three/FeaturedScene').then(m => m.FeaturedScene), {
   ssr: false,
@@ -29,14 +23,6 @@ const philosophy = [
 ];
 
 export default function Home() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    const low = window.matchMedia('(max-width: 768px)').matches;
-    if (low) setReduced(true);
-  }, []);
-
   return (
     <>
       {/* HERO */}
@@ -57,15 +43,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         </div>
-
-        {/* 3D blueprint overlay */}
-        {!reduced && (
-          <div className="absolute inset-0 opacity-50">
-            <Suspense fallback={null}>
-              <HeroScene />
-            </Suspense>
-          </div>
-        )}
 
         <div className="section-shell relative z-10 pt-24">
           <motion.div

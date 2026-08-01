@@ -46,7 +46,7 @@ export function Navbar() {
         <nav className="section-shell flex items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="Yuva Group home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Yuva Group" className="h-10 w-auto object-contain" />
+            <img src="/logo.png" alt="Yuva Group" className="h-11 w-auto object-contain" />
           </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">
@@ -200,7 +200,7 @@ export function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-foreground/10 px-6 py-5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logo.png" alt="Yuva Group" className="h-10 w-auto object-contain" />
+                <img src="/logo.png" alt="Yuva Group" className="h-11 w-auto object-contain" />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="flex h-10 w-10 items-center justify-center"

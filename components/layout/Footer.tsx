@@ -21,7 +21,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <Link href="/" className="inline-flex" aria-label="Yuva Group home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="Yuva Group" className="h-11 w-auto object-contain" />
+              <img src="/logo.png" alt="Yuva Group" className="h-12 w-auto object-contain" />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Yuva Structures Pvt. Ltd. — building premium and affordable homes across south
