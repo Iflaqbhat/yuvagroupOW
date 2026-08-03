@@ -7,6 +7,7 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/Scr
 import { AnimatedStats, type Stat } from '@/components/motion/AnimatedStats';
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { AnimatedUnderline } from '@/components/ui/animated-underline';
 import { team, testimonials } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -76,6 +77,7 @@ export default function AboutPage() {
               <h2 className="font-display text-4xl leading-[1.05] tracking-tight md:text-6xl">
                 {founder.name}
               </h2>
+              <AnimatedUnderline className="mt-6" />
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
                 {founder.role}
               </p>
@@ -92,8 +94,8 @@ export default function AboutPage() {
       </section>
 
       {/* TEAM — dark charcoal band, oversized heading, portrait cards with a
-          gradient nameplate (Mrs. Anitha Reddy leads the grid; Mr. Mahendra
-          Reddy is featured above as the founder) */}
+          gradient nameplate. Mr. Mahendra Reddy leads the grid and is also
+          featured above as the founder. */}
       <section className="bg-charcoal py-24 md:py-32">
         <div className="section-shell">
           <ScrollReveal>
@@ -108,7 +110,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <StaggerGroup className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-            {team.slice(1).map((m) => (
+            {team.map((m) => (
               <StaggerItem key={m.name}>
                 <div className="group relative overflow-hidden rounded-sm border border-background/10">
                   <div className="relative aspect-[3/4]">

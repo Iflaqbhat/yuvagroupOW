@@ -1,7 +1,10 @@
-// File purpose: Amenities page: photo gallery of community amenities with readable labels, plus an "also included" list.
+// File purpose: Amenities page: intro heading, numbered photo gallery of community amenities
+// with labels above each image, plus an "also included" list.
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { PageHero } from '@/components/layout/PageHero';
+import { SectionHeading } from '@/components/ui/section-heading';
+import { AnimatedUnderline } from '@/components/ui/animated-underline';
 import { allAmenities, type Amenity } from '@/data/projects';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import * as Icons from 'lucide-react';
@@ -12,6 +15,10 @@ export const metadata: Metadata = {
     'Amenities across Yuva Group residential communities in Bengaluru — clubhouses, pools, gyms, landscaped gardens, and shared spaces built for daily use.',
 };
 
+// Temporary hero photo (Pexels). Swap to /photos/amenities-hero.jpg once downloaded.
+const heroImage =
+  'https://images.pexels.com/photos/14021062/pexels-photo-14021062.jpeg?auto=compress&cs=tinysrgb&w=1920';
+
 export default function AmenitiesPage() {
   const withPhoto: Array<Amenity & { photo: string }> = allAmenities.filter(
     (a): a is Amenity & { photo: string } => Boolean(a.photo),
@@ -21,16 +28,33 @@ export default function AmenitiesPage() {
   return (
     <>
       <PageHero
+        image={heroImage}
         eyebrow="Shared spaces"
         title="Amenities built for daily life."
         description="Shared spaces across Yuva communities are designed to be used — sized for real gathering, placed where people walk, and maintained after handover."
       />
       <section className="section-shell py-16 md:py-24">
-        <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {withPhoto.map((a) => (
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="The Yuva standard"
+            title="Designed around how you live."
+            description="Every Yuva community pairs the essentials with a few extras that make daily life easier — checked at handover, not just promised at launch."
+          />
+          <AnimatedUnderline className="mt-6" />
+        </ScrollReveal>
+
+        <StaggerGroup className="mt-12 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {withPhoto.map((a, i) => (
             <StaggerItem key={a.name}>
-              <figure className="group relative overflow-hidden rounded-sm border border-foreground/10 bg-card">
-                <div className="relative aspect-[4/3]">
+              <figure className="group">
+                <figcaption className="mb-3 flex items-center gap-3">
+                  <span className="text-xs font-semibold tracking-[0.2em] text-accent">
+                    0{i + 1}
+                  </span>
+                  <span className="h-px w-8 bg-foreground/20" aria-hidden />
+                  <span className="eyebrow">{a.name}</span>
+                </figcaption>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-foreground/10 bg-card">
                   <Image
                     src={a.photo}
                     alt={a.name}
@@ -38,12 +62,11 @@ export default function AmenitiesPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"
+                    aria-hidden
+                  />
                 </div>
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-4 pb-3 pt-14">
-                  <h3 className="font-display text-xl font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
-                    {a.name}
-                  </h3>
-                </figcaption>
               </figure>
             </StaggerItem>
           ))}

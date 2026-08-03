@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/layout/PageHero';
 import { SiteVisitForm } from '@/components/forms/SiteVisitForm';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
+import { AnimatedUnderline } from '@/components/ui/animated-underline';
 import { Calendar, MapPin, Phone, ShieldCheck } from 'lucide-react';
 import { contactInfo } from '@/data/navigation';
 
@@ -29,7 +30,12 @@ export default function ScheduleVisitPage() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <ScrollReveal>
-              <h2 className="font-display text-2xl">What to expect</h2>
+              <p className="eyebrow mb-3">Plan your visit</p>
+              <h2 className="font-display text-3xl tracking-tight md:text-4xl">What to expect</h2>
+              <AnimatedUnderline className="mt-4" />
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+                A visit is unhurried and guided — here is how the ninety minutes go.
+              </p>
               <div className="mt-6 space-y-6 text-sm">
                 <div className="flex gap-4">
                   <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-accent" />

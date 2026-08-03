@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { PageHero } from '@/components/layout/PageHero';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { AnimatedUnderline } from '@/components/ui/animated-underline';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { contactInfo } from '@/data/navigation';
 import {
@@ -112,6 +113,7 @@ export default function CareersPage() {
             title="Work where things get built."
             description="Yuva is a builder’s company — small enough to stay hands-on, established enough to take on long-term projects across the city."
           />
+          <AnimatedUnderline className="mt-6" />
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {perks.map((p) => (

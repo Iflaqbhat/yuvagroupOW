@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2, AlertCircle, MapPin, Phone, Mail, Clock, ArrowUpRight } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageHero';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
+import { SectionHeading } from '@/components/ui/section-heading';
+import { AnimatedUnderline } from '@/components/ui/animated-underline';
 import { contactInfo } from '@/data/navigation';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -89,7 +91,15 @@ export default function ContactPage() {
 
       {/* CONTACT INFO — four cards */}
       <section className="section-shell py-20 md:py-28">
-        <StaggerGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Direct lines"
+            title="Reach the team that builds."
+            description="Call, write, or drop by the office. For anything else, the form on this page lands straight in the sales team's inbox."
+          />
+          <AnimatedUnderline className="mt-6" />
+        </ScrollReveal>
+        <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {infoCards.map((c) => {
             const inner = (
               <div className="h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-foreground/20 hover:shadow-[0_24px_50px_-24px_hsl(var(--foreground)/0.25)]">

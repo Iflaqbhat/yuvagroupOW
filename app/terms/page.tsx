@@ -4,7 +4,11 @@ import { PageHero } from '@/components/layout/PageHero';
 export default function TermsPage() {
   return (
     <>
-      <PageHero eyebrow="Legal" title="Terms & Conditions." />
+      <PageHero
+        eyebrow="Legal"
+        title="Terms & Conditions."
+        description="The terms that govern your use of this website and your engagement with Yuva Group developments."
+      />
       <section className="section-shell max-w-3xl py-16 md:py-24">
         <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
           <p>

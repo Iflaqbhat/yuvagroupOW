@@ -18,7 +18,7 @@ const statusColor: Record<string, string> = {
 
 export function ProjectsMapHero() {
   return (
-    <section className="relative flex min-h-[70vh] items-end overflow-hidden border-b border-foreground/10 bg-stone-50 pt-32">
+    <section className="relative flex min-h-screen items-end overflow-hidden border-b border-foreground/10 bg-stone-50">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{

@@ -1,12 +1,22 @@
 // File purpose: Reusable hero at the top of inner pages (eyebrow, title, description).
-// With an `image` it renders the full-bleed photography hero used on About (cinematic
-// scrim, oversized display type, white text); without one it keeps the light grid banner.
+// Image mode = the shared photography hero system (the About page is the benchmark): full-bleed
+// image with a cinematic scrim, oversized display type, a staggered entrance (label → heading →
+// description → CTA), a slow Ken-Burns settle, and a scroll cue. Light mode keeps the grid
+// banner but shares the same height, spacing, and typography so every internal page feels
+// like one system.
+//
+// Height: the section fills the full viewport (min-h-screen = 100vh) on every page, with the
+// content anchored to the bottom. The animated underline lives under the first content-section
+// heading of each page (see AnimatedUnderline).
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
-import { type ReactNode } from 'react';
+import { ArrowDown } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function PageHero({
   eyebrow,
@@ -21,29 +31,39 @@ export function PageHero({
   image?: string;
   children?: ReactNode;
 }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       className={cn(
         'relative flex overflow-hidden',
         image
           ? 'min-h-screen items-end bg-charcoal'
-          : 'min-h-[60vh] items-end border-b border-foreground/10 bg-stone-50 pt-32'
+          : 'min-h-screen items-end border-b border-foreground/10 bg-stone-50'
       )}
     >
       {image ? (
         <div className="absolute inset-0">
-          <Image
-            src={image}
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          {/* Cinematic scrim stack — strong at the bottom where the text sits, photo breathing at the top */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-charcoal/70 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-charcoal to-transparent" />
+          {/* Slow, barely-there settle so the photo feels alive without stealing attention */}
+          <motion.div
+            className="absolute inset-0 will-change-transform"
+            initial={{ scale: reduceMotion ? 1 : 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 16, ease: 'easeOut' }}
+          >
+            <Image
+              src={image}
+              alt=""
+              fill
+              priority
+              className="object-cover object-center contrast-[1.05] saturate-[1.05]"
+              sizes="100vw"
+            />
+          </motion.div>
+          {/* Cinematic scrim stack — strong at the bottom where the text sits, breathing at the top */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/75 to-charcoal/35" />
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-charcoal/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal to-transparent" />
         </div>
       ) : (
         <div
@@ -56,36 +76,44 @@ export function PageHero({
           aria-hidden
         />
       )}
-      <div className={cn('section-shell relative', image ? 'py-24 md:py-32' : 'py-16 md:py-24')}>
+      <div className={cn('section-shell relative', image ? 'py-16 md:py-28' : 'py-16 md:py-24')}>
+        {/* Each child carries its own delay so the sequence is always label → heading → description → CTA */}
         <motion.div
           initial="hidden"
           animate="show"
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+          variants={{ hidden: {}, show: {} }}
           className={cn(image && 'max-w-4xl')}
         >
           <motion.p
-            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-            className={cn('eyebrow mb-5', image && '!text-background/90')}
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+            }}
+            className={cn('eyebrow mb-6', image && '!text-background/90')}
           >
             {eyebrow}
           </motion.p>
           <motion.h1
-            variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE, delay: 0.12 } },
+            }}
             className={cn(
-              'font-display leading-[1.02] tracking-tight',
-              image
-                ? 'max-w-4xl text-5xl text-background md:text-7xl'
-                : 'text-4xl leading-[1.05] md:text-6xl'
+              'max-w-4xl font-display text-6xl leading-[1.02] tracking-tight md:text-8xl',
+              image && 'text-background'
             )}
           >
             {title}
           </motion.h1>
           {description && (
             <motion.p
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE, delay: 0.3 } },
+              }}
               className={cn(
-                'mt-6 text-lg leading-relaxed md:text-xl',
-                image ? 'max-w-2xl text-background/75' : 'max-w-xl text-muted-foreground'
+                'mt-8 max-w-2xl text-lg leading-relaxed md:text-xl',
+                image ? 'text-background/75' : 'text-muted-foreground'
               )}
             >
               {description}
@@ -93,7 +121,10 @@ export function PageHero({
           )}
           {children && (
             <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE, delay: 0.45 } },
+              }}
               className="mt-8"
             >
               {children}
@@ -101,6 +132,35 @@ export function PageHero({
           )}
         </motion.div>
       </div>
+      {image && (
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, y: 10, x: '-50%' }}
+          animate={{ opacity: 1, y: 0, x: '-50%' }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          onClick={(e) => {
+            // Scroll to the content right below the hero; fall back to one
+            // gentle viewport step if no next section exists.
+            const heroSection = (e.currentTarget as HTMLElement).closest('section');
+            const next = heroSection?.nextElementSibling;
+            if (next instanceof HTMLElement) {
+              next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            }
+          }}
+          className="absolute bottom-6 left-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-background/40 text-background/80 transition-colors duration-300 hover:border-background/70 hover:text-background md:bottom-8"
+          aria-label="Scroll down to content"
+        >
+          <motion.span
+            animate={reduceMotion ? {} : { y: [0, 5, 0] }}
+            transition={reduceMotion ? undefined : { duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex"
+          >
+            <ArrowDown className="h-4 w-4" />
+          </motion.span>
+        </motion.button>
+      )}
     </section>
   );
 }

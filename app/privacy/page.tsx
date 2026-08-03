@@ -4,7 +4,11 @@ import { PageHero } from '@/components/layout/PageHero';
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero eyebrow="Legal" title="Privacy Policy." />
+      <PageHero
+        eyebrow="Legal"
+        title="Privacy Policy."
+        description="How Yuva Group collects, uses, and protects your information when you browse this site or get in touch."
+      />
       <section className="section-shell prose-invert max-w-3xl py-16 md:py-24">
         <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
           <p>

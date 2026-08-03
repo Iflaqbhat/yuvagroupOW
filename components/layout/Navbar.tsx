@@ -40,7 +40,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'glass fixed inset-x-0 top-0 z-50 border-b border-foreground/10 transition-all duration-500',
+          'glass fixed inset-x-0 top-0 z-50 !border-b !border-foreground/25 transition-all duration-500',
           scrolled ? 'py-3' : 'py-5'
         )}
       >
