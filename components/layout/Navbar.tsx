@@ -92,7 +92,7 @@ export function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="smart-gradient group relative inline-flex items-center gap-2 overflow-hidden rounded-md px-5 py-2.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)] transition-all duration-300 hover:-translate-y-0.5"
+              className="smart-action group inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)]"
             >
               <span className="relative z-10">Enquire Now</span>
               <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -255,7 +255,7 @@ export function Navbar() {
                   </Link>
                   <Link
                     href="/contact"
-                    className="smart-gradient flex items-center justify-center gap-2 rounded-md py-3 text-sm font-bold text-accent-foreground"
+                    className="smart-action flex items-center justify-center gap-2 rounded-md py-3 text-sm font-bold text-accent-foreground"
                   >
                     <Phone className="h-4 w-4" />
                     Enquire Now

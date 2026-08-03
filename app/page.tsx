@@ -345,7 +345,7 @@ export default function Home() {
               href={youtubeChannel}
               target="_blank"
               rel="noreferrer"
-              className="smart-gradient group inline-flex items-center gap-3 overflow-hidden rounded-md px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
+              className="smart-action group inline-flex items-center gap-3 rounded-md px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)]"
             >
               <Youtube className="h-4 w-4" />
               Visit YouTube
@@ -542,7 +542,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="smart-gradient group mt-8 inline-flex items-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
+              className="smart-action group mt-8 inline-flex items-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)]"
             >
               Ask a question
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -609,14 +609,14 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/schedule-visit"
-                className="smart-gradient group inline-flex items-center gap-2 rounded-md px-7 py-4 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
+                className="smart-action group inline-flex items-center gap-2 rounded-md px-7 py-4 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)]"
               >
                 Schedule a Site Visit
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-md border border-accent/25 bg-background px-7 py-4 text-sm font-bold transition-colors hover:border-accent hover:text-accent"
+                className="smart-action inline-flex items-center gap-2 rounded-md px-7 py-4 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.18)]"
               >
                 Enquire Now
               </Link>

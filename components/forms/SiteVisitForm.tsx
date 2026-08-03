@@ -158,7 +158,7 @@ export function SiteVisitForm({ compact = false }: { compact?: boolean }) {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="smart-gradient flex w-full items-center justify-center gap-2 rounded-md py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.18)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+              className="smart-action flex w-full items-center justify-center gap-2 rounded-md py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.18)] disabled:opacity-60"
             >
               {status === 'loading' ? (
                 <>

@@ -28,7 +28,7 @@ export function StickyCTA() {
         <a
           href="/contact"
           aria-label="Contact Yuva Group"
-          className="smart-gradient group flex items-center gap-2.5 rounded-full py-3 pl-4 pr-5 text-sm font-bold text-accent-foreground shadow-xl shadow-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+          className="smart-action group flex items-center gap-2.5 rounded-full py-3 pl-4 pr-5 text-sm font-bold text-accent-foreground shadow-xl shadow-accent/20 hover:shadow-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
         >
           <Phone className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
           Contact Us
@@ -50,7 +50,7 @@ export function StickyCTA() {
         <a
           href="/contact"
           aria-label="Contact Yuva Group"
-          className="smart-gradient flex items-center justify-center gap-2 rounded-md px-4 py-3.5 text-sm font-bold text-accent-foreground shadow-lg transition-transform duration-200 active:scale-[0.98]"
+          className="smart-action flex items-center justify-center gap-2 rounded-md px-4 py-3.5 text-sm font-bold text-accent-foreground shadow-lg active:scale-[0.98]"
         >
           <Phone className="h-4 w-4" />
           Contact Us

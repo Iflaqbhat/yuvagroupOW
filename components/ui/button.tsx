@@ -10,7 +10,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'smart-gradient text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] hover:-translate-y-0.5',
+        default: 'smart-action text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)]',
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         outline:

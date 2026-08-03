@@ -81,7 +81,7 @@ export function ProjectsMapHero() {
           >
             <Link
               href="#project-list"
-              className="smart-gradient inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)] transition-transform hover:-translate-y-0.5"
+              className="smart-action inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)]"
             >
               View project list
               <ArrowUpRight className="h-4 w-4" />

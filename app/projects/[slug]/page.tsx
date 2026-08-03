@@ -242,7 +242,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   ))}
                 </dl>
                 <div className="mt-6 grid gap-3">
-                  <Link href="#visit" className="smart-gradient flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.18)] transition-transform hover:-translate-y-0.5">
+                  <Link href="#visit" className="smart-action flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.18)]">
                     <Calendar className="h-4 w-4" />
                     Schedule a Visit
                   </Link>
