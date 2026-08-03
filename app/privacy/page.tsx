@@ -1,3 +1,4 @@
+// File purpose: Privacy Policy page (legal).
 import { PageHero } from '@/components/layout/PageHero';
 
 export default function PrivacyPage() {

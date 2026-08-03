@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "toaster" component — a ready-made UI building block.
 'use client';
 
 import { useToast } from '@/hooks/use-toast';

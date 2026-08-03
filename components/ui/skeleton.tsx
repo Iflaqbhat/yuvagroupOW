@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "skeleton" component — a ready-made UI building block.
 import { cn } from '@/lib/utils';
 
 function Skeleton({

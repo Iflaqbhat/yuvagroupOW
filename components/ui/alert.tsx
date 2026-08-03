@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "alert" component — a ready-made UI building block.
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 

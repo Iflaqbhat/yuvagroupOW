@@ -1,3 +1,4 @@
+// File purpose: Terms & Conditions page (legal).
 import { PageHero } from '@/components/layout/PageHero';
 
 export default function TermsPage() {

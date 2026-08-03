@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "breadcrumb" component — a ready-made UI building block.
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { ChevronRight, MoreHorizontal } from 'lucide-react';

@@ -1,3 +1,4 @@
+// File purpose: 3D city-block scene (react-three-fiber). Currently not used on any page; kept as a reusable hero graphic.
 'use client';
 
 import { Suspense, useRef, useMemo } from 'react';

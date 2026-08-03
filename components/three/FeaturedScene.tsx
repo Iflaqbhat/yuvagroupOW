@@ -1,3 +1,4 @@
+// File purpose: 3D tower scene (react-three-fiber). Currently not used on any page; kept as a reusable graphic.
 'use client';
 
 import { Suspense, useRef, useMemo } from 'react';

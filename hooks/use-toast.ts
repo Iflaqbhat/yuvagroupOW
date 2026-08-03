@@ -1,3 +1,4 @@
+// File purpose: Toast notification helper used by the UI toast components.
 'use client';
 
 // Inspired by react-hot-toast library

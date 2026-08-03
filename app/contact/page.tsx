@@ -1,14 +1,44 @@
+// File purpose: Contact page: photo hero, contact info cards (call/email/office/hours),
+// enquiry form with client-side validation, and a map of the southern Bengaluru corridor.
 'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import { CheckCircle2, Loader2, AlertCircle, MapPin, Phone, Mail, Clock, ArrowUpRight } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageHero';
-import { ScrollReveal } from '@/components/motion/ScrollReveal';
+import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { contactInfo } from '@/data/navigation';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
+
+// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
+const heroImage =
+  'https://images.pexels.com/photos/14455165/pexels-photo-14455165.jpeg?auto=compress&cs=tinysrgb&w=1920';
+
+const infoCards = [
+  {
+    icon: Phone,
+    label: 'Call us',
+    value: contactInfo.phone,
+    href: 'tel:+918282823395',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: contactInfo.email,
+    href: `mailto:${contactInfo.email}`,
+  },
+  {
+    icon: MapPin,
+    label: 'Visit our office',
+    value: 'Chandapura, Bengaluru',
+  },
+  {
+    icon: Clock,
+    label: 'Office hours',
+    value: 'Mon – Sat, 10:00 – 18:00',
+  },
+];
 
 export default function ContactPage() {
   const [status, setStatus] = useState<Status>('idle');
@@ -45,154 +75,202 @@ export default function ContactPage() {
   };
 
   const fieldClass =
-    'w-full bg-stone-50 border border-foreground/15 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:outline-none transition-colors';
+    'w-full rounded-sm bg-stone-50 border border-foreground/15 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:outline-none transition-colors';
   const labelClass = 'mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground';
 
   return (
     <>
       <PageHero
+        image={heroImage}
         eyebrow="Get in touch"
         title="Contact our sales team."
         description="Questions about a project, a brochure, or a site visit? Reach the Yuva Group sales team directly."
       />
-      <section className="section-shell py-16 md:py-24">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl">Reach us</h2>
-              <div className="mt-6 space-y-5 text-sm">
-                <p className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  <span>{contactInfo.address}</span>
+
+      {/* CONTACT INFO — four cards */}
+      <section className="section-shell py-20 md:py-28">
+        <StaggerGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {infoCards.map((c) => {
+            const inner = (
+              <div className="h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-foreground/20 hover:shadow-[0_24px_50px_-24px_hsl(var(--foreground)/0.25)]">
+                <span className="flex h-11 w-11 items-center justify-center border border-foreground/10 text-accent">
+                  <c.icon className="h-5 w-5" />
+                </span>
+                <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  {c.label}
                 </p>
-                <p className="flex items-center gap-3">
-                  <Phone className="h-4 w-4 shrink-0 text-accent" />
-                  <span>{contactInfo.phone}</span>
-                </p>
-                <p className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 shrink-0 text-accent" />
-                  <span>{contactInfo.email}</span>
-                </p>
-                <p className="flex items-start gap-3">
-                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  <span>Monday – Saturday, 10:00 – 18:00</span>
-                </p>
+                <p className="mt-2 text-sm font-medium leading-relaxed">{c.value}</p>
               </div>
-              <div className="mt-8 border border-foreground/10 p-5">
-                <p className="eyebrow">Legal</p>
-                <p className="mt-2 text-sm text-muted-foreground">{contactInfo.legalName}</p>
-                <p className="text-sm text-muted-foreground">
-                  RERA:{' '}
+            );
+            return (
+              <StaggerItem key={c.label}>
+                {c.href ? (
                   <a
-                    href={contactInfo.reraUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-2 hover:text-foreground"
+                    href={c.href}
+                    className="group block h-full text-foreground transition-colors hover:text-accent"
                   >
-                    {contactInfo.rera}
+                    {inner}
                   </a>
-                </p>
+                ) : (
+                  inner
+                )}
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
+      </section>
+
+      {/* FORM + ASIDE */}
+      <section className="border-t border-foreground/10 bg-stone-50 py-20 md:py-28">
+        <div className="section-shell grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <ScrollReveal>
+              <div className="glass rounded-sm border border-foreground/10 p-6 md:p-10">
+                <AnimatePresence mode="wait">
+                  {status === 'success' ? (
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex flex-col items-center justify-center py-16 text-center"
+                    >
+                      <CheckCircle2 className="h-12 w-12 text-emerald" />
+                      <h3 className="mt-4 font-display text-2xl">Message sent</h3>
+                      <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+                        Thank you for reaching out. Our team will respond within one working day.
+                      </p>
+                      <button
+                        onClick={() => setStatus('idle')}
+                        className="mt-6 text-sm text-accent underline-offset-4 hover:underline"
+                      >
+                        Send another message
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <motion.form
+                      key="form"
+                      onSubmit={handleSubmit}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="space-y-5"
+                      noValidate
+                    >
+                      <div>
+                        <p className="eyebrow mb-3">Enquiry</p>
+                        <h2 className="font-display text-2xl">Send us a message.</h2>
+                      </div>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div>
+                          <label htmlFor="name" className={labelClass}>Full Name</label>
+                          <input id="name" name="name" type="text" className={fieldClass} placeholder="Your name" />
+                          {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+                        </div>
+                        <div>
+                          <label htmlFor="phone" className={labelClass}>Phone</label>
+                          <input id="phone" name="phone" type="tel" className={fieldClass} placeholder="+91" />
+                          {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="email" className={labelClass}>Email</label>
+                        <input id="email" name="email" type="email" className={fieldClass} placeholder="you@email.com" />
+                        {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+                      </div>
+                      <div>
+                        <label htmlFor="message" className={labelClass}>Message</label>
+                        <textarea id="message" name="message" rows={5} className={fieldClass} placeholder="How can we help?" />
+                        {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+                      </div>
+                      <button
+                        type="submit"
+                        disabled={status === 'loading'}
+                        className="flex w-full items-center justify-center gap-2 bg-foreground py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
+                      >
+                        {status === 'loading' ? (
+                          <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>
+                        ) : (
+                          'Send Enquiry'
+                        )}
+                      </button>
+                      {status === 'error' && (
+                        <p className="flex items-center gap-2 text-sm text-destructive">
+                          <AlertCircle className="h-4 w-4" /> Something went wrong. Please try again.
+                        </p>
+                      )}
+                    </motion.form>
+                  )}
+                </AnimatePresence>
               </div>
             </ScrollReveal>
           </div>
 
-          <div className="md:col-span-7">
-            <div className="glass rounded-sm border border-foreground/10 p-6 md:p-8">
-              <AnimatePresence mode="wait">
-                {status === 'success' ? (
-                  <motion.div
-                    key="success"
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex flex-col items-center justify-center py-16 text-center"
-                  >
-                    <CheckCircle2 className="h-12 w-12 text-emerald" />
-                    <h3 className="mt-4 font-display text-2xl">Message sent</h3>
-                    <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                      Thank you for reaching out. Our team will respond within one working day.
-                    </p>
-                    <button onClick={() => setStatus('idle')} className="mt-6 text-sm text-accent underline-offset-4 hover:underline">
-                      Send another message
-                    </button>
-                  </motion.div>
-                ) : (
-                  <motion.form
-                    key="form"
-                    onSubmit={handleSubmit}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="space-y-5"
-                    noValidate
-                  >
-                    <h3 className="font-display text-2xl">Send an enquiry</h3>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="name" className={labelClass}>Full Name</label>
-                        <input id="name" name="name" type="text" className={fieldClass} placeholder="Your name" />
-                        {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
-                      </div>
-                      <div>
-                        <label htmlFor="phone" className={labelClass}>Phone</label>
-                        <input id="phone" name="phone" type="tel" className={fieldClass} placeholder="+91" />
-                        {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="email" className={labelClass}>Email</label>
-                      <input id="email" name="email" type="email" className={fieldClass} placeholder="you@email.com" />
-                      {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
-                    </div>
-                    <div>
-                      <label htmlFor="message" className={labelClass}>Message</label>
-                      <textarea id="message" name="message" rows={5} className={fieldClass} placeholder="How can we help?" />
-                      {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={status === 'loading'}
-                      className="flex w-full items-center justify-center gap-2 bg-foreground py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
+          <div className="md:col-span-5">
+            <ScrollReveal delay={0.1}>
+              <div className="border border-foreground/10 bg-card p-6 md:p-8">
+                <p className="eyebrow mb-4">Our office</p>
+                <h2 className="font-display text-2xl">Visit us in Chandapura.</h2>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {contactInfo.address}
+                </p>
+                <div className="mt-6 space-y-3 border-t border-foreground/10 pt-6 text-sm">
+                  <p className="text-muted-foreground">{contactInfo.legalName}</p>
+                  <p className="text-muted-foreground">
+                    RERA:{' '}
+                    <a
+                      href={contactInfo.reraUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-foreground"
                     >
-                      {status === 'loading' ? (
-                        <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>
-                      ) : (
-                        'Send Enquiry'
-                      )}
-                    </button>
-                    {status === 'error' && (
-                      <p className="flex items-center gap-2 text-sm text-destructive">
-                        <AlertCircle className="h-4 w-4" /> Something went wrong. Please try again.
-                      </p>
-                    )}
-                  </motion.form>
-                )}
-              </AnimatePresence>
-            </div>
+                      {contactInfo.rera}
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.15}>
+              <div className="mt-6 border border-foreground/10 bg-card p-6 md:p-8">
+                <p className="eyebrow mb-4">Prefer email?</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  We respond to every enquiry within one working day — no automated replies.
+                </p>
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+                >
+                  <Mail className="h-4 w-4 text-accent" />
+                  {contactInfo.email}
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Map */}
-      <section className="border-t border-foreground/10">
-        <div className="section-shell py-16 md:py-24">
-          <ScrollReveal>
-            <h2 className="font-display text-2xl">Find us on the map</h2>
-            <p className="mt-2 max-w-lg text-sm text-muted-foreground">
-              Our projects span the southern Bengaluru corridor — from Electronic City to Attibele, Chandapura, Anekal Road, and Hosur Road.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="mt-8 overflow-hidden rounded-sm border border-foreground/10">
-              <iframe
-                title="Yuva Group project locations across south Bengaluru"
-                src="https://www.google.com/maps?q=Electronic+City,+Bengaluru,+Karnataka&z=11&output=embed"
-                className="h-[420px] w-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ border: 0 }}
-              />
-            </div>
-          </ScrollReveal>
-        </div>
+      {/* MAP */}
+      <section className="section-shell py-20 md:py-28">
+        <ScrollReveal>
+          <p className="eyebrow mb-4">Location</p>
+          <h2 className="font-display text-3xl tracking-tight md:text-5xl">Find us on the map.</h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
+            Our projects span the southern Bengaluru corridor — from Electronic City to Attibele,
+            Chandapura, Anekal Road, and Hosur Road.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <div className="mt-10 overflow-hidden rounded-sm border border-foreground/10 shadow-[0_30px_60px_-30px_hsl(var(--foreground)/0.3)]">
+            <iframe
+              title="Yuva Group project locations across south Bengaluru"
+              src="https://www.google.com/maps?q=Electronic+City,+Bengaluru,+Karnataka&z=11&output=embed"
+              className="h-[420px] w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              style={{ border: 0 }}
+            />
+          </div>
+        </ScrollReveal>
       </section>
     </>
   );

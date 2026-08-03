@@ -1,3 +1,4 @@
+// File purpose: Floating "Contact Us" buttons: bottom-right pill on desktop, full-width bar on mobile.
 'use client';
 
 import { Phone } from 'lucide-react';

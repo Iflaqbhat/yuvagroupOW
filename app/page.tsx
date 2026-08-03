@@ -1,13 +1,17 @@
+// File purpose: Homepage: hero with full-bleed video, stats, featured projects, amenities preview, philosophy, locations, testimonials, and the final call-to-action.
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, MapPin, Star, Quote, Building2, Hammer, ShieldCheck, Clock } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { ArrowUpRight, ArrowDown, MapPin, Building2, Hammer, ShieldCheck, Clock } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
+import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
+import { AnimatedCounter } from '@/components/motion/AnimatedCounter';
 import { projects, getFeaturedProjects, testimonials, companyStats, allAmenities, type Amenity } from '@/data/projects';
 
 const philosophy = [
@@ -21,6 +25,10 @@ export default function Home() {
   const amenityPhotos: Array<Amenity & { photo: string }> = allAmenities.filter(
     (a): a is Amenity & { photo: string } => Boolean(a.photo),
   );
+  // One shared observer for the stats section so every counter starts and
+  // finishes together the first time the section enters the viewport.
+  const statsRef = useRef<HTMLElement>(null);
+  const statsInView = useInView(statsRef, { once: true, margin: '-80px' });
   return (
     <>
       {/* HERO — full-bleed film behind the text with a refined scrim stack:
@@ -163,14 +171,14 @@ export default function Home() {
       </section>
 
       {/* STATS — company track record (client-confirmed counter data), placed above featured */}
-      <section className="border-b border-foreground/10 py-20">
+      <section ref={statsRef} className="border-b border-foreground/10 py-20">
         <div className="section-shell">
           <StaggerGroup className="grid grid-cols-2 gap-8 md:grid-cols-5">
             {companyStats.map((s) => (
               <StaggerItem key={s.label}>
                 <div className="text-center md:text-left">
                   <p className="font-display text-4xl tracking-tight md:text-5xl">
-                    {s.value}
+                    <AnimatedCounter value={parseInt(s.value, 10)} active={statsInView} />
                     <span className="text-accent">{s.suffix}</span>
                   </p>
                   <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.label}</p>
@@ -188,7 +196,7 @@ export default function Home() {
             <SectionHeading title="Featured developments" />
           </ScrollReveal>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {getFeaturedProjects().map((p, i) => (
               <FeaturedProjectCard key={p.slug} project={p} index={i} />
             ))}
@@ -278,18 +286,18 @@ export default function Home() {
               </Link>
             </div>
           </ScrollReveal>
-          {/* Two rows of comfortable tiles — big enough to read, compact enough to scan */}
-          <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {amenityPhotos.slice(0, 9).map((a) => (
+          {/* Two rows of four comfortable tiles — big enough to read, compact enough to scan */}
+          <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {amenityPhotos.slice(0, 8).map((a) => (
               <StaggerItem key={a.name}>
-                <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
+                <figure className="group relative overflow-hidden rounded-sm border border-foreground/10 bg-card">
                   <div className="relative aspect-square">
                     <Image
                       src={a.photo}
                       alt={a.name}
                       fill
                       loading="eager"
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                      sizes="(max-width: 640px) 50vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -313,13 +321,14 @@ export default function Home() {
               eyebrow="Our philosophy"
               title="How we build, and why it matters."
               align="center"
+              size="lg"
             />
           </ScrollReveal>
           <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {philosophy.map((p) => (
               <StaggerItem key={p.title}>
-                <div className="group h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-md">
-                  <span className="flex h-12 w-12 items-center justify-center border border-foreground/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                <div className="group h-full border border-foreground/10 bg-card p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-foreground/20 hover:shadow-[0_24px_50px_-24px_hsl(var(--foreground)/0.25)]">
+                  <span className="flex h-12 w-12 items-center justify-center border border-foreground/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
                     <p.icon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-5 font-display text-lg">{p.title}</h3>
@@ -331,8 +340,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LOCATION PREVIEW */}
-      <section className="border-b border-foreground/10 py-24 md:py-32">
+      {/* LOCATION PREVIEW — charcoal band (mirrors the About page achievements band) */}
+      <section className="bg-charcoal py-24 md:py-32">
         <div className="section-shell">
           <ScrollReveal>
             <SectionHeading
@@ -340,6 +349,8 @@ export default function Home() {
               title="South Bengaluru, connected."
               description="Yuva Group developments cluster along the city's southern growth corridor — close to Electronic City, Hosur Road, and the tech parks that drive demand."
               align="center"
+              invert
+              size="lg"
             />
           </ScrollReveal>
           <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -352,11 +363,11 @@ export default function Home() {
               { name: 'Singasandra', project: 'Yuva Lake View' },
             ].map((l) => (
               <StaggerItem key={l.project}>
-                <div className="group flex items-center gap-3 border border-foreground/10 bg-card px-5 py-4 transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
-                  <MapPin className="h-4 w-4 text-accent transition-transform group-hover:scale-110" />
+                <div className="group flex items-center gap-3 border border-background/10 bg-background/5 px-5 py-4 transition-all duration-300 hover:border-background/25 hover:bg-background/10">
+                  <MapPin className="h-4 w-4 text-accent-soft transition-transform group-hover:scale-110" />
                   <div>
-                    <p className="text-sm font-medium">{l.name}</p>
-                    <p className="text-xs text-muted-foreground">{l.project}</p>
+                    <p className="text-sm font-medium text-background">{l.name}</p>
+                    <p className="text-xs text-background/70">{l.project}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -378,23 +389,7 @@ export default function Home() {
           <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3">
             {testimonials.map((t) => (
               <StaggerItem key={t.project}>
-                <figure className="flex h-full flex-col border border-foreground/10 bg-card p-6 transition-all duration-300 hover:shadow-md">
-                  <Quote className="h-6 w-6 text-accent" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/90">
-                    {t.quote}
-                  </blockquote>
-                  <div className="mt-6 flex items-center justify-between border-t border-foreground/10 pt-4">
-                    <figcaption>
-                      <p className="text-sm font-medium">{t.name}</p>
-                      <p className="text-xs text-muted-foreground">{t.project} · {t.location}</p>
-                    </figcaption>
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: t.rating }).map((_, i) => (
-                        <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
-                      ))}
-                    </div>
-                  </div>
-                </figure>
+                <TestimonialCard t={t} />
               </StaggerItem>
             ))}
           </StaggerGroup>

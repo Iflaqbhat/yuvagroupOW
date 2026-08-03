@@ -1,3 +1,4 @@
+// File purpose: Amenities page: photo gallery of community amenities with readable labels, plus an "also included" list.
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { PageHero } from '@/components/layout/PageHero';
@@ -28,7 +29,7 @@ export default function AmenitiesPage() {
         <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {withPhoto.map((a) => (
             <StaggerItem key={a.name}>
-              <figure className="group relative overflow-hidden border border-foreground/10 bg-card">
+              <figure className="group relative overflow-hidden rounded-sm border border-foreground/10 bg-card">
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={a.photo}

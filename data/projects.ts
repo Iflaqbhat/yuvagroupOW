@@ -1,3 +1,4 @@
+// File purpose: All site data: projects, amenities, company stats, and testimonials.
 import type { Project, Testimonial, TeamMember } from '@/types';
 
 export const projects: Project[] = [
@@ -403,7 +404,7 @@ export const projects: Project[] = [
       },
     ],
     coordinates: { lat: 12.7189, lng: 77.6967 },
-    featured: false,
+    featured: true,
   },
   {
     slug: 'yuva-heritage',
@@ -591,6 +592,8 @@ export const testimonials: Testimonial[] = [
       'Very satisfied with the construction work by Yuva builders — cooperative and dedicated throughout, and everything we asked for was delivered on time. Thanks to Mahendra for the great work.',
     // The real site publishes no star rating for testimonials; stars are stylistic
     rating: 5,
+    // Avatar photo from the yuvagroup.in testimonials page
+    avatar: 'https://yuvagroup.in/wp-content/uploads/2025/04/WhatsApp-Image-2023-04-17-at-2.35.55-PM.jpeg',
   },
   {
     // Real testimonial from the yuvagroup.in homepage slider (paraphrased)
@@ -600,6 +603,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'The builder was very professional and communicative throughout the entire process. The quality of work was exceptional and exceeded our expectations, and the project was completed within the agreed-upon timeline and budget.',
     rating: 5,
+    // Avatar photo from the yuvagroup.in testimonials page
+    avatar: 'https://yuvagroup.in/wp-content/uploads/2025/04/WhatsApp-Image-2023-04-17-at-4.00.19-PM.jpeg',
   },
   {
     // Real testimonial from the yuvagroup.in homepage slider (paraphrased) — also the source
@@ -610,22 +615,57 @@ export const testimonials: Testimonial[] = [
     quote:
       'Thank you to the project team for the build-out of Yuva Lakeview at AECS Layout, Singasandra. The team was reliable and talented, and communicated with the whole project team throughout the course of construction.',
     rating: 5,
+    // Avatar photo from the yuvagroup.in testimonials page
+    avatar: 'https://yuvagroup.in/wp-content/uploads/2025/04/601-copy2.jpg',
   },
 ];
 
 export const team: TeamMember[] = [
+  // Full roster from the yuvagroup.in/about-us/ page: Mr. Mahendra Reddy (CEO) leads, with
+  // Mrs. Anitha Reddy as Managing Director, followed by the operations and sales team.
+  // Portraits are local copies of the original site's photos (public/photos/about/).
   {
-    // One person holds both titles (yuvagroup.in homepage: 'The Chief Executive Officer and
-    // Managing Director of Yuva Group, Mr. Mahendra Reddy'). NOTE: the real About page also
-    // lists Mrs. Anitha Reddy as Managing Director — client to confirm the intended leadership.
     name: 'Mr. Mahendra Reddy',
-    role: 'Chief Executive Officer & Managing Director',
-    // Bio paraphrased from yuvagroup.in homepage + About Us. Years figure aligned to the
-    // client-confirmed counter data (Years of Experiences 10+); the real About page bio says
-    // '15 Years in real estate' — client arbitration pending, easy to flip back.
-    bio: 'Mr. Mahendra Reddy built Yuva Group from the ground up, beginning with quality, value-driven apartments designed for modern homebuyers across Bengaluru. He later expanded the company into high-potential land development and villa projects. With around 10 years in real estate and about 10 completed projects to date, he continues to focus on construction quality and customer satisfaction.',
-    // Portrait used in the leadership block on yuvagroup.in/about-us/
-    image: 'https://yuvagroup.in/wp-content/uploads/2025/04/001-1.jpg.webp',
+    role: 'Chief Executive Officer',
+    // Bio verbatim from the original About page (15 Years in real estate is their figure;
+    // the homepage counters still show 10+ — kept as the client-confirmed counter data)
+    bio: 'Mr. Mahendra Reddy is the Managing Director and Chief Executive Officer of Yuva Group, with an extensive experience of 15 years in real estate. Over the last two decades as an entrepreneur, he has firmly established himself as one of the dominant and most successful developers of real estate in Bangalore. Mr. Reddy has completed around ten successful projects, with more currently under development across Bengaluru. As Managing Director, he has maintained superior quality and a customer-friendly atmosphere in every project he has been involved with, and he remains committed to construction quality and customer satisfaction.',
+    image: '/photos/about/ceo-mahendra-reddy.jpg',
+  },
+  {
+    name: 'Mrs. Anitha Reddy',
+    role: 'Managing Director',
+    image: '/photos/about/anitha-reddy.png',
+  },
+  {
+    name: 'J Vijay Kumar',
+    role: 'Manager',
+    image: '/photos/about/j-vijay-kumar.jpeg',
+  },
+  {
+    name: 'Prema Bai R',
+    role: 'Telesales Executive',
+    image: '/photos/about/prema-bai-r.jpeg',
+  },
+  {
+    name: 'Sakshi Singh A',
+    role: 'HR (Human Resources)',
+    image: '/photos/about/sakshi-singh-a.jpeg',
+  },
+  {
+    name: 'Yashas A',
+    role: 'Account Executive',
+    image: '/photos/about/yashas-a.jpeg',
+  },
+  {
+    name: 'V Penchalaiah',
+    role: 'Project Operations Supervisor',
+    image: '/photos/about/v-penchalaiah.jpeg',
+  },
+  {
+    name: 'Naveen',
+    role: 'Sales Executive',
+    image: '/photos/about/naveen.jpeg',
   },
 ];
 

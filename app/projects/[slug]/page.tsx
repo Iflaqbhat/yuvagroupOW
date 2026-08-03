@@ -1,3 +1,4 @@
+// File purpose: Individual project detail page: photos, highlights, specs, floor plans, location, and FAQs.
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';

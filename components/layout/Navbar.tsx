@@ -1,3 +1,4 @@
+// File purpose: Sticky top navigation: logo, menu links, Projects dropdown, and mobile menu.
 'use client';
 
 import { useEffect, useState } from 'react';

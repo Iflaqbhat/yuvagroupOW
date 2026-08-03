@@ -1,3 +1,4 @@
+// File purpose: Footer: logo, company description, contact details, and link columns.
 'use client';
 
 import Link from 'next/link';

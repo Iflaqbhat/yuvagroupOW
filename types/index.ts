@@ -1,3 +1,4 @@
+// File purpose: Shared TypeScript types (Project, Testimonial, NavItem, and more).
 export type ProjectStatus = 'ongoing' | 'ready-to-move' | 'completed';
 export type ProjectCategory = 'apartments' | 'villas' | 'plotted' | 'commercial';
 
@@ -66,7 +67,8 @@ export interface Project {
 export interface TeamMember {
   name: string;
   role: string;
-  bio: string;
+  // Long-form bio is only written for leadership; the team grid shows name + role.
+  bio?: string;
   image: string;
 }
 
@@ -76,6 +78,8 @@ export interface Testimonial {
   project: string;
   quote: string;
   rating: number;
+  // Photo of the reviewer, as used on the original yuvagroup.in testimonials page.
+  avatar?: string;
 }
 
 export interface NavItem {

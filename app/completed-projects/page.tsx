@@ -1,3 +1,4 @@
+// File purpose: Completed projects page: lists ready-to-move and delivered homes.
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/layout/PageHero';
 import { ProjectsExplorer } from '@/components/projects/ProjectsExplorer';

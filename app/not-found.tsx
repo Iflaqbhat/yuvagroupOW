@@ -1,3 +1,4 @@
+// File purpose: 404 page shown when a URL does not exist.
 import { PageHero } from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { Home } from 'lucide-react';

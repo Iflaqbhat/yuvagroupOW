@@ -1,3 +1,4 @@
+// File purpose: Thin accent bar at the top of the page that fills as you scroll (reading progress).
 'use client';
 
 import { motion, useScroll, useSpring } from 'framer-motion';

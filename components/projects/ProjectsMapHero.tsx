@@ -1,3 +1,4 @@
+// File purpose: Projects page header: a map-style graphic with project pins plus intro text.
 'use client';
 
 import { motion } from 'framer-motion';

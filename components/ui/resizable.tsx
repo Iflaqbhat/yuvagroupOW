@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "resizable" component — a ready-made UI building block.
 'use client';
 
 import { GripVertical } from 'lucide-react';

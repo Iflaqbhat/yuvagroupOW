@@ -1,3 +1,4 @@
+// File purpose: Schedule a Site Visit page: what to expect and the booking form.
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/layout/PageHero';
 import { SiteVisitForm } from '@/components/forms/SiteVisitForm';
@@ -11,10 +12,15 @@ export const metadata: Metadata = {
     'Book a guided site visit to any Yuva Group residential development across south Bengaluru.',
 };
 
+// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
+const heroImage =
+  'https://images.pexels.com/photos/34538286/pexels-photo-34538286.jpeg?auto=compress&cs=tinysrgb&w=1920';
+
 export default function ScheduleVisitPage() {
   return (
     <>
       <PageHero
+        image={heroImage}
         eyebrow="Book a walkthrough"
         title="Schedule a site visit."
         description="Walk through a Yuva home with our sales team before you decide. Choose a project, pick a date, and we will confirm your visit within one working day."

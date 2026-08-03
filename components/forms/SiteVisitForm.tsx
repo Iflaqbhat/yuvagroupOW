@@ -1,3 +1,4 @@
+// File purpose: Site visit booking form: checks name, phone, email, project and date, then shows a success message.
 'use client';
 
 import { useState } from 'react';

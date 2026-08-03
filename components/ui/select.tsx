@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "select" component — a ready-made UI building block.
 'use client';
 
 import * as React from 'react';

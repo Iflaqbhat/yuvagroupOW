@@ -1,3 +1,4 @@
+// File purpose: Root layout: loads fonts + global CSS, sets SEO metadata, and wraps every page with the navbar, footer, sticky contact buttons, and a scroll progress bar.
 import './globals.css';
 import type { Metadata } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';

@@ -1,3 +1,4 @@
+// File purpose: Tailwind theme: the colors, fonts, and animations used across the site.
 import type { Config } from 'tailwindcss';
 
 const config: Config = {

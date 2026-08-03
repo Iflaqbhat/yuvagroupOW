@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "sonner" component — a ready-made UI building block.
 'use client';
 
 import { useTheme } from 'next-themes';

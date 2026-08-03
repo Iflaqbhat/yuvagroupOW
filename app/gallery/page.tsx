@@ -1,3 +1,4 @@
+// File purpose: Gallery page: a visual archive of project photos.
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/layout/PageHero';
 import { projects } from '@/data/projects';
@@ -9,6 +10,10 @@ export const metadata: Metadata = {
     'A visual gallery of Yuva Group residential projects across south Bengaluru — exteriors, interiors, amenities, and landscaped spaces.',
 };
 
+// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
+const heroImage =
+  'https://images.pexels.com/photos/13752348/pexels-photo-13752348.jpeg?auto=compress&cs=tinysrgb&w=1920';
+
 export default function GalleryPage() {
   const allImages = projects.flatMap((p) =>
     p.gallery.map((g) => ({ ...g, project: p.name }))
@@ -17,6 +22,7 @@ export default function GalleryPage() {
   return (
     <>
       <PageHero
+        image={heroImage}
         eyebrow="Visual archive"
         title="Project gallery."
         description="A selection of images from Yuva Group developments — exteriors, interiors, amenities, and landscaped spaces across south Bengaluru."

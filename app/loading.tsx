@@ -1,3 +1,4 @@
+// File purpose: Loading screen shown briefly while a page loads.
 export default function Loading() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-stone-50">

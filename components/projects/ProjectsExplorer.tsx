@@ -1,3 +1,4 @@
+// File purpose: Filterable project grid (by status and type) used on the projects pages.
 'use client';
 
 import { useState, useMemo } from 'react';

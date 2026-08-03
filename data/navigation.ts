@@ -1,3 +1,4 @@
+// File purpose: Site navigation data: main menu links, footer links, and company contact details.
 import type { NavItem } from '@/types';
 
 export const mainNav: NavItem[] = [

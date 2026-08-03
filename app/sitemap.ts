@@ -1,3 +1,4 @@
+// File purpose: SEO helper: generates sitemap.xml listing every page and project.
 import type { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
 

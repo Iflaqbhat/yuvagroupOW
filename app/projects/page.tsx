@@ -1,3 +1,4 @@
+// File purpose: All projects page: map-style hero plus the filterable project explorer.
 import type { Metadata } from 'next';
 import { ProjectsMapHero } from '@/components/projects/ProjectsMapHero';
 import { ProjectsExplorer } from '@/components/projects/ProjectsExplorer';

@@ -1,3 +1,4 @@
+// File purpose: Reusable scroll animations: content fades/slides in once when it enters the viewport.
 'use client';
 
 import { motion, useInView, type Variants } from 'framer-motion';

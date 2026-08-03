@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "pagination" component — a ready-made UI building block.
 import * as React from 'react';
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 

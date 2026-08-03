@@ -1,3 +1,4 @@
+/* File purpose: Global styles: design tokens (colors, fonts), base element styles, and utility classes. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,7 +34,7 @@
     --input: 220 14% 92%;
     --ring: 348 44% 36%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
     /* Custom ramps */
     --ivory: 220 20% 98%;

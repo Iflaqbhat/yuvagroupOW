@@ -1,3 +1,4 @@
+// File purpose: Ongoing projects page: lists communities still under construction.
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/layout/PageHero';
 import { ProjectsExplorer } from '@/components/projects/ProjectsExplorer';

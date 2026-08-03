@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "collapsible" component — a ready-made UI building block.
 'use client';
 
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';

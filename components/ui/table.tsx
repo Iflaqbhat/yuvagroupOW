@@ -1,3 +1,4 @@
+// File purpose: standard shadcn/ui "table" component — a ready-made UI building block.
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
