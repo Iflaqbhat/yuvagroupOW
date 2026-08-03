@@ -15,9 +15,8 @@ export const metadata: Metadata = {
     'Amenities across Yuva Group residential communities in Bengaluru — clubhouses, pools, gyms, landscaped gardens, and shared spaces built for daily use.',
 };
 
-// Temporary hero photo (Pexels). Swap to /photos/amenities-hero.jpg once downloaded.
-const heroImage =
-  'https://images.pexels.com/photos/14021062/pexels-photo-14021062.jpeg?auto=compress&cs=tinysrgb&w=1920';
+// Hero photo — saved locally (was a Pexels placeholder).
+const heroImage = '/photos/hero/amenities-hero.avif';
 
 export default function AmenitiesPage() {
   const withPhoto: Array<Amenity & { photo: string }> = allAmenities.filter(

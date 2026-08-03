@@ -2,8 +2,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight, MapPin, Phone, Mail, Calendar } from 'lucide-react';
-import { footerNav, contactInfo } from '@/data/navigation';
+import { ArrowUpRight, MapPin, Phone, Mail, Calendar, Facebook, Instagram, Youtube, Linkedin, type LucideIcon } from 'lucide-react';
+import { footerNav, contactInfo, socialLinks } from '@/data/navigation';
+
+const socialIcons: Record<string, LucideIcon> = { Facebook, Instagram, Youtube, Linkedin };
 
 export function Footer() {
   return (
@@ -42,6 +44,29 @@ export function Footer() {
                 <Mail className="h-4 w-4 shrink-0 text-accent" />
                 {contactInfo.email}
               </p>
+              {contactInfo.additionalEmails.map((em) => (
+                <p key={em} className="flex items-center gap-2 pl-6">
+                  <span className="h-4 w-4 shrink-0" aria-hidden />
+                  {em}
+                </p>
+              ))}
+            </div>
+            <div className="mt-6 flex gap-3">
+              {socialLinks.map((s) => {
+                const Icon = socialIcons[s.label] ?? Facebook;
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${s.label} — Yuva Group`}
+                    className="flex h-9 w-9 items-center justify-center border border-foreground/15 text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

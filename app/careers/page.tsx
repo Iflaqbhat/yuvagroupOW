@@ -26,11 +26,9 @@ export const metadata: Metadata = {
     'Open positions at Yuva Group, Bengaluru — Sales Executive, Civil Engineer, CRM Executive, and Accounts Executive. Apply with your profile today.',
 };
 
-// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
-const heroImage =
-  'https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1920';
-const siteImage =
-  'https://images.pexels.com/photos/15200451/pexels-photo-15200451.jpeg?auto=compress&cs=tinysrgb&w=1200';
+// Hero + site photos — saved locally (were Pexels placeholders).
+const heroImage = '/photos/hero/careers-hero.avif';
+const siteImage = '/photos/careers/life-at-site.avif';
 
 type Opening = {
   title: string;

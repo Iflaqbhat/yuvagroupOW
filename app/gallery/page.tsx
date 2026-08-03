@@ -12,9 +12,8 @@ export const metadata: Metadata = {
     'A visual gallery of Yuva Group residential projects across south Bengaluru — exteriors, interiors, amenities, and landscaped spaces.',
 };
 
-// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
-const heroImage =
-  'https://images.pexels.com/photos/13752348/pexels-photo-13752348.jpeg?auto=compress&cs=tinysrgb&w=1920';
+// Hero photo — saved locally (was a Pexels placeholder).
+const heroImage = '/photos/hero/gallery-hero.avif';
 
 export default function GalleryPage() {
   const allImages = projects.flatMap((p) =>
@@ -34,7 +33,7 @@ export default function GalleryPage() {
           <SectionHeading
             eyebrow="The archive"
             title="Built for the everyday."
-            description="Every image below comes from a real Yuva Group development — the same materials, light, and detailing you will find on a site visit."
+            description="A preview of the kinds of spaces across Yuva developments — exteriors, interiors, amenities, and landscaped areas. Final project photography is being collected from site."
           />
           <AnimatedUnderline className="mt-6" />
         </ScrollReveal>

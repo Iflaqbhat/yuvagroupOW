@@ -7,7 +7,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight, ArrowDown, MapPin, Building2, Hammer, ShieldCheck, Clock } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { ProjectCard } from '@/components/projects/ProjectCard';
 import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
@@ -35,10 +34,13 @@ export default function Home() {
           text seated on the left, film breathing on the right, and a soft
           ramp into the white section below */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-charcoal">
-        {/* Background hero video */}
+        {/* Background hero video — aerial flyover of a residential neighbourhood.
+            (A still image variant lives at /photos/hero/home-hero.jpg if we
+            ever want to swap back.) */}
         <div className="absolute inset-0">
           <video
             className="h-full w-full object-cover"
+            style={{ filter: 'brightness(1.22) contrast(1.06) saturate(1.05)' }}
             src="/videos/hero.mp4"
             autoPlay
             muted
@@ -51,8 +53,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/40 to-charcoal/15" />
           {/* Top scrim — grounds the hero against the page edge */}
           <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/50 via-charcoal/15 to-transparent" />
-          {/* Soft ramp into the white section — near-white only at the seam, fading fast */}
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 via-background/25 to-transparent" />
           {/* Whisper of film grain for a premium cinematic finish */}
           <div
             aria-hidden="true"
@@ -121,17 +121,27 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll cue — a quiet glass chip that stays visible over the ramp */}
-        <motion.div
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
+        {/* Scroll cue — click to glide into the section below the hero */}
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, y: -6, x: '-50%' }}
+          animate={{ opacity: 1, y: 0, x: '-50%' }}
           transition={{ delay: 1.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          onClick={(e) => {
+            // Glide to the section right below the hero; fall back to one viewport step.
+            const heroSection = (e.currentTarget as HTMLElement).closest('section');
+            const next = heroSection?.nextElementSibling;
+            if (next instanceof HTMLElement) {
+              next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            }
+          }}
+          className="absolute bottom-8 left-1/2 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-charcoal/55 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md transition-colors duration-300 hover:border-white/70"
+          aria-label="Scroll down to content"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-charcoal/35 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md transition-colors duration-300 hover:border-white/50">
-            <ArrowDown className="h-4 w-4 animate-bounce text-white/90" />
-          </div>
-        </motion.div>
+          <ArrowDown className="h-4 w-4 animate-bounce text-white" />
+        </motion.button>
       </section>
 
       {/* INTRO */}

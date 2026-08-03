@@ -592,8 +592,8 @@ export const testimonials: Testimonial[] = [
       'Very satisfied with the construction work by Yuva builders — cooperative and dedicated throughout, and everything we asked for was delivered on time. Thanks to Mahendra for the great work.',
     // The real site publishes no star rating for testimonials; stars are stylistic
     rating: 5,
-    // Avatar photo from the yuvagroup.in testimonials page
-    avatar: 'https://yuvagroup.in/wp-content/uploads/2025/04/WhatsApp-Image-2023-04-17-at-2.35.55-PM.jpeg',
+    // Avatar photo — saved locally (was hosted on yuvagroup.in)
+    avatar: '/photos/testimonials/pradeep.webp',
   },
   {
     // Real testimonial from the yuvagroup.in homepage slider (paraphrased)
@@ -603,8 +603,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'The builder was very professional and communicative throughout the entire process. The quality of work was exceptional and exceeded our expectations, and the project was completed within the agreed-upon timeline and budget.',
     rating: 5,
-    // Avatar photo from the yuvagroup.in testimonials page
-    avatar: 'https://yuvagroup.in/wp-content/uploads/2025/04/WhatsApp-Image-2023-04-17-at-4.00.19-PM.jpeg',
+    // Avatar photo — saved locally (was hosted on yuvagroup.in)
+    avatar: '/photos/testimonials/shaik-mehbubbasha.webp',
   },
   {
     // Real testimonial from the yuvagroup.in homepage slider (paraphrased) — also the source
@@ -615,8 +615,8 @@ export const testimonials: Testimonial[] = [
     quote:
       'Thank you to the project team for the build-out of Yuva Lakeview at AECS Layout, Singasandra. The team was reliable and talented, and communicated with the whole project team throughout the course of construction.',
     rating: 5,
-    // Avatar photo from the yuvagroup.in testimonials page
-    avatar: 'https://yuvagroup.in/wp-content/uploads/2025/04/601-copy2.jpg',
+    // Avatar photo — saved locally (was hosted on yuvagroup.in)
+    avatar: '/photos/testimonials/adari-arun-kumar.webp',
   },
 ];
 
@@ -686,11 +686,11 @@ export const allAmenities = [
   { name: 'Gymnasium', icon: 'Dumbbell', photo: '/photos/amenities/gymnasium.jpg' },
   { name: 'Landscaped Gardens', icon: 'Trees', photo: '/photos/amenities/landscaped-gardens.jpg' },
   { name: 'Children’s Play Area', icon: 'Baby', photo: '/photos/amenities/childrens-play-area.jpg' },
-  { name: 'Jogging Track', icon: 'PersonStanding', photo: '/photos/amenities/jogging-track.jpg' },
+  { name: 'Walking Track', icon: 'PersonStanding', photo: '/photos/amenities/jogging-track.jpg' },
   {
     name: 'Indoor Games',
     icon: 'Gamepad2',
-    photo: 'https://images.pexels.com/photos/10627133/pexels-photo-10627133.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    photo: '/photos/amenities/indoor-games.avif',
   },
   { name: 'Multipurpose Hall', icon: 'Presentation', photo: '/photos/amenities/multipurpose-hall.jpg' },
   // Real company-wide amenities from yuvagroup.in (rainwater harvesting, metro facilities,
@@ -702,6 +702,7 @@ export const allAmenities = [
   { name: '24/7 Security', icon: 'ShieldCheck' },
   { name: 'Covered Parking', icon: 'Car' },
   { name: 'Power Backup', icon: 'Zap' },
+  { name: 'School Bus Waiting Lounge', icon: 'BusFront' },
 ];
 
 export type Amenity = (typeof allAmenities)[number];

@@ -7,7 +7,7 @@ import { ProjectCard } from '@/components/projects/ProjectCard';
 import { SiteVisitForm } from '@/components/forms/SiteVisitForm';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { ArrowUpRight, MapPin, Calendar, Building2, Check, Phone } from 'lucide-react';
+import { ArrowUpRight, MapPin, Calendar, Check, Phone } from 'lucide-react';
 import { contactInfo } from '@/data/navigation';
 import * as Accordion from '@radix-ui/react-accordion';
 import { cn } from '@/lib/utils';
@@ -111,7 +111,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="md:col-span-7">
             <ScrollReveal>
               <p className="eyebrow mb-4">Overview</p>
-              <h2 className="font-display text-3xl leading-tight md:text-4xl">{project.tagline}</h2>
+              <h2 className="font-display text-3xl italic leading-tight md:text-4xl">{project.tagline}</h2>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{project.longDescription}</p>
             </ScrollReveal>
           </div>

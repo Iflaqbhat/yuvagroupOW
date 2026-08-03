@@ -47,10 +47,27 @@ export const footerNav = {
 export const contactInfo = {
   phone: '+91 82 82 82 3395 / +91 82 82 82 3396',
   email: 'enquiry@yuvastructures.com',
+  additionalEmails: ['mahendra@yuvastructures.com', 'karthikb@yuvastructures.com'],
   address:
     '115, 2nd Floor, Sankirana, Hosur Road, Near Murali TVs Show Room, Chandapura, Bengaluru, Karnataka 560099, India',
   legalName: 'Yuva Structures Pvt. Ltd.',
   // No RERA registration number is published — link to the official Karnataka RERA portal instead
   rera: 'Karnataka RERA',
   reraUrl: 'https://rera.karnataka.gov.in/',
+};
+
+export const socialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/people/Yuva-Group/61575266570811/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/yuvagroup_yspl/' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@yuvagroups' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/yuva-group/' },
+];
+
+export const whatsapp = {
+  phone: '+918282823395',
+  // Pre-filled message used by the floating WhatsApp button and the contact page
+  message: 'Hello Yuva Group, I would like to know more about your projects.',
+  get link() {
+    return `https://wa.me/${this.phone.replace(/\D/g, '')}?text=${encodeURIComponent(this.message)}`;
+  },
 };

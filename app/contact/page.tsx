@@ -4,18 +4,17 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Loader2, AlertCircle, MapPin, Phone, Mail, Clock, ArrowUpRight } from 'lucide-react';
+import { CheckCircle2, Loader2, AlertCircle, MapPin, Phone, Mail, Clock, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageHero';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { AnimatedUnderline } from '@/components/ui/animated-underline';
-import { contactInfo } from '@/data/navigation';
+import { contactInfo, whatsapp } from '@/data/navigation';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
-// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
-const heroImage =
-  'https://images.pexels.com/photos/14455165/pexels-photo-14455165.jpeg?auto=compress&cs=tinysrgb&w=1920';
+// Hero photo — saved locally (was a Pexels placeholder).
+const heroImage = '/photos/hero/contact-hero.avif';
 
 const infoCards = [
   {
@@ -39,6 +38,12 @@ const infoCards = [
     icon: Clock,
     label: 'Office hours',
     value: 'Mon – Sat, 10:00 – 18:00',
+  },
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: 'Chat with our team',
+    href: whatsapp.link,
   },
 ];
 
@@ -245,14 +250,20 @@ export default function ContactPage() {
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   We respond to every enquiry within one working day — no automated replies.
                 </p>
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
-                >
-                  <Mail className="h-4 w-4 text-accent" />
-                  {contactInfo.email}
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+                <ul className="mt-5 space-y-2.5">
+                  {[contactInfo.email, ...contactInfo.additionalEmails].map((em) => (
+                    <li key={em}>
+                      <a
+                        href={`mailto:${em}`}
+                        className="group inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+                      >
+                        <Mail className="h-4 w-4 text-accent" />
+                        {em}
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
           </div>
@@ -272,8 +283,8 @@ export default function ContactPage() {
         <ScrollReveal delay={0.1}>
           <div className="mt-10 overflow-hidden rounded-sm border border-foreground/10 shadow-[0_30px_60px_-30px_hsl(var(--foreground)/0.3)]">
             <iframe
-              title="Yuva Group project locations across south Bengaluru"
-              src="https://www.google.com/maps?q=Electronic+City,+Bengaluru,+Karnataka&z=11&output=embed"
+              title="Yuva Group office and project locations across south Bengaluru"
+              src="https://www.google.com/maps?q=Chandapura,+Bengaluru,+Karnataka&z=12&output=embed"
               className="h-[420px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

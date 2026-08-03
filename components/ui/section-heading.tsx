@@ -42,7 +42,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            'mt-5 text-base leading-relaxed text-muted-foreground md:text-lg',
+            'mt-5 font-display text-base italic leading-relaxed text-muted-foreground md:text-lg',
             invert && 'text-background/70'
           )}
         >

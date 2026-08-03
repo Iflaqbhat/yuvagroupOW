@@ -16,9 +16,8 @@ export const metadata: Metadata = {
     'Yuva Group, incorporated as Yuva Structures Pvt. Ltd., is a Bengaluru real-estate developer with 15 years of experience. Meet the leadership and the team behind our completed communities.',
 };
 
-// Temporary hero photo (Pexels). Swap to /photos/about/about-hero.jpg once downloaded.
-const heroImage =
-  'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1920';
+// Hero photo — saved locally (was a Pexels placeholder).
+const heroImage = '/photos/hero/about-hero.avif';
 
 // Real numbers confirmed with the client (mirrors the homepage counters).
 const achievements: Stat[] = [
@@ -78,10 +77,10 @@ export default function AboutPage() {
                 {founder.name}
               </h2>
               <AnimatedUnderline className="mt-6" />
-              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              <p className="mt-4 font-display text-sm font-semibold uppercase tracking-[0.18em] text-accent">
                 {founder.role}
               </p>
-              <p className="mt-7 text-lg leading-relaxed text-muted-foreground">{founder.bio}</p>
+              <p className="mt-7 font-display text-lg italic leading-relaxed text-muted-foreground">{founder.bio}</p>
               <div className="mt-9 flex items-center gap-4">
                 <p className="font-display text-3xl italic tracking-tight text-foreground/80">
                   Mahendra Reddy

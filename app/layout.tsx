@@ -41,6 +41,13 @@ export const metadata: Metadata = {
     'Yuva Group',
     'Yuva Structures',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon/icon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -49,12 +56,14 @@ export const metadata: Metadata = {
     title: 'Yuva Group — Premium Homes in Bengaluru',
     description:
       'Premium and affordable apartments, villas, and residential communities across south Bengaluru.',
+    images: [{ url: '/photos/amenities/clubhouse.jpg', width: 1199, height: 799, alt: 'Yuva Group clubhouse' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Yuva Group — Premium Homes in Bengaluru',
     description:
       'Premium and affordable apartments, villas, and residential communities across south Bengaluru.',
+    images: ['/photos/amenities/clubhouse.jpg'],
   },
   robots: {
     index: true,

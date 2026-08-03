@@ -13,9 +13,8 @@ export const metadata: Metadata = {
     'Book a guided site visit to any Yuva Group residential development across south Bengaluru.',
 };
 
-// Temporary hero photo (Pexels). Swap to /photos/… once downloaded.
-const heroImage =
-  'https://images.pexels.com/photos/34538286/pexels-photo-34538286.jpeg?auto=compress&cs=tinysrgb&w=1920';
+// Hero photo — saved locally (was a Pexels placeholder).
+const heroImage = '/photos/hero/schedule-visit-hero.avif';
 
 export default function ScheduleVisitPage() {
   return (
@@ -33,7 +32,7 @@ export default function ScheduleVisitPage() {
               <p className="eyebrow mb-3">Plan your visit</p>
               <h2 className="font-display text-3xl tracking-tight md:text-4xl">What to expect</h2>
               <AnimatedUnderline className="mt-4" />
-              <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+              <p className="mt-5 font-display text-base italic leading-relaxed text-muted-foreground md:text-lg">
                 A visit is unhurried and guided — here is how the ninety minutes go.
               </p>
               <div className="mt-6 space-y-6 text-sm">
