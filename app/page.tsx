@@ -83,7 +83,7 @@ export default function Home() {
             >
               Homes built with
               <br />
-              <span className="text-accent-vivid">architectural intent.</span>
+              <span className="text-accent">architectural intent.</span>
             </motion.h1>
             <motion.p
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
