@@ -12,6 +12,7 @@ import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { AnimatedCounter } from '@/components/motion/AnimatedCounter';
+import { socialLinks } from '@/data/navigation';
 import {
   projects,
   getFeaturedProjects,
@@ -56,6 +57,8 @@ const homeFaqs = [
       'You can enquire through the website or schedule a personalized site visit. The sales team can help with project availability, payment plans, home loan support, and next steps.',
   },
 ];
+
+const youtubeChannel = socialLinks.find((link) => link.label === 'YouTube')?.href ?? 'https://www.youtube.com/@yuvagroups';
 
 export default function Home() {
   const amenityPhotos: Array<Amenity & { photo: string }> = allAmenities.filter(
@@ -337,6 +340,18 @@ export default function Home() {
               </StaggerItem>
             ))}
           </StaggerGroup>
+          <div className="mt-10 flex justify-center">
+            <a
+              href={youtubeChannel}
+              target="_blank"
+              rel="noreferrer"
+              className="smart-gradient group inline-flex items-center gap-3 overflow-hidden rounded-md px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
+            >
+              <Youtube className="h-4 w-4" />
+              Visit YouTube
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
         </div>
       </section>
 
