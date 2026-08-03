@@ -18,7 +18,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'ivory-fade': 'linear-gradient(180deg, hsl(40 40% 99%) 0%, hsl(40 36% 97%) 100%)',
+        'ivory-fade': 'linear-gradient(180deg, #ffffff 0%, #ffffff 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',

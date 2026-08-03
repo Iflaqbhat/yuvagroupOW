@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    /* Clean white architectural palette — white base, cool neutrals, charcoal, burgundy accent */
+    /* Clean white architectural palette — white base, cool neutrals, charcoal, blue accent */
     --background: 0 0% 100%;
     --foreground: 220 24% 12%;
 
@@ -24,7 +24,7 @@
     --muted: 220 16% 95%;
     --muted-foreground: 220 10% 42%;
 
-    --accent: 348 44% 36%;
+    --accent: 212 78% 44%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 42%;
@@ -32,12 +32,12 @@
 
     --border: 220 14% 90%;
     --input: 220 14% 92%;
-    --ring: 348 44% 36%;
+    --ring: 212 78% 44%;
 
     --radius: 0.5rem;
 
     /* Custom ramps */
-    --ivory: 220 20% 98%;
+    --ivory: 0 0% 100%;
     --stone-50: 0 0% 100%;
     --stone-100: 220 16% 94%;
     --stone-200: 220 14% 90%;
@@ -46,8 +46,8 @@
     --stone-500: 220 8% 52%;
     --charcoal: 220 24% 12%;
     --graphite: 220 18% 22%;
-    --burgundy: 348 44% 34%;
-    --accent-soft: 348 46% 68%;
+    --burgundy: 212 78% 44%;
+    --accent-soft: 210 84% 72%;
     --emerald: 158 30% 32%;
     --silver: 220 8% 72%;
   }
@@ -65,11 +65,11 @@
     --secondary-foreground: 40 30% 88%;
     --muted: 220 14% 18%;
     --muted-foreground: 220 8% 60%;
-    --accent: 348 44% 42%;
+    --accent: 212 78% 56%;
     --accent-foreground: 40 36% 94%;
     --border: 220 12% 22%;
     --input: 220 12% 20%;
-    --ring: 348 44% 42%;
+    --ring: 212 78% 56%;
   }
 }
 
@@ -123,7 +123,7 @@
     @apply mx-auto w-full max-w-7xl px-6 md:px-10;
   }
   .eyebrow {
-    @apply text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground;
+    @apply text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground;
   }
   .grain {
     position: relative;
@@ -173,6 +173,32 @@ section[id] {
   scroll-margin-top: 7rem;
 }
 
+.gallery-marquee {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: gallery-marquee 72s linear infinite;
+  will-change: transform;
+}
+
+.gallery-marquee:hover .gallery-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes gallery-marquee {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 /* Premium scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: hsl(var(--stone-100)); }
@@ -189,5 +215,9 @@ section[id] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .gallery-marquee-track {
+    animation: none !important;
   }
 }

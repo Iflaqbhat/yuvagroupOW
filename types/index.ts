@@ -25,6 +25,13 @@ export interface FloorPlan {
   alt: string;
 }
 
+export interface FloorPlanRow {
+  flat: string;
+  area: string;
+  facing: string;
+  bhk: string;
+}
+
 export interface GalleryImage {
   src: string;
   alt: string;
@@ -44,6 +51,9 @@ export interface Project {
   area: string;
   status: ProjectStatus;
   category: ProjectCategory;
+  officialCategory?: string;
+  sourceUrl?: string;
+  sourceNotes?: string[];
   description: string;
   longDescription: string;
   heroImage: string;
@@ -53,14 +63,16 @@ export interface Project {
   amenities: string[];
   specifications: ProjectSpecification[];
   floorPlans: FloorPlan[];
+  floorPlanRows?: FloorPlanRow[];
   startingPrice?: string;
   possession?: string;
   rera?: string;
   units?: string;
+  unitCount?: string;
   bedrooms?: string;
   connectivity: { label: string; distance: string }[];
   faqs: ProjectFaq[];
-  coordinates: { lat: number; lng: number };
+  coordinates?: { lat: number; lng: number };
   featured?: boolean;
 }
 

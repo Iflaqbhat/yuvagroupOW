@@ -1,24 +1,44 @@
-// File purpose: Projects page header: a map-style graphic with project pins plus intro text.
+// File purpose: Projects page header with clear buyer-stage navigation.
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowUpRight, Building2, CheckCircle2, Clock3 } from 'lucide-react';
 import { projects } from '@/data/projects';
+import type { ProjectStatus } from '@/types';
 
-const pins = projects.map((p) => {
-  const x = ((p.coordinates.lng - 77.6423) / (77.7151 - 77.6423)) * 78 + 11;
-  const y = 89 - ((p.coordinates.lat - 12.7189) / (12.8456 - 12.7189)) * 78;
-  return { x, y, name: p.name, area: p.area, status: p.status };
-});
+const statusLabel: Record<ProjectStatus, string> = {
+  'ongoing': 'Ongoing',
+  'ready-to-move': 'Ready to Move',
+  completed: 'Completed',
+};
 
-const statusColor: Record<string, string> = {
-  'ready-to-move': 'hsl(158 30% 32%)',
-  ongoing: 'hsl(348 44% 36%)',
-  completed: 'hsl(220 24% 40%)',
+const statusDescription: Record<ProjectStatus, string> = {
+  ongoing: 'Projects currently under construction.',
+  'ready-to-move': 'Finished homes available for immediate possession.',
+  completed: 'Delivered communities that show Yuva Group’s track record.',
+};
+
+const statusHref: Record<ProjectStatus, string> = {
+  ongoing: '/ongoing-projects',
+  'ready-to-move': '/ready-to-move-projects',
+  completed: '/completed-projects',
+};
+
+const statusIcon: Record<ProjectStatus, typeof Clock3> = {
+  ongoing: Clock3,
+  'ready-to-move': Building2,
+  completed: CheckCircle2,
 };
 
 export function ProjectsMapHero() {
+  const stageCards = (['ongoing', 'ready-to-move', 'completed'] as ProjectStatus[]).map((status) => ({
+    status,
+    count: projects.filter((project) => project.status === status).length,
+  }));
+
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden border-b border-foreground/10 bg-stone-50">
+    <section className="relative flex min-h-[82vh] items-center overflow-hidden border-b border-foreground/10 bg-background pt-24">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
@@ -29,173 +49,99 @@ export function ProjectsMapHero() {
         aria-hidden
       />
 
-      <div className="section-shell relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2">
+      <div className="section-shell relative grid items-center gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(23rem,0.72fr)]">
         <motion.div
           initial="hidden"
           animate="show"
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-          className="max-w-xl"
+          className="max-w-4xl"
         >
           <motion.p
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-            className="eyebrow mb-5"
+            className="eyebrow mb-6"
           >
             Our developments
           </motion.p>
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-            className="font-display text-4xl leading-[1.05] tracking-tight md:text-6xl"
+            className="max-w-4xl font-display text-5xl leading-[1.02] md:text-7xl lg:text-8xl"
           >
-            Shaping south Bengaluru.
+            Find your next Yuva home.
           </motion.h1>
           <motion.p
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-            className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground"
+            className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Six residential communities across Electronic City, Attibele, Chandapura, Anekal Road, and Hosur Road — each one shaping how the southern corridor grows.
+            Browse Yuva Group’s ongoing, ready-to-move, and completed residential projects across
+            Electronic City, Attibele, Chandapura, Hosur Road, and Anekal Road.
           </motion.p>
           <motion.div
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-            className="mt-8 flex flex-wrap gap-6 text-sm text-muted-foreground"
+            className="mt-10 flex flex-col gap-3 sm:flex-row"
           >
-            <span className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'hsl(348 44% 36%)' }} />
-              Under Construction
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'hsl(158 30% 32%)' }} />
-              Ready to Move
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'hsl(220 24% 40%)' }} />
-              Completed
-            </span>
+            <Link
+              href="#project-list"
+              className="inline-flex items-center justify-center gap-2 bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              View project list
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/ready-to-move-projects"
+              className="inline-flex items-center justify-center gap-2 border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              Ready to move homes
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </motion.div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-          className="relative aspect-square w-full max-w-lg justify-self-center"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          className="border border-foreground/10 bg-card p-5 shadow-[0_24px_80px_-48px_hsl(var(--foreground)/0.35)] md:p-6"
         >
-          <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden>
-            {/* Abstract road network */}
-            <motion.path
-              d="M 5 20 Q 30 18 50 25 T 95 30"
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.08)"
-              strokeWidth="0.6"
-              strokeDasharray="2 1.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 0.5, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M 10 50 Q 40 45 60 55 T 95 60"
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.08)"
-              strokeWidth="0.6"
-              strokeDasharray="2 1.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 0.7, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M 5 80 Q 35 75 55 82 T 95 85"
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.08)"
-              strokeWidth="0.6"
-              strokeDasharray="2 1.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 0.9, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M 30 5 Q 28 40 35 70 T 40 95"
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.08)"
-              strokeWidth="0.6"
-              strokeDasharray="2 1.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 0.6, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M 70 5 Q 68 40 75 70 T 80 95"
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.08)"
-              strokeWidth="0.6"
-              strokeDasharray="2 1.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 0.8, ease: 'easeInOut' }}
-            />
+          <div className="mb-5 flex items-end justify-between gap-4 border-b border-foreground/10 pb-5">
+            <div>
+              <p className="eyebrow mb-2">Browse by stage</p>
+              <p className="font-display text-3xl font-semibold leading-none">{projects.length} projects</p>
+            </div>
+            <Link href="/projects" className="text-sm font-semibold text-muted-foreground hover:text-foreground">
+              All
+            </Link>
+          </div>
 
-            {/* Connection lines between projects */}
-            {pins.slice(0, -1).map((p, i) => {
-              const next = pins[i + 1];
+          <div className="grid gap-3">
+            {stageCards.map(({ status, count }) => {
+              const Icon = statusIcon[status];
               return (
-                <motion.line
-                  key={`line-${i}`}
-                  x1={p.x}
-                  y1={p.y}
-                  x2={next.x}
-                  y2={next.y}
-                  stroke="hsl(var(--accent) / 0.15)"
-                  strokeWidth="0.3"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1.2 + i * 0.15, ease: 'easeInOut' }}
-                />
+                <Link
+                  key={status}
+                  href={statusHref[status]}
+                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 border border-foreground/10 p-4 transition-all duration-300 hover:border-accent/35 hover:bg-stone-50"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span>
+                    <span className="block font-display text-xl font-semibold leading-tight">
+                      {statusLabel[status]}
+                    </span>
+                    <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                      {statusDescription[status]}
+                    </span>
+                  </span>
+                  <span className="text-right">
+                    <span className="block font-display text-3xl leading-none">{count}</span>
+                    <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      Projects
+                    </span>
+                  </span>
+                </Link>
               );
             })}
-
-            {/* Project pins */}
-            {pins.map((p, i) => (
-              <g key={p.name}>
-                <motion.circle
-                  cx={p.x}
-                  cy={p.y}
-                  r="3.5"
-                  fill="none"
-                  stroke={statusColor[p.status]}
-                  strokeWidth="0.4"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: [0, 1.4, 1], opacity: [0, 0.6, 0] }}
-                  transition={{
-                    duration: 2.5,
-                    delay: 1.5 + i * 0.12,
-                    repeat: Infinity,
-                    repeatDelay: 1.5,
-                  }}
-                  style={{ transformOrigin: `${p.x}px ${p.y}px` }}
-                />
-                <motion.circle
-                  cx={p.x}
-                  cy={p.y}
-                  r="1.6"
-                  fill={statusColor[p.status]}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, delay: 1.3 + i * 0.12, ease: 'easeOut' }}
-                  style={{ transformOrigin: `${p.x}px ${p.y}px` }}
-                />
-                <motion.text
-                  x={p.x}
-                  y={p.y - 3.5}
-                  textAnchor="middle"
-                  className="fill-foreground"
-                  style={{ fontSize: '2.2px', fontWeight: 600 }}
-                  initial={{ opacity: 0, y: p.y - 1 }}
-                  animate={{ opacity: 1, y: p.y - 3.5 }}
-                  transition={{ duration: 0.5, delay: 1.6 + i * 0.12 }}
-                >
-                  {p.area}
-                </motion.text>
-              </g>
-            ))}
-          </svg>
+          </div>
         </motion.div>
       </div>
     </section>

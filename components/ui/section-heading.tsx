@@ -32,7 +32,7 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          'font-display leading-[1.05] tracking-tight',
+          'font-display font-semibold leading-[1.05]',
           size === 'lg' ? 'text-4xl md:text-6xl' : 'text-3xl leading-[1.1] md:text-5xl',
           invert && 'text-background'
         )}
@@ -42,7 +42,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            'mt-5 font-display text-base italic leading-relaxed text-muted-foreground md:text-lg',
+            'mt-5 text-base leading-relaxed text-muted-foreground md:text-lg',
             invert && 'text-background/70'
           )}
         >

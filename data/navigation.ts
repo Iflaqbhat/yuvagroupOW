@@ -10,6 +10,7 @@ export const mainNav: NavItem[] = [
     children: [
       { label: 'All Projects', href: '/projects' },
       { label: 'Ongoing Projects', href: '/ongoing-projects' },
+      { label: 'Ready to Move Projects', href: '/ready-to-move-projects' },
       { label: 'Completed Projects', href: '/completed-projects' },
     ],
   },

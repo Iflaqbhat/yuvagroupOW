@@ -1,26 +1,44 @@
-// File purpose: Completed projects page: lists ready-to-move and delivered homes.
+// File purpose: Completed projects page: lists delivered communities.
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageHero';
 import { ProjectsExplorer } from '@/components/projects/ProjectsExplorer';
-import { projects } from '@/data/projects';
+import { getProjectsByStatus } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'Completed Projects — Yuva Group',
   description:
-    'Completed and ready-to-move Yuva Group residential projects across south Bengaluru. Walk into homes available for immediate possession.',
+    'Completed Yuva Group residential communities across south Bengaluru — delivered projects that show the company’s track record.',
 };
 
 export default function CompletedProjectsPage() {
-  const completed = projects.filter((p) => p.status !== 'ongoing');
+  const completed = getProjectsByStatus('completed');
   return (
     <>
       <PageHero
-        eyebrow="Ready & delivered"
+        eyebrow="Delivered communities"
         title="Completed projects."
-        description="Completed and ready-to-move Yuva Group developments — occupied, settled, and available for immediate possession or resale enquiry."
-      />
-      <section className="section-shell py-16 md:py-24">
-        <ProjectsExplorer projects={completed} />
+        description="Delivered Yuva Group communities — occupied, settled, and useful as proof of the build quality behind every new launch."
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="#project-list"
+            className="inline-flex items-center justify-center gap-2 bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            View completed projects
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/projects"
+            className="inline-flex items-center justify-center gap-2 border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+          >
+            All projects
+          </Link>
+        </div>
+      </PageHero>
+      <section id="project-list" className="section-shell py-16 md:py-24">
+        <ProjectsExplorer projects={completed} activeStatus="completed" statusNavigation />
       </section>
     </>
   );

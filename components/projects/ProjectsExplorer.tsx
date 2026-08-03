@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import type { Project } from '@/types';
@@ -10,9 +11,25 @@ import { cn } from '@/lib/utils';
 type StatusFilter = 'all' | Project['status'];
 type CategoryFilter = 'all' | Project['category'];
 
-export function ProjectsExplorer({ projects }: { projects: Project[] }) {
-  const [status, setStatus] = useState<StatusFilter>('all');
+const categoryLabel: Record<Project['category'], string> = {
+  apartments: 'Apartments',
+  villas: 'Villas',
+  plotted: 'Plotted',
+  commercial: 'Commercial',
+};
+
+export function ProjectsExplorer({
+  projects,
+  activeStatus = 'all',
+  statusNavigation = false,
+}: {
+  projects: Project[];
+  activeStatus?: StatusFilter;
+  statusNavigation?: boolean;
+}) {
+  const [localStatus, setLocalStatus] = useState<StatusFilter>(activeStatus);
   const [category, setCategory] = useState<CategoryFilter>('all');
+  const status = statusNavigation ? activeStatus : localStatus;
 
   const filtered = useMemo(() => {
     return projects.filter((p) => {
@@ -22,24 +39,23 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
     });
   }, [projects, status, category]);
 
-  const statusFilters: { label: string; value: StatusFilter }[] = [
-    { label: 'All', value: 'all' },
-    { label: 'Ongoing', value: 'ongoing' },
-    { label: 'Ready to Move', value: 'ready-to-move' },
-    { label: 'Completed', value: 'completed' },
+  const statusFilters: { label: string; value: StatusFilter; href: string }[] = [
+    { label: 'All', value: 'all', href: '/projects' },
+    { label: 'Ongoing', value: 'ongoing', href: '/ongoing-projects' },
+    { label: 'Ready to Move', value: 'ready-to-move', href: '/ready-to-move-projects' },
+    { label: 'Completed', value: 'completed', href: '/completed-projects' },
   ];
   const categoryFilters: { label: string; value: CategoryFilter }[] = [
     { label: 'All Types', value: 'all' },
-    { label: 'Apartments', value: 'apartments' },
-    { label: 'Villas', value: 'villas' },
-    { label: 'Plotted', value: 'plotted' },
-    // 'Commercial' filter removed — no commercial projects are listed on this site; the
-    // real business does commercial/mixed-use work (see About page), but it has no projects here.
+    ...Array.from(new Set(projects.map((p) => p.category))).map((value) => ({
+      label: categoryLabel[value],
+      value,
+    })),
   ];
 
   const chipClass = (active: boolean) =>
     cn(
-      'px-4 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-300',
+      'inline-flex min-h-10 items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-all duration-300',
       active
         ? 'bg-foreground text-background'
         : 'border border-foreground/15 text-muted-foreground hover:border-foreground/30 hover:text-foreground'
@@ -47,29 +63,64 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
 
   return (
     <div>
-      <div className="mb-10 flex flex-col gap-6 border-b border-foreground/10 pb-8 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-wrap gap-2">
-          {statusFilters.map((f) => (
-            <button
-              key={f.value}
-              onClick={() => setStatus(f.value)}
-              className={chipClass(status === f.value)}
-            >
-              {f.label}
-            </button>
-          ))}
+      <div className="mb-8 grid gap-5 border-y border-foreground/10 py-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <div>
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            Project stage
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {statusFilters.map((f) =>
+              statusNavigation ? (
+                <Link
+                  key={f.value}
+                  href={f.href}
+                  aria-current={status === f.value ? 'page' : undefined}
+                  className={chipClass(status === f.value)}
+                >
+                  {f.label}
+                </Link>
+              ) : (
+                <button
+                  key={f.value}
+                  type="button"
+                  onClick={() => setLocalStatus(f.value)}
+                  className={chipClass(status === f.value)}
+                >
+                  {f.label}
+                </button>
+              ),
+            )}
+          </div>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {categoryFilters.map((f) => (
-            <button
-              key={f.value}
-              onClick={() => setCategory(f.value)}
-              className={chipClass(category === f.value)}
-            >
-              {f.label}
-            </button>
-          ))}
+        <div>
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground lg:text-right">
+            Type
+          </p>
+          <div className="flex flex-wrap gap-2 lg:justify-end">
+            {categoryFilters.map((f) => (
+              <button
+                key={f.value}
+                type="button"
+                onClick={() => setCategory(f.value)}
+                className={chipClass(category === f.value)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
         </div>
+      </div>
+
+      <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="eyebrow mb-2">Project list</p>
+          <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
+            {filtered.length} {filtered.length === 1 ? 'project' : 'projects'} available.
+          </h2>
+        </div>
+        <p className="max-w-sm text-sm leading-relaxed text-muted-foreground sm:text-right">
+          Use the filters above to compare by construction stage and property type.
+        </p>
       </div>
 
       {filtered.length === 0 ? (
@@ -77,7 +128,7 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
       ) : (
         <motion.div
           layout
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-7 lg:grid-cols-2"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => (

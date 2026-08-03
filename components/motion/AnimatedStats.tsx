@@ -12,7 +12,7 @@ export type Stat = { label: string; value: number; suffix: string };
 export function AnimatedStats({
   stats,
   className,
-  valueClassName = 'font-display text-5xl tracking-tight md:text-6xl',
+  valueClassName = 'font-display text-5xl md:text-6xl',
   labelClassName = 'mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground',
 }: {
   stats: Stat[];

@@ -274,7 +274,7 @@ export default function ContactPage() {
       <section className="section-shell py-20 md:py-28">
         <ScrollReveal>
           <p className="eyebrow mb-4">Location</p>
-          <h2 className="font-display text-3xl tracking-tight md:text-5xl">Find us on the map.</h2>
+          <h2 className="font-display text-3xl md:text-5xl">Find us on the map.</h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
             Our projects span the southern Bengaluru corridor — from Electronic City to Attibele,
             Chandapura, Anekal Road, and Hosur Road.

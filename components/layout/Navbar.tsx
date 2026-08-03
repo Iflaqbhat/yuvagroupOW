@@ -128,6 +128,7 @@ export function Navbar() {
                         {[
                           { label: 'All Projects', href: '/projects' },
                           { label: 'Ongoing Projects', href: '/ongoing-projects' },
+                          { label: 'Ready to Move Projects', href: '/ready-to-move-projects' },
                           { label: 'Completed Projects', href: '/completed-projects' },
                         ].map((l) => (
                           <li key={l.href}>
@@ -158,7 +159,7 @@ export function Navbar() {
                                 alt={p.heroAlt}
                                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                               />
-                              <span className="absolute left-3 top-3 bg-background/90 px-2 py-1 text-[10px] uppercase tracking-wider backdrop-blur">
+                              <span className="absolute left-3 top-3 bg-background/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] backdrop-blur">
                                 {p.status === 'ready-to-move'
                                   ? 'Ready'
                                   : p.status === 'ongoing'

@@ -5,9 +5,9 @@
 // banner but shares the same height, spacing, and typography so every internal page feels
 // like one system.
 //
-// Height: the section fills the full viewport (min-h-screen = 100vh) on every page, with the
-// content anchored to the bottom. The animated underline lives under the first content-section
-// heading of each page (see AnimatedUnderline).
+// Height: the section fills the full viewport (min-h-screen = 100vh) on every page. The copy
+// sits inside a consistent visual window so short titles land in the same place as About.
+// The animated underline lives under the first content-section heading of each page.
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
@@ -39,7 +39,7 @@ export function PageHero({
         'relative flex overflow-hidden',
         image
           ? 'min-h-screen items-end bg-charcoal'
-          : 'min-h-screen items-end border-b border-foreground/10 bg-stone-50'
+          : 'min-h-[72vh] items-center border-b border-foreground/10 bg-stone-50 pt-20'
       )}
     >
       {image ? (
@@ -76,13 +76,13 @@ export function PageHero({
           aria-hidden
         />
       )}
-      <div className={cn('section-shell relative', image ? 'py-16 md:py-28' : 'py-16 md:py-24')}>
+      <div className={cn('section-shell relative', image ? 'py-16 md:py-28' : 'py-14 md:py-20')}>
         {/* Each child carries its own delay so the sequence is always label → heading → description → CTA */}
         <motion.div
           initial="hidden"
           animate="show"
           variants={{ hidden: {}, show: {} }}
-          className={cn(image && 'max-w-4xl')}
+          className={cn(image && 'min-h-[26rem] max-w-4xl md:min-h-[27rem]')}
         >
           <motion.p
             variants={{
@@ -99,8 +99,8 @@ export function PageHero({
               show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE, delay: 0.12 } },
             }}
             className={cn(
-              'max-w-4xl font-display text-6xl leading-[1.02] tracking-tight md:text-8xl',
-              image && 'text-background'
+              'max-w-4xl font-display leading-[1.02]',
+              image ? 'text-6xl text-background md:text-8xl' : 'text-5xl md:text-7xl'
             )}
           >
             {title}

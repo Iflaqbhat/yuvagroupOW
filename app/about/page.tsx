@@ -62,7 +62,7 @@ export default function AboutPage() {
               </div>
               {/* Floating fact card overlapping the portrait */}
               <div className="absolute -bottom-6 right-4 border border-foreground/10 bg-background p-5 shadow-[0_20px_50px_-20px_hsl(var(--foreground)/0.35)] md:-right-8">
-                <p className="font-display text-3xl tracking-tight">10+</p>
+                <p className="font-display text-3xl">10+</p>
                 <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                   Projects delivered
                 </p>
@@ -73,7 +73,7 @@ export default function AboutPage() {
           <div className="md:col-span-6 md:col-start-7">
             <ScrollReveal>
               <p className="eyebrow mb-4">The Founder</p>
-              <h2 className="font-display text-4xl leading-[1.05] tracking-tight md:text-6xl">
+              <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
                 {founder.name}
               </h2>
               <AnimatedUnderline className="mt-6" />
@@ -82,7 +82,7 @@ export default function AboutPage() {
               </p>
               <p className="mt-7 font-display text-lg italic leading-relaxed text-muted-foreground">{founder.bio}</p>
               <div className="mt-9 flex items-center gap-4">
-                <p className="font-display text-3xl italic tracking-tight text-foreground/80">
+                <p className="font-display text-3xl italic text-foreground/80">
                   Mahendra Reddy
                 </p>
                 <span className="h-px flex-1 bg-foreground/10" aria-hidden />
@@ -174,7 +174,7 @@ export default function AboutPage() {
           <AnimatedStats
             stats={achievements}
             className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-5"
-            valueClassName="font-display text-5xl tracking-tight text-background md:text-6xl"
+            valueClassName="font-display text-5xl text-background md:text-6xl"
             labelClassName="mt-2 text-xs uppercase tracking-[0.2em] text-background/60"
           />
         </div>

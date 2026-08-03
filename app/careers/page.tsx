@@ -120,7 +120,7 @@ export default function CareersPage() {
                 <span className="flex h-11 w-11 items-center justify-center border border-foreground/10 text-accent">
                   <p.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-5 font-display text-lg tracking-tight">{p.title}</h3>
+                <h3 className="mt-5 font-display text-lg">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
               </div>
             </StaggerItem>
@@ -148,7 +148,7 @@ export default function CareersPage() {
           <div className="md:col-span-6 md:col-start-7">
             <ScrollReveal>
               <p className="eyebrow mb-4">A team of builders</p>
-              <h2 className="font-display text-3xl leading-[1.05] tracking-tight md:text-5xl">
+              <h2 className="font-display text-3xl leading-[1.05] md:text-5xl">
                 Your work shows up in homes people live in.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
@@ -197,7 +197,7 @@ export default function CareersPage() {
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald opacity-60" />
                         <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald" />
                       </span>
-                      <h3 className="font-display text-xl tracking-tight transition-colors duration-300 group-hover:text-accent md:text-2xl">
+                      <h3 className="font-display text-xl transition-colors duration-300 group-hover:text-accent md:text-2xl">
                         {o.title}
                       </h3>
                     </div>

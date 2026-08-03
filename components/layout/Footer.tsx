@@ -5,11 +5,18 @@ import Link from 'next/link';
 import { ArrowUpRight, MapPin, Phone, Mail, Calendar, Facebook, Instagram, Youtube, Linkedin, type LucideIcon } from 'lucide-react';
 import { footerNav, contactInfo, socialLinks } from '@/data/navigation';
 
-const socialIcons: Record<string, LucideIcon> = { Facebook, Instagram, Youtube, Linkedin };
+const socialIcons: Record<string, LucideIcon> = {
+  Facebook,
+  Instagram,
+  YouTube: Youtube,
+  Youtube,
+  LinkedIn: Linkedin,
+  Linkedin,
+};
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-foreground/10 bg-stone-100">
+    <footer className="relative overflow-hidden border-t border-foreground/10 bg-background">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
@@ -19,33 +26,33 @@ export function Footer() {
         }}
         aria-hidden
       />
-      <div className="section-shell relative py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-4">
+      <div className="section-shell relative py-14 md:py-20">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-5">
             <Link href="/" className="inline-flex" aria-label="Yuva Group home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo.png" alt="Yuva Group" className="h-12 w-auto object-contain" />
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
               Yuva Structures Pvt. Ltd. — building premium and affordable homes across south
               Bengaluru with a focus on architectural quality, dependable delivery, and long-term
               value.
             </p>
-            <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-              <p className="flex items-start gap-2">
+            <div className="mt-6 grid gap-3 text-sm text-muted-foreground">
+              <p className="flex max-w-md items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 {contactInfo.address}
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-accent" />
                 {contactInfo.phone}
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-accent" />
                 {contactInfo.email}
               </p>
               {contactInfo.additionalEmails.map((em) => (
-                <p key={em} className="flex items-center gap-2 pl-6">
+                <p key={em} className="flex items-center gap-3">
                   <span className="h-4 w-4 shrink-0" aria-hidden />
                   {em}
                 </p>
@@ -70,55 +77,57 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="md:col-span-2">
-            <p className="eyebrow mb-4">Projects</p>
-            <ul className="space-y-2">
-              {footerNav.projects.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid gap-8 sm:grid-cols-3 lg:col-span-5">
+            <div>
+              <p className="eyebrow mb-4">Projects</p>
+              <ul className="space-y-2">
+                {footerNav.projects.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="eyebrow mb-4">Company</p>
+              <ul className="space-y-2">
+                {footerNav.company.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="eyebrow mb-4">Resources</p>
+              <ul className="space-y-2">
+                {footerNav.resources.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="md:col-span-2">
-            <p className="eyebrow mb-4">Company</p>
-            <ul className="space-y-2">
-              {footerNav.company.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <p className="eyebrow mb-4">Resources</p>
-            <ul className="space-y-2">
-              {footerNav.resources.map((l) => (
-                <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
+          <div className="border-t border-foreground/10 pt-8 sm:border-t-0 sm:pt-0 lg:col-span-2">
             <p className="eyebrow mb-4">Visit Us</p>
             <p className="text-sm text-muted-foreground">
               Book a guided walkthrough of any Yuva Group development.
@@ -134,11 +143,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-foreground/10 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-12 grid gap-4 border-t border-foreground/10 pt-6 text-xs text-muted-foreground md:grid-cols-[1fr_auto_auto] md:items-center">
           <p>
             © {new Date().getFullYear()} {contactInfo.legalName}. All rights reserved.
           </p>
-          <p>
+          <p className="md:text-center">
             RERA:{' '}
             <a
               href={contactInfo.reraUrl}

@@ -1,6 +1,40 @@
 // File purpose: All site data: projects, amenities, company stats, and testimonials.
 import type { Project, Testimonial, TeamMember } from '@/types';
 
+const sunriseFloorPlanRows = [
+  { flat: '1', area: '1,672 sft', facing: 'East', bhk: '3 BHK' },
+  { flat: '2', area: '1,280 sft', facing: 'East', bhk: '2 BHK' },
+  { flat: '3', area: '778 sft', facing: 'West', bhk: '1 BHK' },
+  { flat: '4', area: '1,658 sft', facing: 'East', bhk: '3 BHK' },
+  { flat: '5', area: '1,243 sft', facing: 'East', bhk: '2 BHK' },
+  { flat: '6', area: '1,170 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '7', area: '1,196 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '8', area: '1,246 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '9', area: '1,133 sft', facing: 'West', bhk: '2 BHK' },
+  { flat: '10', area: '1,091 sft', facing: 'East', bhk: '2 BHK' },
+  { flat: '11', area: '1,095 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '12', area: '1,255 sft', facing: 'East', bhk: '2 BHK' },
+  { flat: '13', area: '1,333 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '14', area: '1,057 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '15', area: '1,119 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '16', area: '1,158 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '17', area: '1,414 sft', facing: 'East', bhk: '3 BHK' },
+];
+
+const utsavSunshineFloorPlanRows = [
+  { flat: '1', area: '1,438 sft', facing: 'East', bhk: '3 BHK' },
+  { flat: '2', area: '1,449 sft', facing: 'North', bhk: '3 BHK' },
+  { flat: '3', area: '1,088 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '4', area: '1,147 sft', facing: 'North', bhk: '2 BHK' },
+  { flat: '5', area: '1,417 sft', facing: 'North', bhk: '3 BHK' },
+  { flat: '6', area: '1,271 sft', facing: 'East', bhk: '3 BHK' },
+  { flat: '7', area: '622 sft', facing: 'East', bhk: '1 BHK' },
+  { flat: '8', area: '1,331 sft', facing: 'East', bhk: '3 BHK' },
+  { flat: '9', area: '661 sft', facing: 'West', bhk: '1 BHK' },
+  { flat: '10', area: '1,020 sft', facing: 'East', bhk: '2 BHK' },
+  { flat: '11', area: '1,111 sft', facing: 'East', bhk: '2 BHK' },
+];
+
 export const projects: Project[] = [
   {
     slug: 'yuva-sunrise',
@@ -11,29 +45,38 @@ export const projects: Project[] = [
     area: 'Attibele Industrial Area',
     status: 'ready-to-move',
     category: 'apartments',
+    officialCategory: 'Affordable Flats',
+    sourceUrl: 'https://yuvagroup.in/yuva-sunrise/',
+    sourceNotes: [
+      'Official project page describes Yuva Sunrise as 68 affordable flats with 1, 2 and 3 BHK units near Electronic City, Chandapura and Hosur National Highway.',
+      'Floor-plan rows, specifications, amenities and map-connectivity items are taken from the public project page.',
+    ],
     description:
       'Spacious 1, 2 & 3 BHK apartments off Hosur Road, designed for natural light and cross ventilation, close to Electronic City’s tech corridor.',
     longDescription:
-      'Yuva Sunrise is a ready-to-move residential community of 68 affordable flats at the Attibele Industrial Area, off Hosur Road near Electronic City. Surrounded by open green space, the towers are oriented to capture morning light — deep balconies, large windows, and thoughtfully planned floor plates keep the living spaces airy through the day. Landscaped courtyards, a central clubhouse, and walking paths make the community feel complete rather than under construction.',
-    heroImage:
-      'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Sunrise apartment towers with landscaped entrance off Hosur Road',
+      'Yuva Sunrise is listed by Yuva Group as a ready-to-move affordable apartment project with 68 flats in an open green setting near Electronic City, Chandapura and Hosur National Highway. The official page highlights 1, 2 and 3 BHK homes, everyday civic access, educational institutions, healthcare options, IT corridors and a broad amenity set for family living.',
+    heroImage: '/photos/projects/yuva-sunrise-hero.jpg',
+    heroAlt: 'Official Yuva Sunrise apartment exterior render with landscaped entrance off Hosur Road',
     gallery: [
       {
-        src: 'https://images.pexels.com/photos/210412/pexels-photo-210412.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Sunrise tower facade at dusk',
+        src: '/photos/projects/yuva-sunrise-gallery-1.jpg',
+        alt: 'Yuva Sunrise official entrance facade render',
       },
       {
-        src: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Sunrise living room interior with natural light',
+        src: '/photos/projects/yuva-sunrise-gallery-2.jpg',
+        alt: 'Yuva Sunrise official exterior render from the front approach',
       },
       {
-        src: 'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Sunrise clubhouse and swimming pool',
+        src: '/photos/projects/yuva-sunrise-gallery-3.jpg',
+        alt: 'Yuva Sunrise official apartment tower render',
       },
       {
-        src: 'https://images.pexels.com/photos/803975/pexels-photo-803975.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Sunrise landscaped courtyard',
+        src: '/photos/projects/yuva-sunrise-gallery-4.jpg',
+        alt: 'Yuva Sunrise official community render',
+      },
+      {
+        src: '/photos/projects/yuva-sunrise-gallery-5.jpg',
+        alt: 'Yuva Sunrise official residential exterior render',
       },
     ],
     highlights: [
@@ -55,29 +98,34 @@ export const projects: Project[] = [
       'Banquet hall',
       'Rainwater harvesting',
       '100% power backup',
-      'Metro facility (upcoming)',
+      'Metro facilities',
+      'School bus waiting lounge',
+      'Intercom facility',
+      'Tennis court & basketball court',
+      'Multipurpose court',
       '24/7 security',
     ],
     specifications: [
       {
         category: 'Structure',
         items: [
-          { label: 'Frame', value: 'RCC framed structure' },
-          { label: 'Blocks', value: 'Solid concrete block masonry' },
+          { label: 'Frame', value: 'RCC framed structure designed for Zone II regulations' },
+          { label: 'Walls', value: 'Solid block walls for internal and external masonry' },
         ],
       },
       {
-        category: 'Finishes',
+        category: 'Water & plumbing',
         items: [
-          { label: 'Living walls', value: 'Premium emulsion paint' },
-          { label: 'Flooring', value: 'Vitrified tiles' },
+          { label: 'Water supply', value: 'Borewell, underground sump and overhead Sintex tank' },
+          { label: 'Plumbing', value: 'Concealed Astral plumbing and CP fittings' },
         ],
       },
       {
-        category: 'Fittings',
+        category: 'Interiors',
         items: [
-          { label: 'Doors', value: 'Engineered hardwood frame' },
-          { label: 'Windows', value: 'UPVC with mosquito mesh' },
+          { label: 'Kitchen', value: '30 mm granite counter top with stainless steel sink' },
+          { label: 'Plastering', value: 'Smooth lime-rendered interiors and sponge-finished exteriors' },
+          { label: 'Sanitary fittings', value: 'White sanitary fittings and CP fittings from branded ranges' },
         ],
       },
     ],
@@ -88,24 +136,24 @@ export const projects: Project[] = [
         name: '2 BHK — Sunrise',
         type: '2 BHK',
         area: '1,280 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/210412/pexels-photo-210412.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 2 BHK unit at Yuva Sunrise',
+        image: '/photos/projects/yuva-sunrise-floorplan-2.jpg',
+        alt: 'Official floor plan for 2 BHK unit at Yuva Sunrise',
       },
       {
         name: '3 BHK — Sunrise',
         type: '3 BHK',
         area: '1,672 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 3 BHK unit at Yuva Sunrise',
+        image: '/photos/projects/yuva-sunrise-floorplan-1.jpg',
+        alt: 'Official floor plan for 3 BHK unit at Yuva Sunrise',
       },
     ],
+    floorPlanRows: sunriseFloorPlanRows,
     startingPrice: 'From Rs. 50 Lac*',
     possession: 'Ready to Move',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
     units: '1, 2 & 3 BHK apartments',
+    unitCount: '68 affordable flats',
     bedrooms: '1, 2 & 3 BHK',
     // Nearby landmarks from the 'Map Location' block on yuvagroup.in/yuva-sunrise/
     connectivity: [
@@ -113,6 +161,10 @@ export const projects: Project[] = [
       { label: 'Electronic City', distance: '10 km' },
       { label: 'Hosur Airport (upcoming)', distance: '18 km' },
       { label: 'Whitefield', distance: '25 km' },
+      { label: 'Narayana Hrudayalaya', distance: 'Nearby' },
+      { label: 'Vimalaya Hospital', distance: 'Nearby' },
+      { label: 'Oxford Medical College and Hospital', distance: 'Nearby' },
+      { label: 'Alliance University', distance: 'Nearby' },
     ],
     faqs: [
       {
@@ -139,25 +191,26 @@ export const projects: Project[] = [
     area: 'Kammasandra',
     status: 'ongoing',
     category: 'apartments',
+    officialCategory: 'Affordable Flats',
+    sourceUrl: 'https://yuvagroup.in/yuva-utsav/',
+    sourceNotes: [
+      'Official page presents Yuva Utsav as premium luxury apartments in Kammasandra, Electronic City Phase 2.',
+      'The public homepage lists Yuva Utsav under both ongoing and ready-to-move groupings; this redesign keeps it under ongoing until the sales team confirms handover status.',
+    ],
     description:
       'A growing residential community of 1, 2 & 3 BHK homes in Kammasandra, Electronic City Phase 2.',
     longDescription:
-      'Yuva Utsav is an ongoing development designed around the idea of a complete neighbourhood rather than a standalone tower. The master plan clusters homes around shared courtyards, a central green, and a clubhouse, so residents meet naturally rather than passing anonymously. Construction is progressing in phases, with the first towers approaching completion and the community spaces already taking shape.',
-    heroImage:
-      'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Utsav residential community under construction in Kammasandra, Electronic City Phase 2',
+      'Yuva Utsav is presented by Yuva Group as a modern apartment project in Kammasandra, Electronic City Phase 2. The official project page focuses on premium apartment living, reliable water systems, granite kitchen counters, Astral plumbing, branded sanitary fittings, a grand entrance experience and daily-use amenities for residents.',
+    heroImage: '/photos/projects/yuva-utsav-hero.png',
+    heroAlt: 'Official Yuva Utsav mixed-use apartment exterior render in Electronic City Phase 2',
     gallery: [
       {
-        src: 'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Utsav central courtyard',
+        src: '/photos/projects/yuva-utsav-gallery-2.jpg',
+        alt: 'Yuva Utsav official residential and retail exterior render',
       },
       {
-        src: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Utsav apartment interior',
-      },
-      {
-        src: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Utsav tower exterior',
+        src: '/photos/projects/yuva-utsav-hero.png',
+        alt: 'Yuva Utsav official apartment elevation render',
       },
     ],
     highlights: [
@@ -180,21 +233,34 @@ export const projects: Project[] = [
       'Multipurpose hall',
       'Rainwater harvesting',
       '100% power backup',
+      'Chess',
+      'Carrom',
+      'Indoor games',
+      'School bus waiting lounge',
       '24/7 security',
     ],
     specifications: [
       {
-        category: 'Structure',
+        category: 'Structure & walls',
         items: [
-          { label: 'Frame', value: 'RCC framed structure' },
-          { label: 'Blocks', value: 'Solid concrete block masonry' },
+          { label: 'Foundation & structure', value: 'RCC framed structure' },
+          { label: 'Super structure', value: 'AAC concrete blocks for external and internal walls' },
         ],
       },
       {
-        category: 'Finishes',
+        category: 'Finishes & services',
         items: [
-          { label: 'Living walls', value: 'Premium emulsion paint' },
-          { label: 'Flooring', value: 'Vitrified tiles' },
+          { label: 'Flooring', value: 'Vitrified tiles in hall and dining; ceramic tiles for other areas and toilets' },
+          { label: 'Painting', value: 'Internal walls and ceiling with OBD; external walls with cement finish' },
+          { label: 'Electrical', value: 'Standard equivalent switches' },
+        ],
+      },
+      {
+        category: 'Fittings',
+        items: [
+          { label: 'Lift', value: 'One 6-passenger lift serving all floors' },
+          { label: 'Toilets', value: 'Ceramic glazed tile dado up to 7 ft with standard CP fittings' },
+          { label: 'Kitchen', value: 'Built-in stainless steel sink and exhaust fan provision' },
         ],
       },
     ],
@@ -205,24 +271,28 @@ export const projects: Project[] = [
         name: '2 BHK — Utsav',
         type: '2 BHK',
         area: '1,088 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 2 BHK unit at Yuva Utsav',
+        image: '/photos/projects/yuva-utsav-gallery-1.jpg',
+        alt: 'Official typical floor plan at Yuva Utsav',
       },
     ],
+    floorPlanRows: utsavSunshineFloorPlanRows,
     startingPrice: 'From Rs. 50 Lac*',
     possession: 'To be confirmed with the sales team',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
     units: '1, 2 & 3 BHK apartments',
+    unitCount: '11 typical unit types shown',
     bedrooms: '1, 2 & 3 BHK',
     // Nearby landmarks from the 'Map Location' block on yuvagroup.in/yuva-utsav/
     connectivity: [
       { label: 'Hebbagudi Metro Station', distance: '5 min' },
       { label: 'Bangalore–Hosur Main Road (NH-7)', distance: '4 min' },
       { label: 'D’Mart', distance: '7 min' },
+      { label: 'Elevated 4-lane expressway flyover', distance: '10 min' },
       { label: 'IT Parks (Infosys, HP, TCS)', distance: '10 min' },
+      { label: 'ICICI, HDFC, Axis Bank and Indian Bank', distance: '7 min' },
       { label: 'PES & Symbiosis University', distance: '10 min' },
+      { label: 'Christ and Treamis World School', distance: '5 min' },
       { label: 'Narayana Hrudayalaya & Vimalaya Hospital', distance: '5 min' },
     ],
     faqs: [
@@ -247,21 +317,26 @@ export const projects: Project[] = [
     // Status: yuvagroup.in lists Yuva Sunshine under Ongoing Projects (not ready-to-move)
     status: 'ongoing',
     category: 'apartments',
+    officialCategory: 'Affordable Flats',
+    sourceUrl: 'https://yuvagroup.in/yuva-sunshine/',
+    sourceNotes: [
+      'Official page describes Yuva Sunshine as 65 premium yet affordable flats near Chandapura to Anekal Main Road.',
+      'The public page publishes a map section but does not list individual nearby-distance bullets, so this redesign avoids estimated connectivity claims.',
+    ],
     description:
       'Well-planned 1.5, 2 & 3 BHK apartments that balance affordability with the quality expected from Yuva Group.',
     longDescription:
-      'Yuva Sunshine brings the build quality of Yuva Group’s premium developments to a more accessible price point on the Chandapura–Anekal Road. The towers are compact and efficiently planned, with units that feel larger than their square footage thanks to open kitchens, corner windows, and continuous balconies. The community shares a single, well-equipped clubhouse and a generous central green.',
-    heroImage:
-      'https://images.pexels.com/photos/758744/pexels-photo-758744.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Sunshine apartment building exterior at Chandapura',
+      'Yuva Sunshine is presented by Yuva Group as a stylish and affordable residential project near Chandapura to Anekal Main Road. The official page describes spacious 1.5, 2 and 3 BHK homes set amid greenery, with 65 premium yet affordable flats planned for a peaceful daily living environment close to Bengaluru’s southern growth corridor.',
+    heroImage: '/photos/projects/yuva-sunshine-hero.webp',
+    heroAlt: 'Official Yuva Sunshine apartment exterior render at Chandapura',
     gallery: [
       {
-        src: 'https://images.pexels.com/photos/758744/pexels-photo-758744.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Sunshine entrance facade',
+        src: '/photos/projects/yuva-sunshine-gallery-2.webp',
+        alt: 'Yuva Sunshine official exterior render from the entrance side',
       },
       {
-        src: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Sunshine apartment interior',
+        src: '/photos/projects/yuva-sunshine-hero.webp',
+        alt: 'Yuva Sunshine official apartment elevation render',
       },
     ],
     highlights: [
@@ -287,39 +362,47 @@ export const projects: Project[] = [
     ],
     specifications: [
       {
-        category: 'Structure',
-        items: [{ label: 'Frame', value: 'RCC framed structure' }],
+        category: 'Structure & walls',
+        items: [
+          { label: 'Super structure', value: 'AAC concrete blocks for external and internal walls' },
+          { label: 'Walls', value: 'Solid block walls for internal and external masonry' },
+        ],
       },
       {
-        category: 'Finishes',
-        items: [{ label: 'Flooring', value: 'Vitrified tiles' }],
+        category: 'Water & plumbing',
+        items: [
+          { label: 'Water supply', value: 'Borewell, underground sump and overhead Sintex tank' },
+          { label: 'Plumbing', value: 'Concealed Astral plumbing and CP fittings' },
+        ],
+      },
+      {
+        category: 'Interiors',
+        items: [
+          { label: 'Kitchen', value: '30 mm granite counter top with stainless steel sink' },
+          { label: 'Main entrance', value: 'Entrance decoration as per architect design' },
+          { label: 'Sanitary fittings', value: 'White sanitary fittings and CP fittings from branded ranges' },
+        ],
       },
     ],
-    // Area is illustrative — the real Sunshine page reuses the company-wide floor-plan table with
-    // no Sunshine-specific areas; shown as a representative plan (see disclaimer on the detail page)
+    // Area from the 'TYPICAL FLOOR PLAN' table on yuvagroup.in/yuva-sunshine/
     floorPlans: [
       {
         name: '2 BHK — Sunshine',
         type: '2 BHK',
-        area: '1,050 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/758744/pexels-photo-758744.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 2 BHK unit at Yuva Sunshine',
+        area: '1,088 sq.ft.',
+        image: '/photos/projects/yuva-sunshine-gallery-1.jpg',
+        alt: 'Official typical floor plan at Yuva Sunshine',
       },
     ],
+    floorPlanRows: utsavSunshineFloorPlanRows,
     startingPrice: 'From Rs. 50 Lac*',
     possession: 'To be confirmed with the sales team',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
     units: '1.5, 2 & 3 BHK apartments',
+    unitCount: '65 premium affordable flats',
     bedrooms: '1.5, 2 & 3 BHK',
-    // UNVERIFIED: no 'Map Location' block is published on yuvagroup.in/yuva-sunshine/ — the
-    // nearby times below are estimates for the Chandapura–Anekal Road corridor, client to confirm
-    connectivity: [
-      { label: 'Chandapura Circle', distance: '4 min' },
-      { label: 'Anekal Road', distance: '10 min' },
-      { label: 'Electronic City', distance: '15 min' },
-    ],
+    connectivity: [],
     faqs: [
       {
         question: 'Is Yuva Sunshine affordable housing?',
@@ -334,68 +417,48 @@ export const projects: Project[] = [
   {
     slug: 'yuva-residency',
     name: 'Yuva Residency',
-    tagline: 'Quiet residential living off Anekal Road',
-    // UNVERIFIED: location not confirmed against public site content — client to double-check
-    // (yuvagroup.in lists completed projects without locations)
-    location: 'Anekal Road, Bengaluru',
-    area: 'Anekal Road',
+    tagline: 'A completed affordable-flats project in Yuva Group’s portfolio',
+    // yuvagroup.in lists completed projects without a public location for Residency.
+    location: 'Bengaluru',
+    area: 'Bengaluru',
     status: 'completed',
     category: 'apartments',
+    officialCategory: 'Affordable Flats',
+    sourceUrl: 'https://yuvagroup.in/',
+    sourceNotes: [
+      'Official homepage lists Yuva Residency under completed projects as Affordable Flats.',
+      'The public site does not expose a dedicated Residency detail page with amenities or connectivity details, so this page keeps those claims to confirmation with the sales team.',
+    ],
     description:
-      'A completed residential project that established Yuva Group’s reputation for dependable delivery.',
+      'A completed affordable-flats project listed in Yuva Group’s delivered portfolio.',
     longDescription:
-      'Yuva Residency is a completed development that helped establish Yuva Group’s reputation for dependable, on-time delivery. The project is fully occupied, with mature landscaping, settled communities, and a management structure run by the residents. It remains a reference point for the build quality and planning that newer Yuva projects are measured against.',
-    heroImage:
-      'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Residency completed apartment building on Anekal Road',
+      'Yuva Residency appears on the official Yuva Group homepage under completed affordable-flats projects. Because the public website does not publish a full project detail page for Residency, this redesign keeps the page intentionally factual and directs availability, resale and documentation questions to the sales team.',
+    heroImage: '/photos/projects/yuva-residency-hero.jpg',
+    heroAlt: 'Official Yuva Residency building render from the Yuva Group homepage media',
     gallery: [
       {
-        src: 'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Residency completed facade',
+        src: '/photos/projects/yuva-residency-hero.jpg',
+        alt: 'Yuva Residency official building render',
       },
       {
-        src: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Residency mature landscaping',
+        src: '/photos/projects/yuva-residency-floorplan-1.jpg',
+        alt: 'Yuva Residency official floor-plan media',
       },
     ],
     highlights: [
-      { label: 'Configuration', value: '2 & 3 BHK' },
+      { label: 'Configuration', value: 'Affordable Flats' },
       { label: 'Status', value: 'Completed' },
-      { label: 'Location', value: 'Anekal Road' },
+      { label: 'Source', value: 'Official homepage' },
     ],
-    amenities: [
-      'Landscaped gardens',
-      'Children’s play area',
-      'Indoor games',
-      '24/7 security',
-      'Covered parking',
-    ],
-    specifications: [
-      {
-        category: 'Structure',
-        items: [{ label: 'Frame', value: 'RCC framed structure' }],
-      },
-    ],
-    floorPlans: [
-      {
-        name: '2 BHK — Residency',
-        type: '2 BHK',
-        area: '1,020 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 2 BHK unit at Yuva Residency',
-      },
-    ],
-    startingPrice: 'From Rs. 50 Lac*',
+    amenities: [],
+    specifications: [],
+    floorPlans: [],
     possession: 'Completed',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
-    units: '2 & 3 BHK apartments',
-    bedrooms: '2, 3 BHK',
-    connectivity: [
-      { label: 'Anekal Town', distance: '8 min' },
-      { label: 'Chandapura', distance: '12 min' },
-    ],
+    units: 'Affordable flats',
+    bedrooms: 'To be confirmed',
+    connectivity: [],
     faqs: [
       {
         question: 'Are units available at Yuva Residency?',
@@ -403,101 +466,68 @@ export const projects: Project[] = [
           'Yuva Residency is a completed and occupied project. Resale availability varies — contact the sales team for current options.',
       },
     ],
-    coordinates: { lat: 12.7189, lng: 77.6967 },
     featured: true,
   },
   {
     slug: 'yuva-heritage',
     name: 'Yuva Heritage',
-    tagline: 'Premium villas near Hosur Road',
+    tagline: 'A completed affordable-flats community',
     // UNVERIFIED: exact location not confirmed against public site content — client to double-check
     // (yuvagroup.in lists Yuva Heritage among completed projects, without a location)
-    location: 'Hosur Road, Bengaluru',
-    area: 'Hosur Road',
+    location: 'Bengaluru',
+    area: 'Bengaluru',
     // Status: yuvagroup.in lists Yuva Heritage under Completed Projects
     status: 'completed',
-    category: 'villas',
+    category: 'apartments',
+    officialCategory: 'Affordable Flats',
+    sourceUrl: 'https://yuvagroup.in/',
+    sourceNotes: [
+      'Official homepage lists Yuva Heritage under completed projects as Affordable Flats.',
+      'The public site exposes official Heritage render media, but no full detail page with amenities, exact location or floor-plan table was found.',
+    ],
     description:
-      'A villa development built for buyers who want land, privacy, and architectural character close to the city.',
+      'A completed apartment development from Yuva Group’s delivered portfolio.',
     longDescription:
-      'Yuva Heritage is a villa community designed for buyers who want the privacy, land ownership, and architectural character of an independent home without leaving the city’s southern corridor. The villas are arranged along a tree-lined internal street, each with a private garden, covered parking, and a roof terrace. The master plan keeps cars to the perimeter so the interior stays quiet and walkable.',
-    heroImage:
-      'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Heritage premium villas near Hosur Road',
+      'Yuva Heritage is listed by Yuva Group among its completed affordable-flats projects. The public site does not publish a detailed unit mix or exact location, so this page presents it as a delivered apartment community and keeps booking, resale, and RERA specifics to confirmation with the sales team.',
+    heroImage: '/photos/projects/yuva-heritage-hero.jpg',
+    heroAlt: 'Official Yuva Heritage apartment exterior render',
     gallery: [
       {
-        src: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Heritage villa streetscape',
+        src: '/photos/projects/yuva-heritage-hero.jpg',
+        alt: 'Yuva Heritage official exterior render',
       },
       {
-        src: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Heritage villa interior',
+        src: '/photos/projects/yuva-heritage-gallery-1.jpg',
+        alt: 'Yuva Heritage official alternate exterior render',
       },
     ],
     highlights: [
-      { label: 'Configuration', value: '3 & 4 BHK Villas' },
+      { label: 'Configuration', value: 'Affordable Flats' },
       { label: 'Status', value: 'Completed' },
-      { label: 'Location', value: 'Hosur Road' },
+      { label: 'Source', value: 'Official homepage' },
     ],
-    amenities: [
-      'Private gardens',
-      'Clubhouse',
-      'Swimming pool',
-      'Tree-lined internal streets',
-      'Walking track',
-      'Children’s play area',
-      'Rainwater harvesting',
-      '100% power backup',
-      '24/7 security',
-    ],
-    specifications: [
-      {
-        category: 'Structure',
-        items: [{ label: 'Frame', value: 'RCC framed structure' }],
-      },
-      {
-        category: 'Finishes',
-        items: [
-          { label: 'Flooring', value: 'Marble and vitrified tiles' },
-          { label: 'External', value: 'Stone and render facade' },
-        ],
-      },
-    ],
-    floorPlans: [
-      {
-        name: '3 BHK Villa — Heritage',
-        type: '3 BHK Villa',
-        area: '2,100 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 3 BHK villa at Yuva Heritage',
-      },
-    ],
-    startingPrice: 'From Rs. 50 Lac*',
+    amenities: [],
+    specifications: [],
+    floorPlans: [],
     possession: 'Completed',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
-    units: '3 & 4 BHK villas',
-    bedrooms: '3, 4 BHK',
-    connectivity: [
-      { label: 'Hosur Road', distance: '3 min' },
-      { label: 'Electronic City', distance: '18 min' },
-      { label: 'Attibele', distance: '10 min' },
-    ],
+    units: 'Affordable flats',
+    bedrooms: 'To be confirmed',
+    connectivity: [],
     faqs: [
       {
-        question: 'Does Yuva Heritage include land ownership?',
+        question: 'Is Yuva Heritage completed?',
         answer:
-          'Yes. Yuva Heritage is a villa development where each unit includes owned land. Contact the sales team for the land area per unit.',
+          'Yes. Yuva Heritage is listed under completed projects on the official Yuva Group homepage. Current resale or availability details should be confirmed with the sales team.',
       },
     ],
-    coordinates: { lat: 12.7654, lng: 77.6985 },
     featured: false,
   },
   {
     slug: 'yuva-lake-view',
     name: 'Yuva Lake View',
-    tagline: 'Apartments oriented around a water outlook',
+    tagline: 'A completed affordable-flats project in Yuva Group’s portfolio',
     // Location: yuvagroup.in lists Yuva Lake View among completed projects; a client testimonial
     // on the real homepage names the build-out of 'Yuva Lakeview, AECS Layout "B" Block, Singasandra'.
     // Client still to double-check the exact plot before marketing use.
@@ -506,78 +536,51 @@ export const projects: Project[] = [
     // Status: yuvagroup.in lists Yuva Lake View under Completed Projects
     status: 'completed',
     category: 'apartments',
+    officialCategory: 'Affordable Flats',
+    sourceUrl: 'https://yuvagroup.in/',
+    sourceNotes: [
+      'Official homepage lists Yuva Lake View under completed projects as Affordable Flats.',
+      'A homepage testimonial names Yuva Lakeview at AECS Layout “B” Block, Singasandra; no full project detail page with floor-plan or specification table was found.',
+    ],
     description:
-      'A completed apartment project planned around sightlines to nearby water, with wide green buffers between towers.',
+      'A completed affordable-flats project referenced in Yuva Group’s delivered portfolio.',
     longDescription:
-      'Yuva Lake View is a completed apartment project planned around sightlines to nearby water. Towers are set back from each other with wide green buffers, so most units look out onto landscape rather than a neighbouring wall. The master plan prioritises pedestrian flow, with vehicles kept to the perimeter and a continuous walking loop connecting the clubhouse and gardens.',
-    heroImage:
-      'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    heroAlt: 'Yuva Lake View apartment towers with water outlook',
+      'Yuva Lake View is listed by Yuva Group under completed affordable-flats projects. The official homepage also carries a client testimonial referring to the Yuva Lakeview build-out at AECS Layout “B” Block, Singasandra. Since the public site does not publish a full detail page, this page avoids extra claims about unit orientation, floor plans or amenities.',
+    heroImage: '/photos/projects/yuva-lake-view-hero.jpg',
+    heroAlt: 'Official Yuva Lake View apartment exterior render',
     gallery: [
       {
-        src: 'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Lake View tower and landscape',
+        src: '/photos/projects/yuva-lake-view-hero.jpg',
+        alt: 'Yuva Lake View official exterior render',
       },
       {
-        src: 'https://images.pexels.com/photos/803975/pexels-photo-803975.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt: 'Yuva Lake View landscaped promenade',
+        src: '/photos/projects/yuva-lake-view-gallery-1.jpg',
+        alt: 'Yuva Lake View official alternate exterior render',
       },
     ],
     highlights: [
-      { label: 'Configuration', value: '2 & 3 BHK' },
+      { label: 'Configuration', value: 'Affordable Flats' },
       { label: 'Status', value: 'Completed' },
       { label: 'Location', value: 'Singasandra' },
     ],
-    // 'Water-facing promenade' removed — not on the real site. Company-wide amenities
-    // (rainwater harvesting, 100% power backup) added per yuvagroup.in amenity section.
-    amenities: [
-      'Clubhouse',
-      'Swimming pool',
-      'Gymnasium',
-      'Landscaped gardens',
-      'Walking track',
-      'Children’s play area',
-      'Rainwater harvesting',
-      '100% power backup',
-      '24/7 security',
-    ],
-    specifications: [
-      {
-        category: 'Structure',
-        items: [{ label: 'Frame', value: 'RCC framed structure' }],
-      },
-    ],
-    floorPlans: [
-      {
-        name: '3 BHK — Lake View',
-        type: '3 BHK',
-        area: '1,620 sq.ft.',
-        image:
-          'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=900',
-        alt: 'Floor plan for 3 BHK unit at Yuva Lake View',
-      },
-    ],
-    startingPrice: 'From Rs. 50 Lac*',
+    amenities: [],
+    specifications: [],
+    floorPlans: [],
     possession: 'Completed',
     // Per-project RERA number is not published on public sources — do not invent
     rera: 'To be confirmed with the sales team',
-    units: '2 & 3 BHK apartments',
-    bedrooms: '2, 3 BHK',
+    units: 'Affordable flats',
+    bedrooms: 'To be confirmed',
     connectivity: [
-      { label: 'Anekal Road', distance: '5 min' },
-      { label: 'Chandapura', distance: '10 min' },
-      { label: 'Electronic City', distance: '22 min' },
+      { label: 'AECS Layout “B” Block, Singasandra', distance: 'Referenced in testimonial' },
     ],
     faqs: [
       {
-        question: 'Do all units have a lake view?',
+        question: 'Where is Yuva Lake View referenced on the official site?',
         answer:
-          'The master plan is oriented around water sightlines, though not every unit faces the water directly. The sales team can confirm orientation for specific units.',
+          'The official homepage lists Yuva Lake View as a completed project, and a client testimonial refers to the build-out at AECS Layout “B” Block, Singasandra.',
       },
     ],
-    // Coordinates: approximate — centred on Singasandra (AECS Layout "B" Block) per the official
-    // site's client testimonial; the real site publishes no map pin for this completed project
-    coordinates: { lat: 12.876, lng: 77.642 },
     featured: false,
   },
 ];
@@ -678,6 +681,34 @@ export const companyStats = [
   { label: 'Years of Experiences', value: '10', suffix: '+' },
   { label: 'Ongoing Projects', value: '3', suffix: '' },
   { label: 'Success Rate', value: '100', suffix: '%' },
+];
+
+export const youtubeVideos = [
+  // Six embeds from the "Watch our latest video on YouTube" section of the current yuvagroup.in homepage.
+  {
+    id: 'DDELXwzjvXU',
+    title: 'Yuva Group | 2 & 3 BHK Apartments for Modern Living',
+  },
+  {
+    id: 'wO3QOPQiTV0',
+    title: 'Yuva Group Apartments in Bangalore | Affordable 2 & 3 BHK Homes Near Electronic City',
+  },
+  {
+    id: 'b0cPufoMY8g',
+    title: 'Yuva Sunrise Apartments | 2 & 3 BHK Flats in Bangalore Near Electronic City | Yuva Group',
+  },
+  {
+    id: '4HIxa4SxFOo',
+    title: '1, 2 & 3 BHK Flats for Sale | Call 8282823396',
+  },
+  {
+    id: '-ZVBOXMIMnw',
+    title: 'Yuva Group | 1, 2 & 3 BHK Apartments for Sale | Call 8282823396',
+  },
+  {
+    id: '1V8Uw95bJa0',
+    title: 'RERA-Approved 1, 2 & 3 BHK Flats | Manchanahahalli, Attibele Hobli',
+  },
 ];
 
 export const allAmenities = [

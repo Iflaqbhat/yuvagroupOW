@@ -30,7 +30,7 @@ export default function ScheduleVisitPage() {
           <div className="md:col-span-5">
             <ScrollReveal>
               <p className="eyebrow mb-3">Plan your visit</p>
-              <h2 className="font-display text-3xl tracking-tight md:text-4xl">What to expect</h2>
+              <h2 className="font-display text-3xl md:text-4xl">What to expect</h2>
               <AnimatedUnderline className="mt-4" />
               <p className="mt-5 font-display text-base italic leading-relaxed text-muted-foreground md:text-lg">
                 A visit is unhurried and guided — here is how the ninety minutes go.

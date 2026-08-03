@@ -5,13 +5,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, MapPin, Building2, Hammer, ShieldCheck, Clock } from 'lucide-react';
+import * as Accordion from '@radix-ui/react-accordion';
+import { ArrowUpRight, ArrowDown, MapPin, Building2, Hammer, ShieldCheck, Clock, Youtube, ChevronDown } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { FeaturedProjectCard } from '@/components/projects/FeaturedProjectCard';
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
 import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/motion/ScrollReveal';
 import { AnimatedCounter } from '@/components/motion/AnimatedCounter';
-import { projects, getFeaturedProjects, testimonials, companyStats, allAmenities, type Amenity } from '@/data/projects';
+import {
+  projects,
+  getFeaturedProjects,
+  testimonials,
+  companyStats,
+  allAmenities,
+  youtubeVideos,
+  type Amenity,
+} from '@/data/projects';
 
 const philosophy = [
   { icon: Building2, title: 'Architectural intent', text: 'Every Yuva project begins with how light, air, and movement flow through a place — not with a floor plate to maximise.' },
@@ -20,10 +29,41 @@ const philosophy = [
   { icon: Clock, title: 'Long-term value', text: 'We build homes meant to age well — materials, layouts, and common areas chosen for decades of use, not a brochure photograph.' },
 ];
 
+const homeFaqs = [
+  {
+    question: 'Why should I choose Yuva Group when looking for flats near Electronic City?',
+    answer:
+      'Yuva Group offers premium and affordable homes across south Bengaluru with practical layouts, everyday amenities, and locations close to Electronic City, Attibele, Hosur Road, Chandapura, and Anekal Road.',
+  },
+  {
+    question: 'Do you offer 1, 2 and 3 BHK apartments?',
+    answer:
+      'Yes. Yuva Group projects include 1, 2 and 3 BHK apartment options. Exact availability depends on the project stage and should be confirmed with the sales team.',
+  },
+  {
+    question: 'What amenities can I expect in Yuva Group apartments?',
+    answer:
+      'Published project amenities include clubhouse spaces, landscaped areas, gymnasium, children’s play areas, parking, security, power backup, indoor games, and community-use facilities, depending on the project.',
+  },
+  {
+    question: 'Are Yuva Group apartments well connected?',
+    answer:
+      'Yuva Group projects are placed along Bengaluru’s southern growth corridor, with access to Electronic City, Hosur Road, schools, hospitals, daily conveniences, and major road networks.',
+  },
+  {
+    question: 'How can I book a flat or schedule a site visit?',
+    answer:
+      'You can enquire through the website or schedule a personalized site visit. The sales team can help with project availability, payment plans, home loan support, and next steps.',
+  },
+];
+
 export default function Home() {
   const amenityPhotos: Array<Amenity & { photo: string }> = allAmenities.filter(
     (a): a is Amenity & { photo: string } => Boolean(a.photo),
   );
+  const galleryImages = projects
+    .flatMap((project) => project.gallery.map((image) => ({ ...image, project: project.name })))
+    .slice(0, 14);
   // One shared observer for the stats section so every counter starts and
   // finishes together the first time the section enters the viewport.
   const statsRef = useRef<HTMLElement>(null);
@@ -79,11 +119,11 @@ export default function Home() {
             </motion.p>
             <motion.h1
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="font-display text-5xl leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl"
+              className="font-display text-5xl leading-[1.02] text-white md:text-7xl lg:text-8xl"
             >
               Homes built with
               <br />
-              <span className="text-accent">architectural intent.</span>
+              <span className="text-white">architectural intent.</span>
             </motion.h1>
             <motion.p
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
@@ -144,50 +184,14 @@ export default function Home() {
         </motion.button>
       </section>
 
-      {/* INTRO */}
-      <section className="border-b border-foreground/10 py-24 md:py-32">
-        <div className="section-shell grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <ScrollReveal>
-              <p className="eyebrow mb-4">Who we are</p>
-              <h2 className="font-display text-3xl leading-tight md:text-4xl">
-                A Bengaluru developer measured by its completed homes.
-              </h2>
-            </ScrollReveal>
-          </div>
-          <div className="md:col-span-6 md:col-start-7">
-            <ScrollReveal delay={0.1}>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Yuva Group, incorporated as Yuva Structures Pvt. Ltd., is a Bengaluru-based
-                real-estate developer building residential apartments, premium and affordable
-                housing, villas, plotted developments, and commercial and mixed-use projects
-                across the city&apos;s southern corridor.
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                We treat each project as a long-term commitment to the people who will live in it.
-                Our completed communities — occupied, settled, and managed — are the reference we
-                measure every new development against.
-              </p>
-              <Link
-                href="/about"
-                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
-              >
-                Read our story
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS — company track record (client-confirmed counter data), placed above featured */}
-      <section ref={statsRef} className="border-b border-foreground/10 py-20">
+      {/* STATS — proof immediately after the hero, before asking visitors to browse */}
+      <section ref={statsRef} className="border-b border-foreground/10 py-14 md:py-16">
         <div className="section-shell">
           <StaggerGroup className="grid grid-cols-2 gap-8 md:grid-cols-5">
             {companyStats.map((s) => (
               <StaggerItem key={s.label}>
                 <div className="text-center md:text-left">
-                  <p className="font-display text-4xl tracking-tight md:text-5xl">
+                  <p className="font-display text-4xl md:text-5xl">
                     <AnimatedCounter value={parseInt(s.value, 10)} active={statsInView} />
                     <span className="text-accent">{s.suffix}</span>
                   </p>
@@ -225,17 +229,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECT SELECTOR — ongoing vs ready */}
+      {/* PROJECT SELECTOR — ongoing, ready, completed */}
       <section className="border-b border-foreground/10 py-24 md:py-32">
         <div className="section-shell">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Find your stage"
-              title="Ongoing or ready to move — start where you are."
+              title="Choose the right project stage."
+              description="The original Yuva site separates projects into three buyer moments: under construction, ready to move, and completed communities."
               align="center"
             />
           </ScrollReveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
               {
                 tag: 'Ongoing',
@@ -247,9 +252,16 @@ export default function Home() {
               {
                 tag: 'Ready to Move',
                 title: 'Ready now',
-                desc: 'Walk into ready-to-move or completed Yuva homes available for immediate possession or resale enquiry.',
+                desc: 'Move into finished homes available for immediate possession, with the project and neighbourhood already visible.',
+                href: '/ready-to-move-projects',
+                count: projects.filter((p) => p.status === 'ready-to-move').length,
+              },
+              {
+                tag: 'Completed',
+                title: 'Delivered homes',
+                desc: 'Explore completed Yuva communities that are occupied, settled, and useful as proof of delivery quality.',
                 href: '/completed-projects',
-                count: projects.filter((p) => p.status !== 'ongoing').length,
+                count: projects.filter((p) => p.status === 'completed').length,
               },
             ].map((c) => (
               <ScrollReveal key={c.href}>
@@ -258,13 +270,13 @@ export default function Home() {
                   className="group relative block overflow-hidden rounded-sm border border-foreground/10 bg-card p-8 transition-all duration-300 hover:border-accent/40 hover:shadow-lg md:p-10"
                 >
                   <div className="flex items-start justify-between">
-                    <span className="bg-accent/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-accent">
+                    <span className="bg-accent/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
                       {c.tag}
                     </span>
-                    <span className="text-sm text-muted-foreground">{c.count} projects</span>
+                    <span className="text-[0.95rem] font-medium text-muted-foreground">{c.count} projects</span>
                   </div>
-                  <h3 className="mt-6 font-display text-3xl tracking-tight">{c.title}</h3>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+                  <h3 className="mt-6 font-display text-3xl font-semibold leading-tight">{c.title}</h3>
+                  <p className="mt-4 max-w-md text-[0.95rem] leading-7 text-muted-foreground">{c.desc}</p>
                   <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-accent">
                     Browse
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -272,6 +284,102 @@ export default function Home() {
                 </Link>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* YOUTUBE VIDEOS */}
+      <section className="border-b border-foreground/10 py-20 md:py-24">
+        <div className="section-shell">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Latest videos"
+              title="Project films from Yuva Group."
+              description="Walkthroughs and project updates from the official Yuva Group YouTube channel, kept close to the project browsing flow."
+              align="center"
+            />
+          </ScrollReveal>
+          <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {youtubeVideos.map((video) => (
+              <StaggerItem key={video.id}>
+                <article className="group overflow-hidden border border-foreground/10 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_20px_60px_-30px_hsl(var(--foreground)/0.28)]">
+                  <div className="relative aspect-video bg-black">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      className="absolute inset-0 h-full w-full"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      <Youtube className="h-4 w-4 text-[#ff0000]" />
+                      Official video
+                    </div>
+                    <div className="mt-3 flex min-h-[7.5rem] flex-col">
+                      <h3 className="text-[0.95rem] font-semibold leading-6 text-foreground">
+                        {video.title}
+                      </h3>
+                      <a
+                        href={`https://www.youtube.com/watch?v=${video.id}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group/watch mt-auto inline-flex w-fit items-center gap-2 border border-foreground/15 px-3.5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
+                      >
+                        <Youtube className="h-4 w-4 text-[#ff0000] transition-colors group-hover/watch:text-background" />
+                        Watch on YouTube
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
+      {/* PROOF COPY — original-site homepage content, kept lower so browsing stays first */}
+      <section className="border-b border-foreground/10 py-20 md:py-24">
+        <div className="section-shell grid gap-12 md:grid-cols-12">
+          <ScrollReveal className="md:col-span-5">
+            <p className="eyebrow mb-4">Builders in Bangalore</p>
+            <h2 className="font-display text-3xl leading-[1.08] md:text-5xl">
+              Residential projects with location, quality, and long-term value.
+            </h2>
+          </ScrollReveal>
+          <div className="space-y-6 md:col-span-6 md:col-start-7">
+            <ScrollReveal delay={0.08}>
+              <div className="border-l border-foreground/15 pl-6">
+                <h3 className="font-display text-xl font-semibold md:text-2xl">
+                  A Bengaluru developer measured by completed homes.
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  Yuva Group, incorporated as Yuva Structures Pvt. Ltd., builds apartments, villas,
+                  plotted developments, and mixed-use communities across south Bengaluru&apos;s
+                  growth corridor.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.16}>
+              <div className="border-l border-foreground/15 pl-6">
+                <h3 className="font-display text-xl font-semibold md:text-2xl">
+                  Practical homes near Electronic City and Hosur Road.
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  The portfolio focuses on usable layouts, family amenities, and access to schools,
+                  hospitals, daily conveniences, IT hubs, Attibele, Chandapura, and Anekal Road.
+                </p>
+                <Link
+                  href="/about"
+                  className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
+                >
+                  Read our story
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -350,6 +458,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section className="border-b border-foreground/10 py-24 md:py-32">
+        <div className="section-shell">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="In their words"
+              title="What residents tell us."
+              align="center"
+            />
+          </ScrollReveal>
+          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <StaggerItem key={t.project}>
+                <TestimonialCard t={t} />
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
       {/* LOCATION PREVIEW — charcoal band (mirrors the About page achievements band) */}
       <section className="bg-charcoal py-24 md:py-32">
         <div className="section-shell">
@@ -386,23 +514,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
-        <div className="section-shell">
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="In their words"
-              title="What residents tell us."
-              align="center"
-            />
+      {/* FAQS */}
+      <section className="border-b border-foreground/10 py-24 md:py-32">
+        <div className="section-shell grid gap-12 md:grid-cols-12">
+          <ScrollReveal className="md:col-span-5">
+            <p className="eyebrow mb-4">Frequently asked questions</p>
+            <h2 className="font-display text-4xl font-semibold leading-[1.08] text-balance md:text-5xl">
+              Clear answers before you book a visit.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-muted-foreground">
+              A focused version of the questions buyers ask most often about Yuva Group homes, project locations, amenities, and site visits.
+            </p>
+            <Link
+              href="/contact"
+              className="group mt-8 inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              Ask a question
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </ScrollReveal>
-          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <StaggerItem key={t.project}>
-                <TestimonialCard t={t} />
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
+
+          <ScrollReveal className="md:col-span-7" delay={0.1}>
+            <Accordion.Root
+              type="single"
+              collapsible
+              defaultValue="item-0"
+              className="overflow-hidden border border-foreground/10 bg-background shadow-[0_24px_80px_-58px_hsl(var(--foreground)/0.38)]"
+            >
+              {homeFaqs.map((faq, index) => (
+                <Accordion.Item
+                  key={faq.question}
+                  value={`item-${index}`}
+                  className="border-b border-foreground/10 last:border-b-0"
+                >
+                  <Accordion.Header>
+                    <Accordion.Trigger className="group flex w-full items-center justify-between gap-5 px-5 py-5 text-left transition-colors hover:bg-stone-50 md:px-7">
+                      <span className="text-base font-semibold leading-snug text-foreground md:text-lg">
+                        {faq.question}
+                      </span>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                        <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                      </span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                    <p className="px-5 pb-6 text-[0.95rem] leading-7 text-muted-foreground md:px-7">
+                      {faq.answer}
+                    </p>
+                  </Accordion.Content>
+                </Accordion.Item>
+              ))}
+            </Accordion.Root>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -444,6 +607,46 @@ export default function Home() {
               </Link>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* MOVING GALLERY STRIP */}
+      <section className="overflow-hidden border-t border-foreground/10 bg-stone-50 py-10 md:py-12">
+        <div className="section-shell mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow mb-3">Gallery</p>
+            <h2 className="font-display text-3xl leading-tight md:text-5xl">
+              A moving look at Yuva spaces.
+            </h2>
+          </div>
+          <Link
+            href="/gallery"
+            className="group inline-flex items-center gap-2 text-sm font-medium underline-offset-4 hover:underline"
+          >
+            Open gallery
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </div>
+        <div className="gallery-marquee" aria-label="Moving Yuva Group project gallery">
+          <div className="gallery-marquee-track">
+            {[...galleryImages, ...galleryImages].map((image, index) => (
+              <figure
+                key={`${image.src}-${index}`}
+                className="relative mx-2 h-44 w-64 shrink-0 overflow-hidden rounded-sm border border-foreground/10 bg-card md:h-56 md:w-80"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 288px, 384px"
+                  className="object-cover"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/70 to-transparent p-4 text-xs font-medium text-background">
+                  {image.project}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
     </>

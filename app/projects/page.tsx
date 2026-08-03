@@ -8,7 +8,7 @@ import { projects } from '@/data/projects';
 export const metadata: Metadata = {
   title: 'Projects — Yuva Group Bengaluru',
   description:
-    'Explore all Yuva Group residential projects across south Bengaluru — apartments, villas, and plotted developments in Electronic City, Attibele, Chandapura, Anekal Road, and Hosur Road.',
+    'Explore Yuva Group residential projects across south Bengaluru, including ongoing, ready-to-move, and completed affordable-flats developments.',
 };
 
 export default function ProjectsPage() {
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
           {stats.map((s) => (
             <ScrollReveal key={s.label}>
               <div className="text-center md:text-left">
-                <p className="font-display text-4xl tracking-tight md:text-5xl">{s.value}</p>
+                <p className="font-display text-4xl md:text-5xl">{s.value}</p>
                 <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   {s.label}
                 </p>
@@ -40,8 +40,8 @@ export default function ProjectsPage() {
           ))}
         </div>
       </section>
-      <section className="section-shell py-16 md:py-24">
-        <ProjectsExplorer projects={projects} />
+      <section id="project-list" className="section-shell py-16 md:py-24">
+        <ProjectsExplorer projects={projects} activeStatus="all" statusNavigation />
       </section>
     </>
   );
