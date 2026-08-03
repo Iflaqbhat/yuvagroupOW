@@ -123,7 +123,7 @@ export default function Home() {
             >
               Homes built with
               <br />
-              <span className="text-white">architectural intent.</span>
+              <span className="text-sun">architectural intent.</span>
             </motion.h1>
             <motion.p
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
@@ -138,7 +138,7 @@ export default function Home() {
             >
               <Link
                 href="/projects"
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-white px-8 py-4 text-sm font-medium uppercase tracking-wider text-charcoal transition-all duration-300 hover:bg-accent hover:text-white"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md bg-white px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-charcoal shadow-[0_12px_35px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-white"
               >
                 <span className="relative z-10">Explore Projects</span>
                 <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -146,7 +146,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/schedule-visit"
-                className="inline-flex items-center justify-center gap-2 border border-white/40 px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-white hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/40 px-7 py-4 text-sm font-bold text-white transition-all duration-300 hover:border-white hover:bg-white/10"
               >
                 Schedule a Site Visit
               </Link>
@@ -155,7 +155,7 @@ export default function Home() {
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
               className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/75"
             >
-              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald" />
+              <span className="h-2 w-2 animate-pulse rounded-full bg-sun" />
               {projects.filter((p) => p.status !== 'completed').length} ongoing & ready-to-move projects
             </motion.div>
           </motion.div>
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="mt-12 flex items-center justify-end">
             <Link
               href="/projects"
-              className="group relative inline-flex items-center gap-3 overflow-hidden bg-foreground px-7 py-4 text-sm font-medium uppercase tracking-wider text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+              className="smart-gradient group relative inline-flex items-center gap-3 overflow-hidden rounded-md px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)] transition-all duration-300 hover:-translate-y-0.5"
             >
               <span className="relative z-10">View all projects</span>
               <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -267,15 +267,15 @@ export default function Home() {
               <ScrollReveal key={c.href}>
                 <Link
                   href={c.href}
-                  className="group relative block overflow-hidden rounded-sm border border-foreground/10 bg-card p-8 transition-all duration-300 hover:border-accent/40 hover:shadow-lg md:p-10"
+                  className="smart-panel group relative block overflow-hidden rounded-md p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 md:p-10"
                 >
                   <div className="flex items-start justify-between">
-                    <span className="bg-accent/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
+                    <span className="rounded-md bg-accent/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-accent">
                       {c.tag}
                     </span>
                     <span className="text-[0.95rem] font-medium text-muted-foreground">{c.count} projects</span>
                   </div>
-                  <h3 className="mt-6 font-display text-3xl font-semibold leading-tight">{c.title}</h3>
+                  <h3 className="mt-6 font-display text-3xl font-extrabold leading-tight">{c.title}</h3>
                   <p className="mt-4 max-w-md text-[0.95rem] leading-7 text-muted-foreground">{c.desc}</p>
                   <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-accent">
                     Browse
@@ -302,7 +302,7 @@ export default function Home() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {youtubeVideos.map((video) => (
               <StaggerItem key={video.id}>
-                <article className="group overflow-hidden border border-foreground/10 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_20px_60px_-30px_hsl(var(--foreground)/0.28)]">
+                <article className="group overflow-hidden rounded-md border border-foreground/10 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_18px_45px_hsl(var(--foreground)/0.08)]">
                   <div className="relative aspect-video bg-black">
                     <iframe
                       src={`https://www.youtube.com/embed/${video.id}`}
@@ -326,7 +326,7 @@ export default function Home() {
                         href={`https://www.youtube.com/watch?v=${video.id}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="group/watch mt-auto inline-flex w-fit items-center gap-2 border border-foreground/15 px-3.5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
+                        className="group/watch mt-auto inline-flex w-fit items-center gap-2 rounded-md border border-foreground/15 px-3.5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-all duration-300 hover:border-accent hover:bg-accent hover:text-accent-foreground"
                       >
                         <Youtube className="h-4 w-4 text-[#ff0000] transition-colors group-hover/watch:text-background" />
                         Watch on YouTube
@@ -527,7 +527,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="group mt-8 inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="smart-gradient group mt-8 inline-flex items-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
             >
               Ask a question
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -552,7 +552,7 @@ export default function Home() {
                       <span className="text-base font-semibold leading-snug text-foreground md:text-lg">
                         {faq.question}
                       </span>
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                         <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-180" />
                       </span>
                     </Accordion.Trigger>
@@ -594,14 +594,14 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/schedule-visit"
-                className="group inline-flex items-center gap-2 bg-foreground px-7 py-4 text-sm font-medium text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+                className="smart-gradient group inline-flex items-center gap-2 rounded-md px-7 py-4 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
               >
                 Schedule a Site Visit
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border border-foreground/25 px-7 py-4 text-sm font-medium transition-colors hover:border-foreground hover:bg-foreground/5"
+                className="inline-flex items-center gap-2 rounded-md border border-accent/25 bg-background px-7 py-4 text-sm font-bold transition-colors hover:border-accent hover:text-accent"
               >
                 Enquire Now
               </Link>

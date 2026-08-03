@@ -168,7 +168,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="#visit"
-                className="inline-flex items-center justify-center gap-2 bg-background px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-background px-6 py-3.5 text-sm font-bold text-foreground shadow-[0_12px_35px_hsl(var(--foreground)/0.18)] transition-all hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground"
               >
                 Schedule a Visit
                 <ArrowUpRight className="h-4 w-4" />
@@ -218,7 +218,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 {project.highlights.map((highlight) => (
                   <div
                     key={highlight.label}
-                    className="border border-foreground/10 bg-background p-5 shadow-[0_14px_40px_-32px_hsl(var(--foreground)/0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30"
+                    className="smart-panel rounded-md p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30"
                   >
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                       {highlight.label}
@@ -242,7 +242,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   ))}
                 </dl>
                 <div className="mt-6 grid gap-3">
-                  <Link href="#visit" className="flex items-center justify-center gap-2 bg-foreground px-4 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground">
+                  <Link href="#visit" className="smart-gradient flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.18)] transition-transform hover:-translate-y-0.5">
                     <Calendar className="h-4 w-4" />
                     Schedule a Visit
                   </Link>
@@ -265,14 +265,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               />
             </ScrollReveal>
 
-            <div className="mt-10 overflow-hidden border border-foreground/10 bg-background shadow-[0_24px_80px_-58px_hsl(var(--foreground)/0.45)]">
+            <div className="smart-panel mt-10 overflow-hidden rounded-md">
               <div className="grid divide-y divide-foreground/10 md:grid-cols-3 md:divide-x md:divide-y-0">
               {unitMixStats.map((stat, index) => {
                 const Icon = index === 0 ? Building2 : index === 1 ? Home : MapPinned;
                 return (
                   <ScrollReveal key={stat.label} delay={index * 0.05}>
-                    <div className="group flex min-h-28 items-start gap-4 p-5 transition-colors hover:bg-stone-50 md:p-6">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-accent/20 bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                    <div className="group flex min-h-28 items-start gap-4 bg-background p-5 transition-colors hover:bg-secondary md:p-6">
+                      <span className="smart-gradient flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-accent-foreground shadow-[0_10px_25px_hsl(var(--accent)/0.16)]">
                         <Icon className="h-5 w-5" />
                       </span>
                       <div>
@@ -344,7 +344,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="mt-10 grid gap-8 md:grid-cols-12">
               <div className="md:col-span-7">
                 {mapSrc ? (
-                  <div className="relative aspect-[16/10] overflow-hidden border border-foreground/10">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-md border border-foreground/10">
                     <iframe
                       title={`Map showing ${project.name} at ${project.location}`}
                       src={mapSrc}
@@ -354,7 +354,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     />
                   </div>
                 ) : (
-                  <div className="grid min-h-[320px] content-between border border-foreground/10 bg-foreground p-7 text-background shadow-[0_28px_80px_-50px_hsl(var(--foreground)/0.55)] md:p-8">
+                  <div className="grid min-h-[320px] content-between rounded-md border border-foreground/10 bg-foreground p-7 text-background shadow-[0_28px_80px_-50px_hsl(var(--foreground)/0.55)] md:p-8">
                     <div>
                       <span className="flex h-12 w-12 items-center justify-center bg-background text-accent">
                         <MapPinned className="h-6 w-6" />
@@ -445,8 +445,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <StaggerGroup className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {project.amenities.map((a) => (
                 <StaggerItem key={a}>
-                  <div className="group flex min-h-24 items-start gap-4 border border-foreground/10 bg-background p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-[0_18px_48px_-36px_hsl(var(--foreground)/0.4)]">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                  <div className="group flex min-h-24 items-start gap-4 rounded-md border border-foreground/10 bg-background p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-[0_18px_45px_hsl(var(--foreground)/0.07)]">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                       <Check className="h-3.5 w-3.5" />
                     </span>
                     <span className="text-base font-semibold leading-snug">{a}</span>
@@ -468,9 +468,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {project.specifications.map((spec) => (
                 <ScrollReveal key={spec.category}>
-                  <div className="h-full border border-foreground/10 bg-background p-6 shadow-[0_20px_70px_-52px_hsl(var(--foreground)/0.38)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30">
+                  <div className="h-full rounded-md border border-foreground/10 bg-background p-6 shadow-[0_18px_45px_hsl(var(--foreground)/0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30">
                     <div className="flex items-start gap-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-accent/20 bg-accent/10 text-accent">
+                      <span className="smart-gradient flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-accent-foreground">
                         <Ruler className="h-4 w-4" />
                       </span>
                       <h3 className="font-display text-2xl font-semibold leading-tight">{spec.category}</h3>
@@ -605,7 +605,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <Link
                 key={p.slug}
                 href={`/projects/${p.slug}`}
-                className="group flex min-h-64 flex-col border border-foreground/10 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_24px_70px_-48px_hsl(var(--foreground)/0.42)]"
+                className="group flex min-h-64 flex-col rounded-md border border-foreground/10 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_18px_45px_hsl(var(--foreground)/0.08)]"
               >
                 <p className="flex items-start gap-2 text-sm font-medium leading-snug text-muted-foreground">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />

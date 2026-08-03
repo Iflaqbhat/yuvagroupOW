@@ -16,12 +16,12 @@ const socialIcons: Record<string, LucideIcon> = {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-foreground/10 bg-background">
+    <footer className="relative overflow-hidden bg-foreground text-background">
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage:
-            'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)',
+            'linear-gradient(hsl(var(--background)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--background)) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
         }}
         aria-hidden
@@ -33,12 +33,12 @@ export function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo.png" alt="Yuva Group" className="h-12 w-auto object-contain" />
             </Link>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-background/72">
               Yuva Structures Pvt. Ltd. — building premium and affordable homes across south
               Bengaluru with a focus on architectural quality, dependable delivery, and long-term
               value.
             </p>
-            <div className="mt-6 grid gap-3 text-sm text-muted-foreground">
+            <div className="mt-6 grid gap-3 text-sm text-background/72">
               <p className="flex max-w-md items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 {contactInfo.address}
@@ -68,7 +68,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${s.label} — Yuva Group`}
-                    className="flex h-9 w-9 items-center justify-center border border-foreground/15 text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                    className="flex h-9 w-9 items-center justify-center rounded-md border border-background/15 text-background/72 transition-all duration-300 hover:border-accent hover:bg-accent hover:text-accent-foreground"
                   >
                     <Icon className="h-4 w-4" />
                   </a>
@@ -83,10 +83,7 @@ export function Footer() {
               <ul className="space-y-2">
                 {footerNav.projects.map((l) => (
                   <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
+                    <Link href={l.href} className="text-sm text-background/72 transition-colors hover:text-accent">
                       {l.label}
                     </Link>
                   </li>
@@ -99,10 +96,7 @@ export function Footer() {
               <ul className="space-y-2">
                 {footerNav.company.map((l) => (
                   <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
+                    <Link href={l.href} className="text-sm text-background/72 transition-colors hover:text-accent">
                       {l.label}
                     </Link>
                   </li>
@@ -115,10 +109,7 @@ export function Footer() {
               <ul className="space-y-2">
                 {footerNav.resources.map((l) => (
                   <li key={l.label}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
+                    <Link href={l.href} className="text-sm text-background/72 transition-colors hover:text-accent">
                       {l.label}
                     </Link>
                   </li>
@@ -127,14 +118,14 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-foreground/10 pt-8 sm:border-t-0 sm:pt-0 lg:col-span-2">
+          <div className="border-t border-background/10 pt-8 sm:border-t-0 sm:pt-0 lg:col-span-2">
             <p className="eyebrow mb-4">Visit Us</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-background/72">
               Book a guided walkthrough of any Yuva Group development.
             </p>
             <Link
               href="/schedule-visit"
-              className="group mt-4 inline-flex items-center gap-2 border border-foreground/20 px-4 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+              className="group mt-4 inline-flex items-center gap-2 rounded-md border border-background/20 px-4 py-2.5 text-sm font-bold text-background transition-colors hover:border-accent hover:text-accent"
             >
               <Calendar className="h-4 w-4" />
               Schedule Visit
@@ -143,7 +134,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-4 border-t border-foreground/10 pt-6 text-xs text-muted-foreground md:grid-cols-[1fr_auto_auto] md:items-center">
+        <div className="mt-12 grid gap-4 border-t border-background/15 pt-6 text-xs text-background/60 md:grid-cols-[1fr_auto_auto] md:items-center">
           <p>
             © {new Date().getFullYear()} {contactInfo.legalName}. All rights reserved.
           </p>
@@ -153,14 +144,14 @@ export function Footer() {
               href={contactInfo.reraUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-foreground"
+              className="underline underline-offset-2 hover:text-accent"
             >
               {contactInfo.rera}
             </a>
           </p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
-            <Link href="/terms" className="hover:text-foreground">Terms</Link>
+            <Link href="/privacy" className="hover:text-accent">Privacy</Link>
+            <Link href="/terms" className="hover:text-accent">Terms</Link>
           </div>
         </div>
       </div>

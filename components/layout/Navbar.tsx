@@ -71,8 +71,8 @@ export function Navbar() {
                     href={item.href}
                     data-active={active}
                     className={cn(
-                      'nav-underline relative flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors duration-300',
-                      active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                      'nav-underline relative flex items-center gap-1 px-4 py-2 text-sm font-bold transition-colors duration-300',
+                      active ? 'text-accent' : 'text-muted-foreground hover:text-foreground'
                     )}
                   >
                     {item.label}
@@ -85,14 +85,14 @@ export function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/schedule-visit"
-              className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="group flex items-center gap-2 text-sm font-bold text-muted-foreground transition-colors hover:text-accent"
             >
               <Calendar className="h-4 w-4 transition-transform group-hover:scale-110" />
               Site Visit
             </Link>
             <Link
               href="/contact"
-              className="group relative inline-flex items-center gap-2 overflow-hidden bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+              className="smart-gradient group relative inline-flex items-center gap-2 overflow-hidden rounded-md px-5 py-2.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)] transition-all duration-300 hover:-translate-y-0.5"
             >
               <span className="relative z-10">Enquire Now</span>
               <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -120,7 +120,7 @@ export function Navbar() {
               onMouseLeave={() => setMegaOpen(false)}
             >
               <div className="section-shell pt-2">
-                <div className="overflow-hidden rounded-sm border border-foreground/10 bg-background shadow-[0_20px_60px_-15px_hsl(var(--foreground)/0.25)]">
+                <div className="smart-panel overflow-hidden rounded-md">
                   <div className="grid grid-cols-12 gap-0">
                     <div className="col-span-3 border-r border-foreground/10 p-6">
                       <p className="eyebrow mb-4">Browse by</p>
@@ -134,7 +134,7 @@ export function Navbar() {
                           <li key={l.href}>
                             <Link
                               href={l.href}
-                              className="group flex items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                              className="group flex items-center gap-2 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
                             >
                               <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-4" />
                               {l.label}
@@ -150,7 +150,7 @@ export function Navbar() {
                           <Link
                             key={p.slug}
                             href={`/projects/${p.slug}`}
-                            className="group block overflow-hidden rounded-sm border border-foreground/10 bg-card"
+                            className="group block overflow-hidden rounded-md border border-foreground/10 bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_35px_hsl(var(--foreground)/0.08)]"
                           >
                             <div className="relative aspect-[4/3] overflow-hidden">
                               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -159,7 +159,7 @@ export function Navbar() {
                                 alt={p.heroAlt}
                                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                               />
-                              <span className="absolute left-3 top-3 bg-background/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] backdrop-blur">
+                              <span className="absolute left-3 top-3 rounded-md bg-background/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-accent shadow-sm">
                                 {p.status === 'ready-to-move'
                                   ? 'Ready'
                                   : p.status === 'ongoing'
@@ -168,7 +168,7 @@ export function Navbar() {
                               </span>
                             </div>
                             <div className="p-3">
-                              <p className="font-display text-sm transition-colors group-hover:text-accent">{p.name}</p>
+                              <p className="font-display text-sm font-bold transition-colors group-hover:text-accent">{p.name}</p>
                               <p className="mt-0.5 text-xs text-muted-foreground">{p.location}</p>
                             </div>
                           </Link>
@@ -223,7 +223,7 @@ export function Navbar() {
                     >
                       <Link
                         href={item.href}
-                        className="block border-b border-foreground/5 py-4 font-display text-2xl transition-colors hover:text-accent"
+                        className="block border-b border-foreground/5 py-4 font-display text-2xl font-extrabold transition-colors hover:text-accent"
                       >
                         {item.label}
                       </Link>
@@ -248,14 +248,14 @@ export function Navbar() {
                 <div className="mt-8 space-y-3">
                   <Link
                     href="/schedule-visit"
-                    className="flex items-center justify-center gap-2 border border-foreground/20 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+                    className="flex items-center justify-center gap-2 rounded-md border border-foreground/20 py-3 text-sm font-bold transition-colors hover:border-accent hover:text-accent"
                   >
                     <Calendar className="h-4 w-4" />
                     Schedule a Site Visit
                   </Link>
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center gap-2 bg-foreground py-3 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+                    className="smart-gradient flex items-center justify-center gap-2 rounded-md py-3 text-sm font-bold text-accent-foreground"
                   >
                     <Phone className="h-4 w-4" />
                     Enquire Now

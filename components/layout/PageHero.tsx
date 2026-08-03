@@ -39,7 +39,7 @@ export function PageHero({
         'relative flex overflow-hidden',
         image
           ? 'min-h-screen items-end bg-charcoal'
-          : 'min-h-[72vh] items-center border-b border-foreground/10 bg-stone-50 pt-20'
+          : 'min-h-[72vh] items-center border-b border-foreground/10 bg-secondary pt-20'
       )}
     >
       {image ? (
@@ -99,7 +99,7 @@ export function PageHero({
               show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE, delay: 0.12 } },
             }}
             className={cn(
-              'max-w-4xl font-display leading-[1.02]',
+              'max-w-4xl font-display font-extrabold leading-[1.02]',
               image ? 'text-6xl text-background md:text-8xl' : 'text-5xl md:text-7xl'
             )}
           >

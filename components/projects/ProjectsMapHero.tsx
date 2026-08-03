@@ -38,7 +38,7 @@ export function ProjectsMapHero() {
   }));
 
   return (
-    <section className="relative flex min-h-[82vh] items-center overflow-hidden border-b border-foreground/10 bg-background pt-24">
+    <section className="relative flex min-h-[82vh] items-center overflow-hidden border-b border-foreground/10 bg-secondary pt-24">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
@@ -81,14 +81,14 @@ export function ProjectsMapHero() {
           >
             <Link
               href="#project-list"
-              className="inline-flex items-center justify-center gap-2 bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="smart-gradient inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.22)] transition-transform hover:-translate-y-0.5"
             >
               View project list
               <ArrowUpRight className="h-4 w-4" />
             </Link>
             <Link
               href="/ready-to-move-projects"
-              className="inline-flex items-center justify-center gap-2 border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-accent/25 bg-background px-6 py-3.5 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent"
             >
               Ready to move homes
               <ArrowUpRight className="h-4 w-4" />
@@ -100,7 +100,7 @@ export function ProjectsMapHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="border border-foreground/10 bg-card p-5 shadow-[0_24px_80px_-48px_hsl(var(--foreground)/0.35)] md:p-6"
+          className="smart-panel rounded-md p-5 md:p-6"
         >
           <div className="mb-5 flex items-end justify-between gap-4 border-b border-foreground/10 pb-5">
             <div>
@@ -119,9 +119,9 @@ export function ProjectsMapHero() {
                 <Link
                   key={status}
                   href={statusHref[status]}
-                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 border border-foreground/10 p-4 transition-all duration-300 hover:border-accent/35 hover:bg-stone-50"
+                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-md border border-foreground/10 bg-background p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-[0_12px_35px_hsl(var(--foreground)/0.06)]"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                  <span className="smart-gradient flex h-11 w-11 items-center justify-center rounded-md text-accent-foreground shadow-[0_10px_25px_hsl(var(--accent)/0.16)]">
                     <Icon className="h-5 w-5" />
                   </span>
                   <span>

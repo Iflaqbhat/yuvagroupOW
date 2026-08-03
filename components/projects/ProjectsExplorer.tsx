@@ -55,15 +55,15 @@ export function ProjectsExplorer({
 
   const chipClass = (active: boolean) =>
     cn(
-      'inline-flex min-h-10 items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-all duration-300',
+      'inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300',
       active
-        ? 'bg-foreground text-background'
-        : 'border border-foreground/15 text-muted-foreground hover:border-foreground/30 hover:text-foreground'
+        ? 'smart-gradient text-accent-foreground shadow-[0_10px_25px_hsl(var(--accent)/0.18)]'
+        : 'border border-foreground/15 bg-background text-muted-foreground hover:border-accent/35 hover:text-foreground'
     );
 
   return (
     <div>
-      <div className="mb-8 grid gap-5 border-y border-foreground/10 py-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+      <div className="smart-panel mb-8 grid gap-5 rounded-md p-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div>
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Project stage
@@ -114,7 +114,7 @@ export function ProjectsExplorer({
       <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="eyebrow mb-2">Project list</p>
-          <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
+          <h2 className="font-display text-3xl font-extrabold leading-tight md:text-4xl">
             {filtered.length} {filtered.length === 1 ? 'project' : 'projects'} available.
           </h2>
         </div>

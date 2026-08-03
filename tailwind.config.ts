@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-display)', 'Georgia', 'serif'],
+        display: ['var(--font-body)', 'system-ui', 'sans-serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
@@ -71,6 +71,9 @@ const config: Config = {
         },
         burgundy: 'hsl(var(--burgundy))',
         'accent-soft': 'hsl(var(--accent-soft))',
+        'accent-deep': 'hsl(var(--accent-deep))',
+        sun: 'hsl(var(--sun))',
+        'sun-deep': 'hsl(var(--sun-deep))',
         emerald: 'hsl(var(--emerald))',
         silver: 'hsl(var(--silver))',
         chart: {

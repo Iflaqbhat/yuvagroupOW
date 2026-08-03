@@ -25,14 +25,14 @@ export default function ReadyToMoveProjectsPage() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="#project-list"
-            className="inline-flex items-center justify-center gap-2 bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+            className="smart-gradient inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-bold text-accent-foreground shadow-[0_12px_30px_hsl(var(--accent)/0.2)] transition-transform hover:-translate-y-0.5"
           >
             View ready homes
             <ArrowUpRight className="h-4 w-4" />
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center justify-center gap-2 border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+            className="inline-flex items-center justify-center gap-2 rounded-md border border-accent/25 bg-background px-6 py-3.5 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent"
           >
             All projects
           </Link>

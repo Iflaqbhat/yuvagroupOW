@@ -32,8 +32,8 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          'font-display font-semibold leading-[1.05]',
-          size === 'lg' ? 'text-4xl md:text-6xl' : 'text-3xl leading-[1.1] md:text-5xl',
+          'font-display font-extrabold leading-[1.1]',
+          size === 'lg' ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl',
           invert && 'text-background'
         )}
       >
