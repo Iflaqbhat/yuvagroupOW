@@ -34,13 +34,13 @@ export default function Home() {
           text seated on the left, film breathing on the right, and a soft
           ramp into the white section below */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-charcoal">
-        {/* Background hero video — aerial flyover of a residential neighbourhood.
-            (A still image variant lives at /photos/hero/home-hero.jpg if we
-            ever want to swap back.) */}
+        {/* Background hero video — Yuva Group's own footage, sharpened via CSS
+            filter (brightness/contrast/saturation). A still image variant lives
+            at /photos/hero/home-hero.jpg if we ever want to swap back. */}
         <div className="absolute inset-0">
           <video
             className="h-full w-full object-cover"
-            style={{ filter: 'brightness(1.22) contrast(1.06) saturate(1.05)' }}
+            style={{ filter: 'brightness(1.12) contrast(1.18) saturate(1.18)' }}
             src="/videos/hero.mp4"
             autoPlay
             muted
@@ -83,7 +83,7 @@ export default function Home() {
             >
               Homes built with
               <br />
-              <span className="text-accent-soft">architectural intent.</span>
+              <span className="text-accent-vivid">architectural intent.</span>
             </motion.h1>
             <motion.p
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}

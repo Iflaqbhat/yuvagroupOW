@@ -71,6 +71,7 @@ const config: Config = {
         },
         burgundy: 'hsl(var(--burgundy))',
         'accent-soft': 'hsl(var(--accent-soft))',
+        'accent-vivid': 'hsl(var(--accent-vivid))',
         emerald: 'hsl(var(--emerald))',
         silver: 'hsl(var(--silver))',
         chart: {

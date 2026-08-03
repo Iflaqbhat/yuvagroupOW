@@ -1,0 +1,63 @@
+Folder,File name,What it is,What it does
+Root (top level),package.json,Project ID card,"Lists commands, name, and all software libraries used"
+Root (top level),pnpm-lock.yaml,Dependency lockfile,Locks exact library versions so every machine installs the same
+Root (top level),next.config.js,Next.js settings,Images served as-is; ESLint skipped during builds
+Root (top level),tailwind.config.ts,Design system config,"Brand colors, fonts, and custom Tailwind tokens"
+Root (top level),postcss.config.js,CSS processing,Processes Tailwind CSS and browser prefixes
+Root (top level),tsconfig.json,TypeScript config,Strict type-checking and @ path aliases
+Root (top level),.eslintrc.json,Lint rules,Next.js recommended code-quality rules
+Root (top level),components.json,shadcn/ui config,Settings for the UI component library
+Root (top level),netlify.toml,Hosting config,Tells Netlify how to build and publish
+Root (top level),README.md,Project overview,"Human intro: stack, how to run, how the site is organised"
+Root (top level),next-env.d.ts,TypeScript helper,Auto-generated Next.js types
+app/ — pages,layout.tsx,Main template,"Wraps every page: fonts, navbar, footer, WhatsApp buttons, SEO metadata"
+app/ — pages,globals.css,Global stylesheet,"Color palette, fonts, base styles for the whole site"
+app/ — pages,page.tsx,Home page (/),"Hero video, stats, featured projects, amenities, testimonials, CTA"
+app/ — pages,loading.tsx,Loading screen,Shown briefly while a page loads
+app/ — pages,not-found.tsx,404 page,Shown for URLs that don't exist
+app/ — pages,robots.ts,SEO helper,Generates robots.txt for search engines
+app/ — pages,sitemap.ts,SEO helper,Generates sitemap.xml listing all pages for Google
+app/ — pages,about/page.tsx,About page (/about),"Founder story, team grid, values, history"
+app/ — pages,amenities/page.tsx,Amenities page (/amenities),Photo gallery of amenities + also-included list
+app/ — pages,careers/page.tsx,Careers page (/careers),"Why-work points, open roles, life-at-site image"
+app/ — pages,contact/page.tsx,Contact page (/contact),"Contact cards, enquiry form with validation, Google map"
+app/ — pages,gallery/page.tsx,Gallery page (/gallery),Visual archive of project photos
+app/ — pages,privacy/page.tsx,Privacy Policy (/privacy),Full legal privacy policy
+app/ — pages,terms/page.tsx,Terms page (/terms),Terms & Conditions
+app/ — pages,schedule-visit/page.tsx,Site-visit page (/schedule-visit),What to expect + booking form
+app/ — pages,projects/page.tsx,All projects (/projects),Map-style hero + filterable project explorer
+app/ — pages,projects/[slug]/page.tsx,One project page (/projects/<name>),"Template page for every project: photos, specs, floor plans, FAQs"
+app/ — pages,completed-projects/page.tsx,Completed projects,Lists ready-to-move / delivered homes
+app/ — pages,ongoing-projects/page.tsx,Ongoing projects,Lists communities under construction
+components/layout/,Navbar.tsx,Top navigation,"Sticky menu: logo, links, Projects dropdown, mobile menu"
+components/layout/,Footer.tsx,Page footer,"Logo, description, contact details, social links, link columns"
+components/layout/,PageHero.tsx,Page banner,Reusable hero header (eyebrow + title + description + photo)
+components/layout/,StickyCTA.tsx,Floating buttons,"WhatsApp + Contact Us buttons, bottom-right (mobile full-width bar)"
+components/projects/,ProjectCard.tsx,Standard project card,"Photo, name, status, tilt-on-hover; links to project page"
+components/projects/,FeaturedProjectCard.tsx,Featured card,Larger homepage card for featured projects
+components/projects/,ProjectsExplorer.tsx,Filterable grid,Filter projects by status and type
+components/projects/,ProjectsMapHero.tsx,Map-style header,Project pins graphic + intro text for the projects page
+components/motion/,ScrollReveal.tsx,Scroll animation,Fades/slides content in when it enters the viewport
+components/motion/,AnimatedCounter.tsx,Count-up number,Animates stats from 0 to target value
+components/motion/,AnimatedStats.tsx,Stats strip,Runs all counters together with one observer
+components/motion/,ScrollProgress.tsx,Progress bar,Thin red bar at top that fills as you scroll
+components/forms/,SiteVisitForm.tsx,Booking form,"Validates name/phone/email/project/date, shows success message"
+components/testimonials/,TestimonialCard.tsx,Review card,"Customer quote, name, photo, premium hover effect"
+components/three/,HeroScene.tsx,3D city scene,"react-three-fiber graphic, kept for future use"
+components/three/,FeaturedScene.tsx,3D tower scene,"react-three-fiber graphic, kept for future use"
+components/ui/ (design system),section-heading.tsx,Section heading,USED SITE-WIDE — eyebrow + title + description with Playfair italic accent
+components/ui/ (design system),animated-underline.tsx,Accent underline,USED SITE-WIDE — red line under headings that draws itself in
+components/ui/ (design system),accordion / alert-dialog / alert / aspect-ratio / avatar / badge / breadcrumb / button / calendar / card / carousel / chart / checkbox / collapsible / command / context-menu / dialog / drawer / dropdown-menu / form / hover-card / input-otp / input / label / menubar / navigation-menu / pagination / popover / progress / radio-group / resizable / scroll-area / select / separator / sheet / skeleton / slider / sonner / switch / table / tabs / textarea / toast / toaster / toggle-group / toggle / tooltip .tsx,shadcn/ui library,"Ready-made components (buttons, inputs, dialogs, tables, toasts) installed for future use"
+data/,projects.ts,Content database,"All 6 projects, testimonials, 8-member team, stats, amenities + helper functions"
+data/,navigation.ts,Menu & contact data,"Nav links, footer links, phone, 3 emails, address, RERA, socials, WhatsApp"
+public/,logo.png,Company logo,Used in navbar and footer
+public/,videos/hero.mp4,Hero video,"Yuva's own footage, full-screen on home page, sharpened via CSS filter"
+public/,favicon/,Browser icons,Brand icon in the browser tab (32/192/Apple touch)
+public/,photos/hero/,Banner photos,"Large photos atop About, Careers, Amenities, Gallery, Contact, Schedule-visit, Home"
+public/,photos/about/,Team photos,"CEO, Managing Director, and team member photos"
+public/,photos/amenities/,Amenity photos,"Clubhouse, pool, gym, gardens, walking track, indoor games, etc."
+public/,photos/careers/,Careers photo,Life-at-site image
+public/,photos/testimonials/,Customer photos,Avatars next to customer reviews
+lib/,utils.ts,Shared helper,cn() — merges CSS class names
+hooks/,use-toast.ts,Toast helper,Notification helper for UI toast components
+types/,index.ts,Shared types,"Project, TeamMember, Testimonial, NavItem shapes used everywhere"
