@@ -139,7 +139,7 @@ export default function AboutPage() {
       </section>
 
       {/* TESTIMONIALS — what residents and partners tell us */}
-      <section className="border-b border-foreground/10 bg-stone-50 py-24 md:py-32">
+      <section className="border-b border-foreground/10 bg-background py-16 md:py-28">
         <div className="section-shell">
           <ScrollReveal>
             <SectionHeading
@@ -159,14 +159,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ACHIEVEMENTS — bold charcoal close with count-up counters */}
-      <section className="bg-charcoal py-24 md:py-32">
+      {/* ACHIEVEMENTS — soft accent close with count-up counters */}
+      <section className="border-b border-foreground/10 bg-accent/5 py-24 md:py-32">
         <div className="section-shell">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Our achievements"
               title="We are happy for our achievement."
-              invert
               size="lg"
               className="max-w-3xl"
             />
@@ -174,8 +173,8 @@ export default function AboutPage() {
           <AnimatedStats
             stats={achievements}
             className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-5"
-            valueClassName="font-display text-5xl text-background md:text-6xl"
-            labelClassName="mt-2 text-xs uppercase tracking-[0.2em] text-background/60"
+            valueClassName="font-display text-5xl text-foreground md:text-6xl"
+            labelClassName="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground"
           />
         </div>
       </section>

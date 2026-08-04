@@ -116,8 +116,8 @@ export default function CareersPage() {
         <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {perks.map((p) => (
             <StaggerItem key={p.title}>
-              <div className="h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-foreground/20 hover:shadow-[0_24px_50px_-24px_hsl(var(--foreground)/0.25)]">
-                <span className="flex h-11 w-11 items-center justify-center border border-foreground/10 text-accent">
+              <div className="h-full rounded-md border border-accent/15 bg-card p-6 shadow-[0_14px_35px_hsl(var(--foreground)/0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_18px_45px_hsl(var(--foreground)/0.08)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-md border border-accent/20 bg-accent/5 text-accent">
                   <p.icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-5 font-display text-lg">{p.title}</h3>
@@ -129,12 +129,12 @@ export default function CareersPage() {
       </section>
 
       {/* A TEAM OF BUILDERS — photo + text split for a premium mid-page break */}
-      <section className="border-y border-foreground/10 bg-stone-50 py-20 md:py-28">
+      <section className="border-y border-foreground/10 bg-accent/5 py-20 md:py-28">
         <div className="section-shell grid items-center gap-12 md:grid-cols-12">
           <ScrollReveal className="md:col-span-5">
             <div className="relative">
-              <div className="absolute -inset-3 border border-foreground/15" aria-hidden />
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-foreground/15">
+              <div className="absolute -inset-3 rounded-md border border-accent/15" aria-hidden />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-accent/15 shadow-[0_18px_45px_hsl(var(--foreground)/0.08)]">
                 <Image
                   src={siteImage}
                   alt="A construction worker in safety gear on a Yuva site"
@@ -186,7 +186,7 @@ export default function CareersPage() {
         <StaggerGroup className="mt-12 divide-y divide-foreground/10 border border-foreground/10" stagger={0.06}>
           {openings.map((o, i) => (
             <StaggerItem key={o.title}>
-              <div className="group flex flex-col gap-6 bg-card p-6 transition-colors duration-300 hover:bg-stone-50 md:flex-row md:items-center md:justify-between md:gap-8 md:p-8">
+              <div className="group flex flex-col gap-6 bg-card p-6 transition-colors duration-300 hover:bg-accent/5 md:flex-row md:items-center md:justify-between md:gap-8 md:p-8">
                 <div className="flex min-w-0 gap-5">
                   <span className="mt-1 font-display text-sm tabular-nums text-muted-foreground/50 transition-colors duration-300 group-hover:text-accent">
                     {String(i + 1).padStart(2, '0')}

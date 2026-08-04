@@ -49,11 +49,11 @@ export function SiteVisitForm({ compact = false }: { compact?: boolean }) {
   };
 
   const fieldClass =
-    'w-full bg-stone-50 border border-foreground/15 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:outline-none transition-colors';
+    'w-full rounded-md border border-accent/15 bg-accent/5 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-accent focus:bg-background focus:outline-none';
   const labelClass = 'mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground';
 
   return (
-    <div className={compact ? '' : 'glass rounded-sm border border-foreground/10 p-6 md:p-8'}>
+    <div className={compact ? '' : 'rounded-md border border-accent/15 bg-background p-6 shadow-[0_24px_80px_-55px_hsl(var(--foreground)/0.42)] md:p-8'}>
       <AnimatePresence mode="wait">
         {status === 'success' ? (
           <motion.div
@@ -85,7 +85,7 @@ export function SiteVisitForm({ compact = false }: { compact?: boolean }) {
             noValidate
           >
             <div className={compact ? '' : 'mb-2'}>
-              <h3 className="font-display text-2xl">Schedule a Site Visit</h3>
+              <h3 className="font-display text-2xl font-extrabold">Schedule a Site Visit</h3>
               <p className="mt-1 text-sm text-muted-foreground">
                 Book a guided walkthrough of any Yuva Group development.
               </p>

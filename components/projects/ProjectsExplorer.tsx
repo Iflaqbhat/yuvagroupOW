@@ -63,7 +63,7 @@ export function ProjectsExplorer({
 
   return (
     <div>
-      <div className="smart-panel mb-8 grid gap-5 rounded-md p-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+      <div className="mb-8 grid gap-5 rounded-md border border-accent/15 bg-background p-5 shadow-[0_18px_45px_hsl(var(--foreground)/0.05)] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div>
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Project stage

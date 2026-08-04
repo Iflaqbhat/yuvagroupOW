@@ -16,16 +16,8 @@ Served at `/photos/about/<name>`.
 | `v-penchalaiah.jpeg` | V Penchalaiah — Project Operations Supervisor |
 | `naveen.jpeg` | Naveen — Sales Executive |
 
-## Pending (1)
-
-| File name | What | Download from |
-|---|---|---|
-| `about-hero.jpg` | Hero background photo (currently a Pexels hotlink — `pexels-photo-323705.jpeg`) | https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1920 |
-
 ## Skipped
 
 - `signature.png` — the original URL 404s; replaced with a stylised display-font signature
   ("Mahendra Reddy") under the founder bio. Say the word if you have a clean signature image
   and we can swap it in.
-- `about-hero.jpg` from the original site — its photo hero is a dark generic backdrop; the
-  current Pexels architecture shot looks cleaner.

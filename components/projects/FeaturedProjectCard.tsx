@@ -39,7 +39,7 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 1400 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-sm border border-foreground/10 bg-card transition-all duration-500 hover:border-foreground/25 hover:shadow-[0_24px_70px_-20px_hsl(var(--foreground)/0.3)]"
+      className="group relative flex h-full flex-col overflow-hidden rounded-md border border-foreground/10 bg-card transition-all duration-500 hover:border-accent/35 hover:shadow-[0_24px_70px_-28px_hsl(var(--foreground)/0.28)]"
     >
       {/* The whole card links to the project page */}
       <Link
@@ -92,18 +92,18 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
           <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
             0{index + 1}
           </span>
-          <h3 className="mt-1 font-display text-2xl tracking-tight">{project.name}</h3>
+        <h3 className="mt-1 font-display text-2xl font-bold leading-tight tracking-normal">{project.name}</h3>
         </div>
         <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
           <MapPin className="h-3.5 w-3.5" />
           {project.location}
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+        <p className="mt-3 text-[0.95rem] font-medium leading-7 text-muted-foreground line-clamp-2">
           {project.description}
         </p>
 
         <div className="mt-auto">
-          <div className="mt-4 flex items-center gap-4 border-t border-foreground/10 pt-4 text-xs text-muted-foreground">
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-foreground/10 pt-4 text-xs font-medium text-muted-foreground">
             <span>{project.bedrooms}</span>
             <span className="h-3 w-px bg-foreground/15" />
             <span>{project.category}</span>

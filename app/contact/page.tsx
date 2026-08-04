@@ -82,7 +82,7 @@ export default function ContactPage() {
   };
 
   const fieldClass =
-    'w-full rounded-sm bg-stone-50 border border-foreground/15 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:outline-none transition-colors';
+    'w-full rounded-md border border-accent/15 bg-accent/5 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-accent focus:bg-background focus:outline-none';
   const labelClass = 'mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground';
 
   return (
@@ -107,8 +107,8 @@ export default function ContactPage() {
         <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {infoCards.map((c) => {
             const inner = (
-              <div className="h-full border border-foreground/10 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-foreground/20 hover:shadow-[0_24px_50px_-24px_hsl(var(--foreground)/0.25)]">
-                <span className="flex h-11 w-11 items-center justify-center border border-foreground/10 text-accent">
+              <div className="h-full rounded-md border border-accent/15 bg-card p-6 shadow-[0_14px_35px_hsl(var(--foreground)/0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_18px_45px_hsl(var(--foreground)/0.08)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-md border border-accent/20 bg-accent/5 text-accent">
                   <c.icon className="h-5 w-5" />
                 </span>
                 <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -136,11 +136,11 @@ export default function ContactPage() {
       </section>
 
       {/* FORM + ASIDE */}
-      <section className="border-t border-foreground/10 bg-stone-50 py-20 md:py-28">
+      <section className="border-t border-foreground/10 bg-accent/5 py-20 md:py-28">
         <div className="section-shell grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
             <ScrollReveal>
-              <div className="glass rounded-sm border border-foreground/10 p-6 md:p-10">
+              <div className="rounded-md border border-accent/15 bg-background p-6 shadow-[0_24px_80px_-55px_hsl(var(--foreground)/0.42)] md:p-10">
                 <AnimatePresence mode="wait">
                   {status === 'success' ? (
                     <motion.div
@@ -172,7 +172,7 @@ export default function ContactPage() {
                     >
                       <div>
                         <p className="eyebrow mb-3">Enquiry</p>
-                        <h2 className="font-display text-2xl">Send us a message.</h2>
+                        <h2 className="font-display text-2xl font-extrabold">Send us a message.</h2>
                       </div>
                       <div className="grid gap-4 sm:grid-cols-2">
                         <div>
@@ -221,9 +221,9 @@ export default function ContactPage() {
 
           <div className="md:col-span-5">
             <ScrollReveal delay={0.1}>
-              <div className="border border-foreground/10 bg-card p-6 md:p-8">
+              <div className="rounded-md border border-accent/15 bg-background p-6 shadow-[0_14px_35px_hsl(var(--foreground)/0.04)] md:p-8">
                 <p className="eyebrow mb-4">Our office</p>
-                <h2 className="font-display text-2xl">Visit us in Chandapura.</h2>
+                <h2 className="font-display text-2xl font-extrabold">Visit us in Chandapura.</h2>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   {contactInfo.address}
                 </p>
@@ -245,7 +245,7 @@ export default function ContactPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="mt-6 border border-foreground/10 bg-card p-6 md:p-8">
+              <div className="mt-6 rounded-md border border-accent/15 bg-background p-6 shadow-[0_14px_35px_hsl(var(--foreground)/0.04)] md:p-8">
                 <p className="eyebrow mb-4">Prefer email?</p>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   We respond to every enquiry within one working day — no automated replies.
@@ -281,7 +281,7 @@ export default function ContactPage() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <div className="mt-10 overflow-hidden rounded-sm border border-foreground/10 shadow-[0_30px_60px_-30px_hsl(var(--foreground)/0.3)]">
+          <div className="mt-10 overflow-hidden rounded-md border border-foreground/10 shadow-[0_30px_60px_-30px_hsl(var(--foreground)/0.3)]">
             <iframe
               title="Yuva Group office and project locations across south Bengaluru"
               src="https://www.google.com/maps?q=Chandapura,+Bengaluru,+Karnataka&z=12&output=embed"

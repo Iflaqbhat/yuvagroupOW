@@ -39,16 +39,20 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="relative flex flex-1 flex-col p-5 md:p-6">
         <span className="smart-gradient mb-5 h-1 w-12 rounded-full transition-all duration-500 group-hover:w-20" aria-hidden />
-        <h3 className="font-display text-2xl font-semibold leading-tight transition-colors duration-300 group-hover:text-accent md:text-[2rem]">
+        <h3 className="font-display text-2xl font-bold leading-tight tracking-normal transition-colors duration-300 group-hover:text-accent md:text-[1.9rem]">
           {project.name}
         </h3>
-        <p className="mt-3 flex items-start gap-2 text-[0.95rem] font-semibold leading-snug text-muted-foreground">
+        <p className="mt-3 flex items-start gap-2 text-[0.95rem] font-semibold leading-6 text-muted-foreground">
           <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
           {project.location}
         </p>
-        <p className="mt-5 min-h-[6rem] border-t border-foreground/10 pt-5 text-[1rem] font-medium leading-8 text-foreground/72 line-clamp-3">
+        <p className="mt-5 min-h-[5.75rem] border-t border-foreground/10 pt-5 text-[0.98rem] font-medium leading-7 text-foreground/72 line-clamp-3">
           {project.description}
         </p>
+        <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-foreground transition-colors group-hover:text-accent">
+          View project
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
       </div>
     </motion.div>
   );

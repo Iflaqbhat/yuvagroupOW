@@ -38,16 +38,17 @@ export function ProjectsMapHero() {
   }));
 
   return (
-    <section className="relative flex min-h-[82vh] items-center overflow-hidden border-b border-foreground/10 bg-secondary pt-24">
+    <section className="relative flex min-h-[82vh] items-center overflow-hidden border-b border-foreground/10 bg-background pt-24">
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)',
+            'linear-gradient(hsl(var(--accent)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
         }}
         aria-hidden
       />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-accent/5 to-transparent" aria-hidden />
 
       <div className="section-shell relative grid items-center gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(23rem,0.72fr)]">
         <motion.div
@@ -64,7 +65,7 @@ export function ProjectsMapHero() {
           </motion.p>
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-            className="max-w-4xl font-display text-5xl leading-[1.02] md:text-7xl lg:text-8xl"
+            className="max-w-4xl font-display text-4xl font-extrabold leading-[1.02] sm:text-5xl md:text-7xl lg:text-8xl"
           >
             Find your next Yuva home.
           </motion.h1>
@@ -100,7 +101,7 @@ export function ProjectsMapHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="smart-panel rounded-md p-5 md:p-6"
+          className="rounded-md border border-accent/15 bg-background p-5 shadow-[0_24px_80px_-55px_hsl(var(--foreground)/0.42)] md:p-6"
         >
           <div className="mb-5 flex items-end justify-between gap-4 border-b border-foreground/10 pb-5">
             <div>

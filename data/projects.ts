@@ -195,7 +195,7 @@ export const projects: Project[] = [
     sourceUrl: 'https://yuvagroup.in/yuva-utsav/',
     sourceNotes: [
       'Official page presents Yuva Utsav as premium luxury apartments in Kammasandra, Electronic City Phase 2.',
-      'The public homepage lists Yuva Utsav under both ongoing and ready-to-move groupings; this redesign keeps it under ongoing until the sales team confirms handover status.',
+      'The public category pages currently list Yuva Utsav under both ongoing and ready-to-move groupings; this redesign keeps it under ongoing until the sales team confirms handover status.',
     ],
     description:
       'A growing residential community of 1, 2 & 3 BHK homes in Kammasandra, Electronic City Phase 2.',
@@ -244,7 +244,7 @@ export const projects: Project[] = [
         category: 'Structure & walls',
         items: [
           { label: 'Foundation & structure', value: 'RCC framed structure' },
-          { label: 'Super structure', value: 'AAC concrete blocks for external and internal walls' },
+          { label: 'Super structure', value: 'Lightweight AAC concrete block walls' },
         ],
       },
       {
@@ -252,26 +252,26 @@ export const projects: Project[] = [
         items: [
           { label: 'Flooring', value: 'Vitrified tiles in hall and dining; ceramic tiles for other areas and toilets' },
           { label: 'Painting', value: 'Internal walls and ceiling with OBD; external walls with cement finish' },
-          { label: 'Electrical', value: 'Standard equivalent switches' },
+          { label: 'Electrical', value: 'Quality electrical switches and fittings of standard equivalent make' },
         ],
       },
       {
         category: 'Fittings',
         items: [
           { label: 'Lift', value: 'One 6-passenger lift serving all floors' },
-          { label: 'Toilets', value: 'Ceramic glazed tile dado up to 7 ft with standard CP fittings' },
+          { label: 'Toilets', value: 'Ceramic glazed tile dado up to 7 ft with CERA/Ess sanitary and CP fittings' },
           { label: 'Kitchen', value: 'Built-in stainless steel sink and exhaust fan provision' },
         ],
       },
     ],
-    // Area from the 'TYPICAL FLOOR PLAN' table on yuvagroup.in/yuva-utsav/
-    // (Flat 3: North 2 BHK 1,088 sft — representative of the range)
+    // Plan image from the official 'Plans' gallery on yuvagroup.in/yuva-utsav/.
+    // Published table range: 622 to 1,449 sft.
     floorPlans: [
       {
-        name: '2 BHK — Utsav',
-        type: '2 BHK',
-        area: '1,088 sq.ft.',
-        image: '/photos/projects/yuva-utsav-gallery-1.jpg',
+        name: 'Typical floor plate — Utsav',
+        type: '1, 2 & 3 BHK',
+        area: '622-1,449 sq.ft. shown',
+        image: '/photos/projects/yuva-utsav-floorplan-1.jpg',
         alt: 'Official typical floor plan at Yuva Utsav',
       },
     ],
@@ -322,6 +322,7 @@ export const projects: Project[] = [
     sourceNotes: [
       'Official page describes Yuva Sunshine as 65 premium yet affordable flats near Chandapura to Anekal Main Road.',
       'The public page publishes a map section but does not list individual nearby-distance bullets, so this redesign avoids estimated connectivity claims.',
+      'The official Sunshine plan image and published table show different area sets; this redesign keeps both factual and avoids assigning the plan image to one specific unit.',
     ],
     description:
       'Well-planned 1.5, 2 & 3 BHK apartments that balance affordability with the quality expected from Yuva Group.',
@@ -364,7 +365,8 @@ export const projects: Project[] = [
       {
         category: 'Structure & walls',
         items: [
-          { label: 'Super structure', value: 'AAC concrete blocks for external and internal walls' },
+          { label: 'Frame', value: 'Premium RCC frame structure' },
+          { label: 'Super structure', value: 'Lightweight AAC concrete blocks for external and internal walls' },
           { label: 'Walls', value: 'Solid block walls for internal and external masonry' },
         ],
       },
@@ -380,17 +382,18 @@ export const projects: Project[] = [
         items: [
           { label: 'Kitchen', value: '30 mm granite counter top with stainless steel sink' },
           { label: 'Main entrance', value: 'Entrance decoration as per architect design' },
-          { label: 'Sanitary fittings', value: 'White sanitary fittings and CP fittings from branded ranges' },
+          { label: 'Sanitary fittings', value: 'CERA or Johnson sanitary fittings with Johnson Continental CP fittings and taps' },
         ],
       },
     ],
-    // Area from the 'TYPICAL FLOOR PLAN' table on yuvagroup.in/yuva-sunshine/
+    // Plan image from the official 'Plans' gallery on yuvagroup.in/yuva-sunshine/.
+    // The image labels show a different area set than the public table, so avoid a single-unit claim.
     floorPlans: [
       {
-        name: '2 BHK — Sunshine',
-        type: '2 BHK',
-        area: '1,088 sq.ft.',
-        image: '/photos/projects/yuva-sunshine-gallery-1.jpg',
+        name: 'Typical floor plate — Sunshine',
+        type: 'Official plan image',
+        area: '820-1,385 sq.ft. shown',
+        image: '/photos/projects/yuva-sunshine-floorplan-1.jpg',
         alt: 'Official typical floor plan at Yuva Sunshine',
       },
     ],
@@ -439,10 +442,6 @@ export const projects: Project[] = [
       {
         src: '/photos/projects/yuva-residency-hero.jpg',
         alt: 'Yuva Residency official building render',
-      },
-      {
-        src: '/photos/projects/yuva-residency-floorplan-1.jpg',
-        alt: 'Yuva Residency official floor-plan media',
       },
     ],
     highlights: [

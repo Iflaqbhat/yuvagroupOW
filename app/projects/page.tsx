@@ -26,7 +26,7 @@ export default function ProjectsPage() {
   return (
     <>
       <ProjectsMapHero />
-      <section className="border-b border-foreground/10 bg-stone-50">
+      <section className="border-b border-foreground/10 bg-accent/5">
         <div className="section-shell grid grid-cols-2 gap-8 py-12 md:grid-cols-4 md:py-16">
           {stats.map((s) => (
             <ScrollReveal key={s.label}>

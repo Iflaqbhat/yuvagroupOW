@@ -100,7 +100,7 @@ export function PageHero({
             }}
             className={cn(
               'max-w-4xl font-display font-extrabold leading-[1.02]',
-              image ? 'text-6xl text-background md:text-8xl' : 'text-5xl md:text-7xl'
+              image ? 'text-4xl text-background sm:text-5xl md:text-8xl' : 'text-4xl sm:text-5xl md:text-7xl'
             )}
           >
             {title}

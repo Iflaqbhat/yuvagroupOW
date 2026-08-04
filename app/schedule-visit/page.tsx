@@ -25,8 +25,8 @@ export default function ScheduleVisitPage() {
         title="Schedule a site visit."
         description="Walk through a Yuva home with our sales team before you decide. Choose a project, pick a date, and we will confirm your visit within one working day."
       />
-      <section className="section-shell py-16 md:py-24">
-        <div className="grid gap-12 md:grid-cols-12">
+      <section className="border-b border-foreground/10 bg-accent/5 py-16 md:py-24">
+        <div className="section-shell grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <ScrollReveal>
               <p className="eyebrow mb-3">Plan your visit</p>
@@ -65,7 +65,7 @@ export default function ScheduleVisitPage() {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 border border-foreground/10 p-5 text-sm text-muted-foreground">
+              <div className="mt-8 rounded-md border border-accent/15 bg-background p-5 text-sm text-muted-foreground shadow-[0_14px_35px_hsl(var(--foreground)/0.04)]">
                 Prefer to call? Reach us at <span className="text-foreground">{contactInfo.phone}</span>
               </div>
             </ScrollReveal>
