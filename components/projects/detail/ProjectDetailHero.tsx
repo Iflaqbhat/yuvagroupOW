@@ -50,8 +50,8 @@ export function ProjectDetailHero({
           <h1 className="mt-5 max-w-5xl font-display text-4xl font-extrabold leading-[1.05] text-background md:text-6xl lg:text-7xl">
             {project.name}
           </h1>
-          <p className="mt-4 flex max-w-3xl items-start gap-2 text-base font-medium leading-7 text-background/85 md:text-lg">
-            <MapPin className="mt-1 h-4 w-4 shrink-0 text-accent" />
+          <p className="mt-4 flex max-w-3xl items-start gap-2 text-base font-extrabold leading-7 text-background drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] md:text-lg">
+            <MapPin className="mt-1 h-4 w-4 shrink-0 text-background" />
             {project.location}
           </p>
 
