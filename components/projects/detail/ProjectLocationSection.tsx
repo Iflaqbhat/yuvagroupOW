@@ -44,15 +44,15 @@ export function ProjectLocationSection({
                     <MapPinned className="h-6 w-6" />
                   </span>
                   <h3 className="mt-6 font-display text-3xl font-extrabold leading-tight">
-                    Location reference available.
+                    Project location.
                   </h3>
                   <p className="mt-4 max-w-xl text-base font-medium leading-7 text-muted-foreground">
-                    A public map pin is not published for this completed project, so this page uses only the official location references available in the portfolio and testimonial copy.
+                    This completed project is listed in Yuva Group’s delivered portfolio. Current access, availability, and documentation details can be confirmed with the sales team.
                   </p>
                 </div>
                 <div className="mt-10 border-t border-foreground/10 pt-5">
                   <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-accent">
-                    Listed location
+                    Project Location
                   </p>
                   <p className="mt-2 text-lg font-bold leading-snug">{project.location}</p>
                 </div>

@@ -51,9 +51,9 @@ export function getProjectMapSrc(project: Project) {
 export function getLocationCopy(project: Project, mapSrc?: string) {
   if (!mapSrc) {
     return {
-      title: 'Official location reference.',
+      title: 'Project location.',
       description:
-        'No public map pin is available for this project, so the redesign keeps the location limited to official portfolio and testimonial references.',
+        'This completed development is listed in Yuva Group’s delivered portfolio. Current visit, resale, or documentation details can be confirmed with the sales team.',
     };
   }
 
